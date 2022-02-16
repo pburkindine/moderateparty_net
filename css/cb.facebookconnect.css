@@ -1,0 +1,135 @@
+ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN {
+    background: none repeat scroll 0 0 transparent;
+    margin-bottom: 5px;
+}
+
+ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN a {
+	background: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png) no-repeat 2px -1px;
+	display: block;
+	padding: 0 15px 3px 23px;
+}
+
+ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN a:hover {
+	background: #d8dfea url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png) no-repeat 2px -1px;
+}
+
+.facebookconnect_button_bg {
+	background-image: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/bg.png);
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	height: 21px;
+	min-width: 90px;
+	display: inline-block;
+}
+
+.facebookconnect_button {
+	background-image: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	cursor: pointer;
+	height: 21px;
+	width: 100%;
+	border-width: 0px;
+	color: white;
+	font-size: 10px;
+	font-weight: bold;
+	text-indent: 20px;
+	background-color: transparent;
+}
+
+.facebookconnect_button_small {
+	background-image: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	cursor: pointer;
+	height: 19px;
+	width: 19px;
+	margin-left: 2px;
+	margin-right: 2px;
+	border-width: 0px;
+}
+
+.cbfacebookconnect .facebookconnectButton {
+	padding: 2px 4px 3px;
+	color: #FFFFFF;
+	cursor: pointer;
+	background-color: #4F6AA3;
+	border-color: #29447E;
+	font-weight: bold;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.cbfacebookconnect .facebookconnectButton:active {
+	background-color: #29447E;
+}
+
+.cbfacebookconnect .facebookconnectEditTitle {
+	background: #F2F2F2;
+	border-color: #C0C0C0 #E7E7E7 #E7E7E7;
+	border-style: solid;
+	border-width: 1px;
+	padding: 4px 6px;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.cbfacebookconnect .facebookconnectEditContent {
+	padding: 5px;
+	border: 1px solid #D7D7D7;
+	margin-bottom: 5px;
+}
+
+.cbfacebookconnect .facebookconnectEditContentInput {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.cbfacebookconnect .facebookconnectEditContentInputTitle {
+	vertical-align: top;
+	display: inline-block;
+	width: 25%;
+	font-weight: bold;
+}
+
+.cbfacebookconnect .facebookconnectEditContentInputField {
+	vertical-align: top;
+	display: inline-block;
+	width: 75%;
+}
+
+.cbfacebookconnect .facebookconnectValidationInput {
+	border: 1px solid red;
+}
+
+.cbfacebookconnect .facebookconnectValidationError {
+	margin-top: 5px;
+	padding: 5px 5px 5px 5px;
+	border: 1px solid #883300;
+	color: #dd7700;
+	font-weight: bold;
+	width: 50%;
+}
+/*
+     FILE ARCHIVED ON 05:26:54 Dec 10, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:20:10 Feb 16, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 77.187
+  exclusion.robots: 0.13
+  exclusion.robots.policy: 0.122
+  RedisCDXSource: 0.817
+  esindex: 0.008
+  LoadShardBlock: 55.013 (3)
+  PetaboxLoader3.datanode: 559.57 (5)
+  CDXLines.iter: 18.237 (3)
+  load_resource: 596.268 (2)
+  PetaboxLoader3.resolve: 71.517 (2)
+*/

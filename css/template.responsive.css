@@ -1,0 +1,409 @@
+/* Created by Artisteer v4.0.0.58475 */
+
+.responsive body
+{
+   min-width: 240px;
+}
+  
+.responsive .tmp-content-layout img,
+.responsive .tmp-content-layout video
+{
+   max-width: 100%;
+   height: auto !important;
+}
+
+.responsive.responsive-phone .tmp-content-layout img 
+{
+   float: none !important;
+}
+    
+.responsive .tmp-content-layout .tmp-sidebar0, 
+.responsive .tmp-content-layout .tmp-sidebar1, 
+.responsive .tmp-content-layout .tmp-sidebar2 
+{
+   width: auto !important;
+}
+    
+.responsive .tmp-content-layout, 
+.responsive .tmp-content-layout-row, 
+.responsive .tmp-layout-cell 
+{
+   display: block;
+}
+  
+.responsive .tmp-slidenavigator 
+{
+   display: none !important;
+}
+    
+.responsive .tmp-collage 
+{
+   display: none !important;
+}
+    
+.responsive .image-caption-wrapper 
+{
+   width: auto !important;
+}
+  
+.responsive .tmp-textblock 
+{
+   display: none;
+}
+
+.responsive.responsive-tablet .tmp-vmenublock,
+.responsive.responsive-tablet .tmp-block
+{
+   margin-left: 1%;
+   margin-right: 1%;
+   width: 48%;
+   float: left;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+.responsive .tmp-responsive-embed 
+{
+   position: relative;
+   padding-bottom: 56.25%;
+   /* 16:9 */
+	height: 0;
+}
+
+.responsive .tmp-responsive-embed iframe,
+.responsive .tmp-responsive-embed object,
+.responsive .tmp-responsive-embed embed
+{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
+.responsive .tmp-sheet
+{
+   width: auto !important;
+   min-width: 240px !important;
+   max-width: none;
+   margin-right: 1% !important;
+   margin-left: 1% !important;
+}
+
+#tmp-resp {
+   display: none;
+}
+
+@media all and (max-width: 768px)
+{
+    #tmp-resp, #tmp-resp-t { display: block; }
+    #tmp-resp-m { display: none; }
+}
+
+@media all and (max-width: 480px)
+{
+    #tmp-resp, #tmp-resp-m { display: block; }
+    #tmp-resp-t { display: none; }
+}
+
+.responsive .tmp-header 
+{
+   width: auto;
+   height: auto;
+   min-height: 100px;
+   background-position: center center !important;
+   background-size: cover !important;
+   background-repeat: repeat !important;
+}
+
+.responsive .tmp-header .tmp-headline, 
+.responsive .tmp-header .tmp-slogan 
+{
+   display: block !important;
+   top: 0 !important;
+   left: 0 !important;
+   margin: 2% !important;
+}
+    
+.responsive .tmp-header .tmp-headline a, 
+.responsive .tmp-header .tmp-slogan 
+{
+   white-space: normal !important;
+}
+    
+.responsive .tmp-header .tmp-shapes .tmp-textblock 
+{
+   padding: 2% !important;
+   margin: 2% !important;
+   line-height: normal;
+   background-image: none;
+   background-color: rgba(127, 127, 127, 0.7);
+   color: #eee !important;
+   display: none;
+   top: auto;
+   left: auto;
+   width: auto;
+   height: auto;
+}
+
+.responsive .tmp-header .tmp-shapes .tmp-textblock *,
+.responsive .tmp-header .tmp-shapes .tmp-textblock a:hover,
+.responsive .tmp-header .tmp-shapes .tmp-textblock a:visited,
+.responsive .tmp-header .tmp-shapes .tmp-textblock a:link 
+{
+   color: #eee !important;
+}
+    
+.responsive .tmp-header .tmp-shapes .tmp-textblock>div 
+{
+   display: none;
+   top: auto;
+   left: auto;
+   width: auto;
+   height: auto;
+   padding: 0 !important;
+}
+
+.responsive .tmp-header .tmp-shapes,
+.responsive .tmp-header .tmp-shapes *
+{
+   position: relative;
+   text-align: center;
+   -webkit-transform: none !important;
+   -moz-transform: none !important;
+   -o-transform: none !important;
+   -ms-transform: none !important;
+   transform: none !important;
+}
+
+.responsive .tmp-header #tmp-flash-area,
+.responsive .tmp-header .tmp-shapes>*
+{
+   display: none;
+}
+
+.responsive #tmp-header-bg 
+{
+   background-position: center center !important;
+   background-size: cover !important;
+   background-repeat: repeat !important;
+}
+
+/* Search */
+.responsive .tmp-shapes~.tmp-textblock
+{
+   position: relative !important;
+   display: block !important;
+   margin: 1% auto !important;
+   width: 75% !important;
+   top: auto !important;
+   right: auto !important;
+   bottom: auto !important;
+   left: auto !important;
+}
+
+/* dynamic width nav */
+.responsive nav.tmp-nav,
+.responsive .tmp-nav-inner
+{
+   width: auto !important;
+   position: relative !important;
+   top: auto !important;
+   left: auto !important;
+   right: auto !important;
+   bottom: auto !important;
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+.responsive .responsive-nav 
+{
+   padding-left: 0;
+   padding-right: 0;
+   margin-top: 20px;
+}
+
+/* full width hmenu, instead of inline-block */
+.responsive .responsive-nav ul.tmp-hmenu 
+{
+   display: block;
+   float: none;
+   text-align: center;
+}
+
+/* elements on different lines */
+.responsive .responsive-nav ul.tmp-hmenu li
+{
+   float: none;
+}
+  
+/* horizontal margins */
+.responsive .responsive-nav ul.tmp-hmenu>li:first-child, 
+.responsive .responsive-nav ul.tmp-hmenu>li:last-child, 
+.responsive .responsive-nav ul.tmp-hmenu>li
+{
+   margin-left: 0;
+   margin-right: 0;
+}
+ 
+/* separator */ 
+.responsive .responsive-nav ul.tmp-hmenu>li:before
+{
+   display: none;
+}
+
+/* vertical distance between items */
+.responsive .responsive-nav ul.tmp-hmenu a
+{
+   margin-top: 1px !important;
+   margin-bottom: 1px !important;
+   height: auto;
+   white-space: normal;
+}
+
+.responsive .responsive-nav ul.tmp-hmenu>li:first-child>a
+{
+   margin-top: 0 !important;
+}
+
+.responsive .responsive-nav ul.tmp-hmenu>li:last-child>a
+{
+   margin-bottom: 0 !important;
+}
+
+/* fixes for extended menu */
+.responsive .responsive-nav .ext, 
+.responsive .responsive-nav ul.tmp-hmenu>li>ul, 
+.responsive .responsive-nav ul.tmp-hmenu>li>ul>li
+{
+   width: auto !important;
+}
+
+/* submenu position on hover */
+.responsive .responsive-nav ul.tmp-hmenu ul
+{
+   left: auto !important;
+   right: auto !important;
+   top: auto !important;
+   bottom: auto !important;
+   display: none !important;
+   position: relative !important;
+   visibility: visible !important;
+}
+
+.responsive .responsive-nav ul.tmp-hmenu li.active>ul
+{
+   display: block !important;
+}
+.responsive .responsive-nav ul.tmp-hmenu ul li.active>a
+{
+   font-weight: bold;
+}
+
+.responsive .responsive-nav ul.tmp-hmenu>li>ul>li:first-child:after 
+{
+   display: none;
+}
+.responsive .responsive-nav ul.tmp-hmenu ul a
+{
+   padding-left: 4% !important;
+}
+.responsive .responsive-nav ul.tmp-hmenu ul ul a
+{
+   padding-left: 6% !important;
+}
+.responsive .responsive-nav ul.tmp-hmenu ul ul ul a
+{
+   padding-left: 8% !important;
+}
+.responsive .responsive-nav ul.tmp-hmenu ul ul ul ul a
+{
+   padding-left: 10% !important;
+}
+.responsive .responsive-nav ul.tmp-hmenu ul ul ul ul ul a
+{
+   padding-left: 12% !important;
+}
+  
+.responsive .responsive-nav ul.tmp-hmenu>li>ul
+{
+   padding: 10px;
+}
+  
+.responsive .responsive-nav ul.tmp-hmenu>li>ul:before
+{
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+}
+
+.responsive .tmp-content-layout, 
+.responsive .tmp-content-layout-row, 
+.responsive .tmp-layout-cell 
+{
+   display: block;
+}
+
+.responsive .tmp-layout-cell 
+{
+   width: auto !important;
+   height: auto !important;
+   border-right-width: 0 !important;
+   border-left-width: 0 !important;
+   border-radius: 0 !important;
+}
+
+.responsive .tmp-content-layout:after, 
+.responsive .tmp-content-layout-row:after, 
+.responsive .tmp-layout-cell:after 
+{
+   content: ".";
+   display: block;
+   height: 0;
+   clear: both;
+   visibility: hidden;
+}
+
+.responsive .tmp-post
+{
+   border-radius: 0;
+}
+
+.responsive .tmp-footer
+{
+   margin-top: 1%;
+}
+
+.responsive .responsive-tablet-layout-cell 
+{
+   width: 50% !important;
+   float: left;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+
+/*
+     FILE ARCHIVED ON 23:54:07 Apr 06, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:45:20 Feb 16, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 67.13
+  exclusion.robots: 0.176
+  exclusion.robots.policy: 0.162
+  RedisCDXSource: 0.795
+  esindex: 0.011
+  LoadShardBlock: 39.863 (3)
+  PetaboxLoader3.datanode: 66.411 (5)
+  CDXLines.iter: 22.618 (3)
+  load_resource: 125.558 (2)
+  PetaboxLoader3.resolve: 59.687 (2)
+*/

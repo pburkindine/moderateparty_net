@@ -1,0 +1,844 @@
+<center>
+  <hr width="40%" />
+  <div style="font-size: larger; text-decoration: underline">
+    Video Section! Yeah!
+  </div>
+  <hr width="40%" />
+
+  <div style="width: 100%; display: block;" "="">
+
+  <!-- YouTube Gallery v3.5.0 -->
+  <!-- YouTube Gallery http://joomlaboat.com/youtube-gallery -->
+
+  <!-- Make it responsive to window size -->
+  <script type="text/javascript">
+    //<![CDATA[
+
+    function YoutubeGalleryClientWidth1() {
+      return YoutubeGalleryResults1(
+        window.innerWidth ? window.innerWidth : 0,
+        document.documentElement ? document.documentElement.clientWidth : 0,
+        document.body ? document.body.clientWidth : 0
+      );
+    }
+    function YoutubeGalleryScrollLeft1() {
+      return YoutubeGalleryResults1(
+        window.pageXOffset ? window.pageXOffset : 0,
+        document.documentElement ? document.documentElement.scrollLeft : 0,
+        document.body ? document.body.scrollLeft : 0
+      );
+    }
+    function YoutubeGalleryFindHorizontalOffset1(id) {
+      var node = document.getElementById(id);
+      var curleft = 0;
+      var curleftscroll = 0;
+      var scroll_left = YoutubeGalleryScrollLeft1();
+      if (node.offsetParent) {
+        do {
+          curleft += node.offsetLeft;
+          curleftscroll = 0;
+        } while ((node = node.offsetParent));
+
+        var imaged_x = curleft - curleftscroll - scroll_left;
+        return imaged_x;
+      }
+      return 0;
+    }
+    function YoutubeGalleryResults1(n_win, n_docel, n_body) {
+      var n_result = n_win ? n_win : 0;
+      if (n_docel && (!n_result || n_result > n_docel)) n_result = n_docel;
+      return n_body && (!n_result || n_result > n_body) ? n_body : n_result;
+    }
+    function YoutubeGalleryAutoResizePlayer1() {
+      var clientWidth = YoutubeGalleryClientWidth1();
+
+      var playerObject = document.getElementById("youtubegalleryplayerid_1");
+      var mainObject = document.getElementById("YoutubeGalleryMainContainer1");
+
+      var parentObject = mainObject.parentNode;
+      var parentWidth = parentObject.offsetWidth;
+
+      var secondaryObject = document.getElementById(
+        "YoutubeGallerySecondaryContainer1"
+      );
+      var playerWidth = 640;
+      var x = YoutubeGalleryFindHorizontalOffset1(
+        "YoutubeGalleryMainContainer1"
+      );
+
+      var setWidth = false;
+
+      if (playerWidth > parentWidth) {
+        playerWidth = parentWidth;
+        setWidth = true;
+      }
+
+      if (x + playerWidth > clientWidth) {
+        playerWidth = clientWidth - x;
+        setWidth = true;
+      }
+
+      if (playerObject.width != playerWidth) setWidth = true;
+
+      if (setWidth) {
+        mainObject.style.width = playerWidth + "px";
+
+        var newH = 400 / (640 / playerWidth);
+
+        secondaryObject.style.width = playerWidth + "px";
+        secondaryObject.style.height = newH + "px";
+
+        playerObject.width = playerWidth + "px";
+        playerObject.height = newH + "px";
+      }
+    }
+
+    //]]>
+  </script>
+
+  <a name="youtubegallery"></a>
+  <div
+    id="YoutubeGalleryMainContainer1"
+    style="position: relative; display: block; width: 640px"
+  >
+    <div
+      id="YoutubeGallerySecondaryContainer1"
+      style="width: 640px; height: 400px"
+    >
+      <iframe
+        width="640"
+        height="400"
+        src="./main_files/fC_q9KPczAg.html"
+        frameborder="0"
+        id="youtubegalleryplayerid_1"
+        onload="YoutubeGalleryAutoResizePlayer1();"
+        allowfullscreen=""
+      ></iframe>
+    </div>
+
+    <hr style="border-color: #e7e7e9; border-style: solid; border-width: 1px" />
+    <table
+      cellspacing="0"
+      style="width: simplepx; padding: 0; border: none; margin: 0 auto"
+    >
+      <tbody>
+        <tr style="border: none">
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;fC_q9KPczAg&#39;,&#39;youtube&#39;,436)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;fC_q9KPczAg&#39;,&#39;youtube&#39;,436)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_436"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_436"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_436"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=fC_q9KPczAg
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_436"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_436"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;NcG1JNpazN4&#39;,&#39;youtube&#39;,437)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;NcG1JNpazN4&#39;,&#39;youtube&#39;,437)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_437"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_437"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_437"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=NcG1JNpazN4
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_437"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_437"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;w5O0e2lztdY&#39;,&#39;youtube&#39;,438)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;w5O0e2lztdY&#39;,&#39;youtube&#39;,438)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_438"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_438"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_438"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=w5O0e2lztdY
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_438"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_438"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;TOUrLn1FFCA&#39;,&#39;youtube&#39;,439)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;TOUrLn1FFCA&#39;,&#39;youtube&#39;,439)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_439"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_439"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_439"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=TOUrLn1FFCA
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_439"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_439"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+        </tr>
+
+        <tr style="border: none">
+          <td colspan="4" style="border: none">
+            <hr
+              style="
+                border-color: #e7e7e9;
+                border-style: solid;
+                border-width: 1px;
+              "
+            />
+          </td>
+        </tr>
+        <tr style="border: none">
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;5OCAkRkAHTk&#39;,&#39;youtube&#39;,440)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;5OCAkRkAHTk&#39;,&#39;youtube&#39;,440)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_440"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_440"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_440"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=5OCAkRkAHTk
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_440"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_440"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;WkcOF_u-Vmc&#39;,&#39;youtube&#39;,441)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;WkcOF_u-Vmc&#39;,&#39;youtube&#39;,441)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_441"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_441"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_441"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=WkcOF_u-Vmc
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_441"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_441"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;cJmesqycoQU&#39;,&#39;youtube&#39;,442)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;cJmesqycoQU&#39;,&#39;youtube&#39;,442)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_442"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_442"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_442"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=cJmesqycoQU
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_442"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_442"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;UgujmHcSv0s&#39;,&#39;youtube&#39;,443)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;UgujmHcSv0s&#39;,&#39;youtube&#39;,443)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_443"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_443"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_443"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=UgujmHcSv0s
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_443"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_443"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+        </tr>
+
+        <tr style="border: none">
+          <td colspan="4" style="border: none">
+            <hr
+              style="
+                border-color: #e7e7e9;
+                border-style: solid;
+                border-width: 1px;
+              "
+            />
+          </td>
+        </tr>
+        <tr style="border: none">
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;keIDx0BSoSQ&#39;,&#39;youtube&#39;,444)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;keIDx0BSoSQ&#39;,&#39;youtube&#39;,444)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_444"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_444"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_444"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=keIDx0BSoSQ
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_444"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_444"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;2Kuj-PGC8rE&#39;,&#39;youtube&#39;,445)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;2Kuj-PGC8rE&#39;,&#39;youtube&#39;,445)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_445"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_445"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_445"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=2Kuj-PGC8rE
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_445"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_445"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;_83MEuLoz9Y&#39;,&#39;youtube&#39;,446)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;_83MEuLoz9Y&#39;,&#39;youtube&#39;,446)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_446"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_446"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_446"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=_83MEuLoz9Y
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_446"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_446"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+          <td
+            style="
+              width: 25%;
+              vertical-align: top;
+              text-align: center;
+              border: none;
+            "
+          >
+            <a
+              href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;F90Cw4l-8NY&#39;,&#39;youtube&#39;,447)"
+            ></a
+            ><br />
+            <div style="width: 142px; margin: 2px; padding: 0">
+              <a
+                href="javascript:YoutubeGalleryHotVideoSwitch1(&#39;F90Cw4l-8NY&#39;,&#39;youtube&#39;,447)"
+                class=""
+                >***Video not found***</a
+              ><br />
+
+              <span style="color: grey; font-size: 10px">0 sec.</span>
+              <br />
+              <span style="color: grey; font-size: 10px">Views: 0</span>
+            </div>
+            <div
+              id="YoutubeGalleryThumbTitle1_447"
+              style="display: none; visibility: hidden"
+            >
+              ***Video not found***
+            </div>
+            <div
+              id="YoutubeGalleryThumbDescription1_447"
+              style="display: none; visibility: hidden"
+            >
+              Cannot Connect to Youtube Server
+            </div>
+            <div
+              id="YoutubeGalleryThumbLink1_447"
+              style="display: none; visibility: hidden"
+            >
+              http://www.youtube.com/watch?v=F90Cw4l-8NY
+            </div>
+            <div
+              id="YoutubeGalleryThumbStartSecond1_447"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+            <div
+              id="YoutubeGalleryThumbEndSecond1_447"
+              style="display: none; visibility: hidden"
+            >
+              0
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form action="main.html" method="post"><div class="pagination"></div></form>
+    <div
+      style="
+        position: absolute;
+        z-index: 20000;
+        top: 0px;
+        right: 0px;
+        padding: 2px;
+        width: 136px;
+        height: 12px;
+        margin: 0;
+      "
+    >
+      <a
+        href="http://joomlaboat.com/youtube-gallery#pro-version"
+        style="padding: 0px; margin: 0"
+      >
+        <img
+          src="./main_files/pro_joomla_extension_2.png"
+          style="margin: 0; padding: 0px; border-style: none"
+          border="0"
+          alt="Youtube Gallery - Free Version"
+          title="Youtube Gallery - Free Version"
+        />
+      </a>
+    </div>
+  </div>
+
+  <!-- Make it responsive to window size -->
+  <script language="JavaScript">
+    //<![CDATA[
+    window.onresize = function () {
+      YoutubeGalleryAutoResizePlayer1();
+    };
+    //]]>
+  </script>
+
+  end of YouTube Gallery
+</center>

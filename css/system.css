@@ -1,0 +1,71 @@
+/**
+ * @copyright	Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+/* Import project-level system CSS */
+@import url(/web/20181219000420cs_/http://www.moderateparty.net/site2/media/system/css/system.css);
+
+/* Unpublished */
+.system-unpublished, tr.system-unpublished {
+	background: #e8edf1;
+	border-top: 4px solid #c4d3df;
+	border-bottom: 4px solid #c4d3df;
+}
+
+span.highlight {
+	background-color:#FFFFCC;
+	font-weight:bold;
+	padding:1px 4px;
+}
+
+.img-fulltext-float-right {
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.img-fulltext-float-left {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.img-fulltext-float-none {
+}
+
+.img-intro-float-right {
+	float: right;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+.img-intro-float-left {
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.img-intro-float-none {
+}
+/*
+     FILE ARCHIVED ON 00:04:20 Dec 19, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:20:10 Feb 16, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 407.482
+  exclusion.robots: 0.098
+  exclusion.robots.policy: 0.09
+  RedisCDXSource: 308.354
+  esindex: 0.008
+  LoadShardBlock: 72.498 (3)
+  PetaboxLoader3.datanode: 101.348 (5)
+  CDXLines.iter: 23.286 (3)
+  load_resource: 121.976 (2)
+  PetaboxLoader3.resolve: 61.836 (2)
+*/
