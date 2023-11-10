@@ -22,6 +22,10 @@
   font-size: 1.5rem;
 }
 
+.header-link {
+  flex-basis: 33%;
+}
+
 @media screen and (min-width: 992px) {
   .main {
     padding: 30px;
@@ -30,6 +34,10 @@
   .flexo {
     flex-direction: row;
     width: 100%;
+  }
+
+  .header-link {
+    flex-basis: auto;
   }
 
   .content-tile {
