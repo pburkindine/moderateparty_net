@@ -64,8 +64,6 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
 
 .tmp-postcontent h1, .tmp-postcontent h1 a, .tmp-postcontent h1 a:link, .tmp-postcontent h1 a:visited, .tmp-postcontent h1 a:hover, .tmp-postcontent h2, .tmp-postcontent h2 a, .tmp-postcontent h2 a:link, .tmp-postcontent h2 a:visited, .tmp-postcontent h2 a:hover, .tmp-postcontent h3, .tmp-postcontent h3 a, .tmp-postcontent h3 a:link, .tmp-postcontent h3 a:visited, .tmp-postcontent h3 a:hover, .tmp-postcontent h4, .tmp-postcontent h4 a, .tmp-postcontent h4 a:link, .tmp-postcontent h4 a:visited, .tmp-postcontent h4 a:hover, .tmp-postcontent h5, .tmp-postcontent h5 a, .tmp-postcontent h5 a:link, .tmp-postcontent h5 a:visited, .tmp-postcontent h5 a:hover, .tmp-postcontent h6, .tmp-postcontent h6 a, .tmp-postcontent h6 a:link, .tmp-postcontent h6 a:visited, .tmp-postcontent h6 a:hover, .tmp-blockheader .t, .tmp-blockheader .t a, .tmp-blockheader .t a:link, .tmp-blockheader .t a:visited, .tmp-blockheader .t a:hover, .tmp-vmenublockheader .t, .tmp-vmenublockheader .t a, .tmp-vmenublockheader .t a:link, .tmp-vmenublockheader .t a:visited, .tmp-vmenublockheader .t a:hover, .tmp-headline, .tmp-headline a, .tmp-headline a:link, .tmp-headline a:visited, .tmp-headline a:hover, .tmp-slogan, .tmp-slogan a, .tmp-slogan a:link, .tmp-slogan a:visited, .tmp-slogan a:hover, .tmp-postheader, .tmp-postheader a, .tmp-postheader a:link, .tmp-postheader a:visited, .tmp-postheader a:hover
 {
-  font-size: 26px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
   font-weight: normal;
   font-style: normal;
   line-height: 120%;
@@ -73,21 +71,18 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
 
 .tmp-postcontent a, .tmp-postcontent a:link
 {
-  font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
   text-decoration: none;
   color: #808080;
 }
 
 .tmp-postcontent a:visited, .tmp-postcontent a.visited
 {
-  font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
   text-decoration: none;
   color: #9C9C9C;
 }
 
 .tmp-postcontent  a:hover, .tmp-postcontent a.hover
 {
-  font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
   text-decoration: underline;
   color: #9C9C9C;
 }
@@ -97,20 +92,18 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
   color: #808080;
   margin: 10px 0 0;
   font-size: 26px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
 }
 
 .tmp-blockcontent h1
 {
   margin: 10px 0 0;
   font-size: 26px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
 }
 
 .tmp-postcontent h1 a, .tmp-postcontent h1 a:link, .tmp-postcontent h1 a:hover, .tmp-postcontent h1 a:visited, .tmp-blockcontent h1 a, .tmp-blockcontent h1 a:link, .tmp-blockcontent h1 a:hover, .tmp-blockcontent h1 a:visited
 {
   font-size: 26px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h2
@@ -118,20 +111,20 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
   color: #9C9C9C;
   margin: 10px 0 0;
   font-size: 22px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-blockcontent h2
 {
   margin: 10px 0 0;
   font-size: 22px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h2 a, .tmp-postcontent h2 a:link, .tmp-postcontent h2 a:hover, .tmp-postcontent h2 a:visited, .tmp-blockcontent h2 a, .tmp-blockcontent h2 a:link, .tmp-blockcontent h2 a:hover, .tmp-blockcontent h2 a:visited
 {
   font-size: 22px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h3
@@ -139,20 +132,20 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
   color: #9C9C9C;
   margin: 10px 0 0;
   font-size: 20px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-blockcontent h3
 {
   margin: 10px 0 0;
   font-size: 20px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h3 a, .tmp-postcontent h3 a:link, .tmp-postcontent h3 a:hover, .tmp-postcontent h3 a:visited, .tmp-blockcontent h3 a, .tmp-blockcontent h3 a:link, .tmp-blockcontent h3 a:hover, .tmp-blockcontent h3 a:visited
 {
   font-size: 20px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h4
@@ -160,20 +153,20 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
   color: #696969;
   margin: 10px 0 0;
   font-size: 16px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-blockcontent h4
 {
   margin: 10px 0 0;
   font-size: 16px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h4 a, .tmp-postcontent h4 a:link, .tmp-postcontent h4 a:hover, .tmp-postcontent h4 a:visited, .tmp-blockcontent h4 a, .tmp-blockcontent h4 a:link, .tmp-blockcontent h4 a:hover, .tmp-blockcontent h4 a:visited
 {
   font-size: 16px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h5
@@ -181,20 +174,20 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
   color: #696969;
   margin: 10px 0 0;
   font-size: 14px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-blockcontent h5
 {
   margin: 10px 0 0;
   font-size: 14px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h5 a, .tmp-postcontent h5 a:link, .tmp-postcontent h5 a:hover, .tmp-postcontent h5 a:visited, .tmp-blockcontent h5 a, .tmp-blockcontent h5 a:link, .tmp-blockcontent h5 a:hover, .tmp-blockcontent h5 a:visited
 {
   font-size: 14px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h6
@@ -202,20 +195,20 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
   color: #B8B8B8;
   margin: 10px 0 0;
   font-size: 13px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-blockcontent h6
 {
   margin: 10px 0 0;
   font-size: 13px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 .tmp-postcontent h6 a, .tmp-postcontent h6 a:link, .tmp-postcontent h6 a:hover, .tmp-postcontent h6 a:visited, .tmp-blockcontent h6 a, .tmp-blockcontent h6 a:link, .tmp-blockcontent h6 a:hover, .tmp-blockcontent h6 a:visited
 {
   font-size: 13px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
 }
 
 header, footer, article, nav, #tmp-hmenu-bg, .tmp-sheet, .tmp-hmenu a, .tmp-vmenu a, .tmp-slidenavigator > a, .tmp-checkbox:before, .tmp-radiobutton:before
@@ -1128,7 +1121,7 @@ div.tmp-vmenublock img
 {
   color: #878787;
   font-size: 20px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
   font-weight: normal;
   font-style: normal;
   margin: 0 10px;
@@ -1439,7 +1432,7 @@ div.tmp-block img
 {
   color: #878787;
   font-size: 20px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
   font-weight: normal;
   font-style: normal;
   margin: 0 10px;
@@ -1911,7 +1904,7 @@ pre
   color: #696969;
   margin: 5px 0;
   font-size: 26px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
   font-weight: normal;
   font-style: normal;
 }
@@ -1919,14 +1912,14 @@ pre
 .tmp-postheader a, .tmp-postheader a:link, .tmp-postheader a:visited, .tmp-postheader a.visited, .tmp-postheader a:hover, .tmp-postheader a.hovered
 {
   font-size: 26px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
   font-weight: normal;
   font-style: normal;
 }
 
 .tmp-postheader a, .tmp-postheader a:link
 {
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
   text-decoration: none;
   text-align: left;
   color: #9E9E9E;
@@ -1934,14 +1927,14 @@ pre
 
 .tmp-postheader a:visited, .tmp-postheader a.visited
 {
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
   text-align: left;
   color: #8C8C8C;
 }
 
 .tmp-postheader a:hover, .tmp-postheader a.hovered
 {
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+
   text-decoration: none;
   text-align: left;
   color: #9C9C9C;
