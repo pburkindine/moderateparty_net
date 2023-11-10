@@ -392,8 +392,6 @@ li p, .tmp-postcontent li p, .tmp-blockcontent li p
 
 .tmp-headline, .tmp-headline a, .tmp-headline a:link, .tmp-headline a:visited, .tmp-headline a:hover
 {
-  font-size: 36px;
-  font-family: Arimo, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
