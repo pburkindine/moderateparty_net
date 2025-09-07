@@ -1,6 +1,6 @@
 .flexo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .content-tile {
@@ -37,7 +37,6 @@
     padding: 30px;
   }
 
-
   .tmp-headline {
     font-size: 36px;
   }
@@ -54,24 +53,6 @@
   .header-link {
     flex-basis: auto;
   }
-
-  .content-tile {
-    order: 1;
-    width: 100%
-  }
-
-  .video-tile {
-    order: 0;
-    width: 100%
-  }
-}
-
-
-@media screen and (min-width: 768px) {
-  .main {
-    padding: 50px;
-  }
-
 
   .content-tile {
     order: 0;
