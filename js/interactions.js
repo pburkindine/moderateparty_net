@@ -1,0 +1,76 @@
+// Interaction handlers for ModerateParty header & fun images
+(function () {
+  function ready(fn) { if (document.readyState !== 'loading') { fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+
+  function initializeSuperGrammaAnimations() {
+    // Super Gramma spin on click
+    document.querySelectorAll('.super-gramma').forEach(function (img) {
+      // Skip if already initialized
+      if (img.dataset.animationInitialized) {
+        return;
+      }
+
+      // Mark as initialized
+      img.dataset.animationInitialized = 'true';
+
+      // Make sure it shows as clickable
+      img.style.cursor = 'pointer';
+
+      img.addEventListener('click', function () {
+        console.log('Super Gramma clicked!', img.className);
+
+        // For main logo, use a simple approach
+        if (img.classList.contains('main-super-gramma-center')) {
+          console.log('Main logo clicked - applying clean animation');
+
+          // Simple transition-based animation
+          img.style.transition = 'transform 0.3s ease-in-out';
+          img.style.transform = 'rotate(-5deg) scale(1.2) translateX(-30px)';
+
+          setTimeout(function () {
+            img.style.transform = 'rotate(10deg) scale(0.9) translateX(30px)';
+          }, 150);
+
+          setTimeout(function () {
+            img.style.transform = 'rotate(3deg) scale(1) translateX(0px)';
+          }, 300);
+
+          setTimeout(function () {
+            img.style.transition = '';
+          }, 600);
+        } else {
+          // For other Super Grammas, use class-based animation
+          img.classList.remove('spin');
+          void img.offsetWidth;
+          img.classList.add('spin');
+
+          setTimeout(function () {
+            img.classList.remove('spin');
+          }, 1300);
+        }
+      });
+    });
+  }
+
+  function initializeMegazordAnimation() {
+    // Megazord subtle pulse
+    var mz = document.querySelector('img[src*="megazord"]');
+    if (mz) {
+      mz.style.cursor = 'pointer';
+      mz.addEventListener('click', function () {
+        mz.classList.remove('mz-animate');
+        void mz.offsetWidth;
+        mz.classList.add('mz-animate');
+      });
+    }
+  }
+
+  // Initialize animations when DOM is ready
+  ready(function () {
+    initializeSuperGrammaAnimations();
+    initializeMegazordAnimation();
+  });
+
+  // Expose function globally for pages that load header dynamically
+  window.initializeSuperGrammaAnimations = initializeSuperGrammaAnimations;
+})();

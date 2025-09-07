@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html><head>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css" integrity="" crossorigin="anonymous">
+<html>
+
+<head>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" integrity="" crossorigin="anonymous">
 
   <link rel="image_src" href="img/supergrams_licensed.png">
 
-  <meta name="keywords" content="politics, moderate, middle, independent, conservative, Republican, liberal, Democrat, tea party, green party, libertarian, marijuana, abortion, pro-life">
-  <meta name="description" content="&quot;Better Politics Eventually&quot; - Pro-Obamacare, Pro-2nd (Defense), Pro-Pot, Anti-Robot, Pre-Natal Incubation">
+  <meta name="keywords"
+    content="politics, moderate, middle, independent, conservative, Republican, liberal, Democrat, tea party, green party, libertarian, marijuana, abortion, pro-life">
+  <meta name="description"
+    content="&quot;Better Politics Eventually&quot; - Pro-Obamacare, Pro-2nd (Defense), Pro-Pot, Anti-Robot, Pre-Natal Incubation">
   <meta name="generator" content="Joomla! - Open Source Content Management">
-  <title>  - moderate Party .net</title>
-  <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <title> - moderate Party .net</title>
+  <link href="img/favicon.svg" rel="shortcut icon" type="image/svg+xml">
   <link rel="stylesheet" href="css/9006b7195da7eb0a3f5e3c071df4da1d.css" type="text/css">
   <link rel="stylesheet" href="css/gspeech.css" type="text/css">
   <link rel="stylesheet" href="css/the-tooltip.css" type="text/css">
@@ -18,130 +22,171 @@
   <link rel="stylesheet" href="css/cb.facebookconnect.css" type="text/css">
   <link rel="stylesheet" href="css/pace-theme-center-radar.css" type="text/css">
 
-    <link rel="stylesheet" href="css/system.css">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/_layout.css">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/_layout.css">
 
-    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+  <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
 
   <link rel="stylesheet" href="css/template.css" media="screen">
   <link rel="stylesheet" href="css/template.responsive.css" media="all">
+  <link rel="stylesheet" href="css/modern-layout.css?v=20250906-2" media="all">
   <link rel="stylesheet" type="text/css" href="css/css">
 
 
   <script>
-    $(function(){
+    $(function () {
       console.log('ready');
-      $("header").load("header.html");
+      $("header").load("header.html?v=" + Date.now(), function () {
+        console.log('Header loaded, initializing animations');
+        // Initialize Super Gramma animations after header is loaded
+        if (window.initializeSuperGrammaAnimations) {
+          window.initializeSuperGrammaAnimations();
+        }
+      });
       $("footer").load("footer.html");
     });
   </script>
+  <script src="js/interactions.js" defer></script>
 </head>
-<body  style="position: relative; min-height: 100%; top: 0px;">
 
-<style type="text/css">
-body {
-  margin-top:0 !important;
-  padding-top:0 !important;
-  /*min-width:800px !important;*/
-}
-</style>
+<body style="position: relative; min-height: 100%; top: 0px;">
 
-
-<header>
-
-</header>
-<main>
-<center>
-<table border="0" style="width: 90%; margin-left: 5%;">
-<tbody><tr><td colspan="3" align="center">
-<center>
-
-<br><br><br>
-<div style="font-size: 16px; margin-top: 10px; letter-spacing: .1em !important;">
-"It's all just <i>a</i>-cooked right in to that big lasagna in the sky..."
-</div>
+  <style type="text/css">
+    body {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      /*min-width:800px !important;*/
+    }
+  </style>
 
 
-<table border="0" cellpadding="3px" cellspacing="0"><tbody><tr><td valign="middle" align="center">
-<img width="75px" border="0" alt="" src="img/supergrams_fly.png"></td><td valign="top" align="center">
+  <header>
 
-<div style="margin-top: 28px !important; font-size: 38px; letter-spacing: .3em; text-decoration: underline;">
-<center> moderate Party .net</center>
-</div>
+  </header>
+  <main>
+    <center>
+      <table border="0" style="width: 90%; margin-left: 5%;">
+        <tbody>
+          <tr>
+            <td colspan="3" align="center">
+              <center>
 
-</td><td valign="middle" align="center">
-<img width="75px" border="0" alt="" src="img/supergrams_fly.png" class="flip"></td></tr></tbody></table>
+                <br><br><br>
+                <div style="font-size: 16px; margin-top: 10px; letter-spacing: .1em !important;">
+                  "It's all just <i>a</i>-cooked right in to that big lasagna in the sky..."
+                </div>
 
 
-<br>
-<div style="line-height: 1.9em !important; font-size: 16px; display: inline !important; letter-spacing: .2em !important;  font-style: italic; margin-bottom: 10px;">As in like, "<span style="text-transform: uppercase;">Hey!</span>  Can you all hear me over there at all?  No, not at all?<br>Am I hollering loud enough to where you can hear me?"</div>
+                <table border="0" cellpadding="3px" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td valign="middle" align="center">
+                        <img width="75px" border="0" alt="" src="img/supergrams_fly.png">
+                      </td>
+                      <td valign="top" align="center">
 
-<!--div  style="font-size: 16px;">(I like to call it the&nbsp;&nbsp; "the &nbsp;<span style="letter-spacing:.31em; font-style: italic; ">whole</span> schmageggy") <!--it's more fun than saying just 'universe')></div-->
+                        <div
+                          style="margin-top: 28px !important; font-size: 38px; letter-spacing: .3em; text-decoration: underline;">
+                          <center> moderate Party .net</center>
+                        </div>
 
-<hr width="30%"><br>
+                      </td>
+                      <td valign="middle" align="center">
+                        <img width="75px" border="0" alt="" src="img/supergrams_fly.png" class="flip">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
 
-<!-- It's this umptillionth... -->
-</center>
-</td></tr>
 
-<tr><td width="5%">&nbsp;</td><td valign="top">
-<a name="thedisclaimers"></a><a name="disclaimer"></a>
-<a name="disclaimers"></a>
-<div style="width:100%;  text-align:center; font-size: 16px !important; text-decoration: underline; margin: 5px 0 10px 0;">These Here Disclaimers</div>
+                <br>
+                <div
+                  style="line-height: 1.9em !important; font-size: 16px; display: inline !important; letter-spacing: .2em !important;  font-style: italic; margin-bottom: 10px;">
+                  As in like, "<span style="text-transform: uppercase;">Hey!</span> Can you all hear me over there at
+                  all? No, not at all?<br>Am I hollering loud enough to where you can hear me?"</div>
 
-<div style="padding: 10px; border: 1px solid black; width: 95%; font-size: 12px; ">
+                <!--div  style="font-size: 16px;">(I like to call it the&nbsp;&nbsp; "the &nbsp;<span style="letter-spacing:.31em; font-style: italic; ">whole</span> schmageggy") <!--it's more fun than saying just 'universe')></div-->
 
-<p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;Being a moderate doesn't mean I don't have an opinion.  I've got plenty, OHHHHHHHHHH!!!!</p><br>
+                <hr width="30%"><br>
 
-<p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;<b>This idea will <a href="real-v-fake.html">never, ever</a> work</b>.  Probably.  I mean, c'mon, it would be a travesty!<!--  No one would ever manage to agree on anything. It would get ugly in a sweet minute!<br/><br/>
+                <!-- It's this umptillionth... -->
+              </center>
+            </td>
+          </tr>
+
+          <tr>
+            <td width="5%">&nbsp;</td>
+            <td valign="top">
+              <a name="thedisclaimers"></a><a name="disclaimer"></a>
+              <a name="disclaimers"></a>
+              <div
+                style="width:100%;  text-align:center; font-size: 16px !important; text-decoration: underline; margin: 5px 0 10px 0;">
+                These Here Disclaimers</div>
+
+              <div style="padding: 10px; border: 1px solid black; width: 95%; font-size: 12px; ">
+
+                <p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;Being a moderate doesn't mean I don't have
+                  an opinion. I've got plenty, OHHHHHHHHHH!!!!</p><br>
+
+                <p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;<b>This idea will <a
+                      href="real-v-fake.html">never, ever</a> work</b>. Probably. I mean, c'mon, it would be a travesty!<!--  No one would ever manage to agree on anything. It would get ugly in a sweet minute!<br/><br/>
 <br/>  Who's to say what's moderate? -->
 
-</p><p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;I mean, there should be something, though, am I wrong?
-<!--
+                </p>
+                <p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;I mean, there should be something, though,
+                  am I wrong?
+                  <!--
   A party for people who aren't necessarily on the left or the right. For us moderates and independents, and so on and all like that there.  (See the <a href="real-v-fake.html" target="_blank">"real vs. fake"</a> page.)
 -->
-</p><br>
+                </p><br>
 
-<p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;We do our best. We have kids and day jobs.  Please <a href="http://www.copyleftout.net/" target="_blank" title="copy left out overnight with gross roaches">"bless this mess</a>."</p><br>
+                <p style="margin: 4px;"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;We do our best. We have kids and day jobs.
+                  Please <a href="http://www.copyleftout.net/" target="_blank"
+                    title="copy left out overnight with gross roaches">"bless this mess</a>."</p><br>
 
-<!--
+                <!--
 <p style="margin: 4px"><u>Disclaimer</u>:&nbsp;&nbsp;&nbsp;We oppose this <a href="/site2/index.php/mmi-site1/mmi-site1-variousissues#tyrannyofthemajority">'Tyranny of the Majority'</a>, as did our founding fathers.  Everyone used to think the earth was flat.  A bunch of people doesn't prove anything.  Correct is correct.  "<a href="mailto:" target="_blank">Just tap it in.</a>"
 </p>
 -->
-<br><br>
+                <br><br>
 
-</div>
+              </div>
 
-</td>
-<td width="20%">
-<div style="margin-top: 34px">
-<iframe style="" height="290" src="video/WkcOF_u-Vmc.html" frameborder="0" allowfullscreen=""></iframe><br><br>
-<!-- Patrick &  Eugene, "(Whatever You Do) Don't Stop" --><br><br>
-
-
-<!-- img src="/img/tapout.png" -->
-</div>
-</td>
-
-</tr></tbody></table>
-
-<br><br><br><hr width="80%"><br><br>
+            </td>
+            <td width="20%">
+              <div style="margin-top: 34px">
+                <iframe style="" height="290" src="video/WkcOF_u-Vmc.html" frameborder="0"
+                  allowfullscreen=""></iframe><br><br>
+                <!-- Patrick &  Eugene, "(Whatever You Do) Don't Stop" --><br><br>
 
 
-<table border="0" width="90%" style="margin-left: 5%;">
-<tbody><tr>
-<td valign="top" align="center" width="35%">
-<center>
+                <!-- img src="/img/tapout.png" -->
+              </div>
+            </td>
 
-<a name="thebasicidea"></a>
-<a href="index.html">
-<img src="img/supergrams_licensed.png" width="240px" border="0"><br></a>
-</center>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br><br>
+      <hr width="80%"><br><br>
 
 
-<br><br>
-<!--
+      <table border="0" width="90%" style="margin-left: 5%;">
+        <tbody>
+          <tr>
+            <td valign="top" align="center" width="35%">
+              <center>
+
+                <a name="thebasicidea"></a>
+                <a href="index.html">
+                  <img src="img/supergrams_licensed.png" width="240px" border="0"><br></a>
+              </center>
+
+
+              <br><br>
+              <!--
 <table border=0 style="" class="">
 <tr><td valign="top" cellpadding=0><img src="images/gold2.png" alt="SCHWACK!" style="display: inline; height: 18px; padding-right: 20px;" /></td>
 
@@ -161,210 +206,271 @@ body {
 <div style="font-size: 16px;">
 <u>The Basic Idea at this Time</u><br/>-->
 
-<table border="0" style="" class="">
-<tbody><tr><td>
-<ul style="margin-left: 30px;">
-<li><span style="">Pro</span> - <a href="various-issues.html#first_amendment">1st Amendment</a> - Free Speech</li>
-<li><span style="">Pro</span> - <a href="various-issues.html#guncontrollers">2nd Amendment</a> - Defense</li>
-<li><span style="">Pro</span> - <a href="various-issues.html#sustainability">Sustainable</a></li>
-<li><span style="">Pro</span> - <a href="various-issues.html#marijuana">Marijuana</a> <!--/ Pot / Weed / Ganja / "Jump Rope City"--></li>
-<li><span style="color: red;">Anti</span> - <a href="various-issues.html#robots">Robot</a> / Pro - Job</li>
-<li><span style=""></span><a href="various-issues.html#abortion">Pre-Natal Incubation</a></li>
-</ul>
-<br><br>
-</td>
-<td>&nbsp;</td>
-</tr></tbody></table>
+              <table border="0" style="" class="">
+                <tbody>
+                  <tr>
+                    <td>
+                      <ul style="margin-left: 30px;">
+                        <li><span style="">Pro</span> - <a href="various-issues.html#first_amendment">1st Amendment</a>
+                          - Free Speech</li>
+                        <li><span style="">Pro</span> - <a href="various-issues.html#guncontrollers">2nd Amendment</a> -
+                          Defense</li>
+                        <li><span style="">Pro</span> - <a href="various-issues.html#sustainability">Sustainable</a>
+                        </li>
+                        <li><span style="">Pro</span> - <a href="various-issues.html#marijuana">Marijuana</a>
+                          <!--/ Pot / Weed / Ganja / "Jump Rope City"-->
+                        </li>
+                        <li><span style="color: red;">Anti</span> - <a href="various-issues.html#robots">Robot</a> / Pro
+                          - Job</li>
+                        <li><span style=""></span><a href="various-issues.html#abortion">Pre-Natal Incubation</a></li>
+                      </ul>
+                      <br><br>
+                    </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
 
-</td><td>
-
-
-<div style="font-size: 16px; letter-spacing: .1 em; margin: 8px; padding: 10px;border: 1px solid black;">
-<center><span style="font-size: 18px !important;">
-<u>The Box of Quotes</u><br><br></span>
-</center>
-
-<p style="">"Better Politics Eventually"</p><br>
-
-
-<p style="">Or um, "Everyone is just, is just mis-<i>pronouncing</i> it."</p><br>
-
-
-
-<p style="">Or um, "We should thank our lucky stars we have people of all stripes."<br><br>
-</p><center>
-<iframe width="420" height="315" src="video/nQd7g565e2I.html" frameborder="0" allowfullscreen=""></iframe>
-<!--img src="images/rock flag and eagle sunny.jpg" height="250px" alt="ROCK FLAG AND EAGLE!" /--><br>
-<span style="text-transform: uppercase; font-size: smaller">Rock flag and eagle!</span>
-</center>
-<br><br>
-
-<p style="">Or um, "Here's something I think, but yesterday, I walked into a glass door..."</p><br><br>
+            </td>
+            <td>
 
 
-<p style="">Or, "There's always two sides to everything.  But, '<a href="various-issues.html#gravity">gravity is down</a>.' "</p><br><br>
+              <div style="font-size: 16px; letter-spacing: .1 em; margin: 8px; padding: 10px;border: 1px solid black;">
+                <center><span style="font-size: 18px !important;">
+                    <u>The Box of Quotes</u><br><br></span>
+                </center>
+
+                <p style="">"Better Politics Eventually"</p><br>
 
 
-<p style="">Or like, "I need a second chance to get your ear on this one."<br></p><br>
+                <p style="">Or um, "Everyone is just, is just mis-<i>pronouncing</i> it."</p><br>
 
-<!--
+
+
+                <p style="">Or um, "We should thank our lucky stars we have people of all stripes."<br><br>
+                </p>
+                <center>
+                  <iframe width="420" height="315" src="video/nQd7g565e2I.html" frameborder="0"
+                    allowfullscreen=""></iframe>
+                  <!--img src="images/rock flag and eagle sunny.jpg" height="250px" alt="ROCK FLAG AND EAGLE!" /--><br>
+                  <span style="text-transform: uppercase; font-size: smaller">Rock flag and eagle!</span>
+                </center>
+                <br><br>
+
+                <p style="">Or um, "Here's something I think, but yesterday, I walked into a glass door..."</p><br><br>
+
+
+                <p style="">Or, "There's always two sides to everything. But, '<a
+                    href="various-issues.html#gravity">gravity is down</a>.' "</p><br><br>
+
+
+                <p style="">Or like, "I need a second chance to get your ear on this one."<br></p><br>
+
+                <!--
 <p style="">Or, "... and blah-blah-blah, but you see what I'm getting at?"<br/></p><br/><br/>
 
 
 to involve the other fellow in the conversation asap -->
 
-<p style="">Or like, "Is an apple better than a pear? At what?"<br><br>
-</p><center>
-<img src="img/apple_vs_pear.png" alt="Is an apple better than a pear? At what?" height="250px">
-</center>
+                <p style="">Or like, "Is an apple better than a pear? At what?"<br><br>
+                </p>
+                <center>
+                  <img src="img/apple_vs_pear.png" alt="Is an apple better than a pear? At what?" height="250px">
+                </center>
 
-<br><br><p></p><br>
+                <br><br>
+                <p></p><br>
 
 
-<p style="">Or um, "<a href="https://www.youtube.com/watch?v=ahvSgFHzJIc&amp;channel=TheCrue4eva" target="_blank">Every-body's work-ing for the week-end !</a>"</p><br>
+                <p style="">Or um, "<a href="https://www.youtube.com/watch?v=ahvSgFHzJIc&amp;channel=TheCrue4eva"
+                    target="_blank">Every-body's work-ing for the week-end !</a>"</p><br>
 
-<!--
+                <!--
 <p style="">Or like, "<a href="/site2/index.php/mmi-site1/mmi-site1-mixedbag" target="_blank" >It's not really all THAT complicated...</a>"</p><br/>
 
 <p style="">Or um, <span style="text-transform: uppercase">"Huh?!?  What?!?   I can't hear you all the way over there!!  I say!"</span></p>
 -->
-<br><br><br>
+                <br><br><br>
 
-<p style="">Or like Sim City 2000?  You build the roads, you build the water pipes...<br><br></p>
-<center><img src="img/sim-city-2000.jpg" border="0" height="250px"></center>
-<br><br>
-
-
-<p style=""><a href="mailto:">Suggest us some more!</a></p>
-
-</div>
-</td></tr>
-<tr><td colspan="2">
-
-<br><br>
-<hr width="40%">
-<br><br>
+                <p style="">Or like Sim City 2000? You build the roads, you build the water pipes...<br><br></p>
+                <center><img src="img/sim-city-2000.jpg" border="0" height="250px"></center>
+                <br><br>
 
 
+                <p style=""><a href="mailto:">Suggest us some more!</a></p>
 
-<center>
-<h2 style="text-decoration:underline; font-size: 24px;">Really Super Serious Key Points:</h2><br><br>
-<a href="http://aliens.wikia.com/wiki/Neutral_People"> <img src="img/neutral.jpg" height="150"></a> <a href="http://en.wikipedia.org/wiki/Megazord" target="_blank"><img src="img/megazord.jpg" height="150"></a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
 
-	<img src="img/rocky_balboa_black_eye_small.jpg" height="149" width="100">
-
-<br>
-	<img src="img/Lucy-van-pelt_small.jpg" height="110" width="100">
-<img height="110px" border="0" alt="Balance!  Wah-so!" src="img/balance.JPG">
-
-
-<img alt="Coke vs. Pepsi" src="img/fakefight_small.jpg" height="110px">
-</center>
-
-<br>
-<br><hr width="40%"><br><br>
-
-<center>
-<p style="font-size: larger;"><u>Mission Statement Type of Thingy</u></p>
-</center>
-<blockquote style="width: 50%; margin-left: 25%;">"This is America; we have people of all stripes."<br><br>
-
-Lots of folks are kind of moderate.  Moderate Democrat, moderate Republican, independent, whatever.<br><br>
-
-Let's not get boxed out forever because it's hard to agree on what's moderate.  So what?<br><br>
-
-Let's just try and send the sucker dinkin' off the back side of the Moon with a 5-iron like usual, am I wrong?  And we figured out how: by <a href="real-v-fake.html" target="_blank">not actually doing it</a>. ;D<br><br>
-
-We're ready to "<a href="http://en.wikipedia.org/wiki/Megazord">"combine forces into Megazord"</a>", and do this thing up  <i>right</i> as one big dysfunctional human family.<br><br>
-
-<!-- If you look around some and you like where we're coming from, cool deal.  There's plenty of ways to get involved here,  <a href="http://www.cafepress.com/cp/customize/product2.aspx?number=977759875" target="_blank">buy a keychain</a>, <a href="http://www.themiddleparty.net/site2/index.php/articletree/add-article" target="_blank">add an article to the pool</a>, use the <a href="main.html" target="_blank">forums </a>... etc. etc...)<br><br> -->
-
-It's "the best we could do on such short notice," anyway.  Hope you like it.<br><br>
-
-</blockquote>
-<br><br><br><br>
-
-
-<center>
-<h4><a href="http://www.cafepress.com/cp/customize/product2.aspx?number=977759875" target="_blank">So, buy a keychain, ya cheap bum!</a>
-<span style="font-family:sans-serif;">:D</span></h4>
-</center>
-<br><br><br><br>
+              <br><br>
+              <hr width="40%">
+              <br><br>
 
 
 
+              <center>
+                <h2 style="text-decoration:underline; font-size: 24px;">Really Super Serious Key Points:</h2><br><br>
+                <a href="http://aliens.wikia.com/wiki/Neutral_People"> <img src="img/neutral.jpg" height="150"></a> <a
+                  href="http://en.wikipedia.org/wiki/Megazord" target="_blank"><img src="img/megazord.jpg"
+                    height="150"></a>
+
+                <img src="img/rocky_balboa_black_eye_small.jpg" height="149" width="100">
+
+                <br>
+                <img src="img/Lucy-van-pelt_small.jpg" height="110" width="100">
+                <img height="110px" border="0" alt="Balance!  Wah-so!" src="img/balance.JPG">
 
 
-<hr width="40%">
-<center>
-<div style="width: 60%; padding: 20px; border: 1px solid black; font-size: larger;">
-<table border="0" width="90%" style="margin-left: 5%"><tbody><tr><td><center>
-<h2>Okie doke!</h2><br><br>
-That being the gist, you can continue on to any of these exciting (!!!) locations:<br><br>
-</center>
-</td><td style="width: 200px">
-<img src="img/menu.jpg" alt="Man Reads Menu" style="float: right;">
-</td></tr></tbody></table>
+                <img alt="Coke vs. Pepsi" src="img/fakefight_small.jpg" height="110px">
+              </center>
 
-<br><hr width="20%"><br>
-<table border="0" width="100%"><tbody><tr><td width="50%" style="line-height: 200%;">
-<center>
-<u>The Rest of the Main Pages</u><br><br>
-<a href="faq.html">frequently asked questions</a><br>
-<a href="various-issues.html">various issues IN ONE MINUTE EACH!</a><br>
-<a href="black-bart.html">"Black Bart the Bad Guy"</a><br>
-<a href="not-complicated.html">"it's not THAT complicated ..."</a><br>
-<a href="complementary.html">"complementarity"</a><br>
-<a href="fail-on-purpose.html">failing on purpose</a><br>
-<a href="real-v-fake.html">the "real vs. fake" page</a><br><br>
-</center>
-</td></tr></tbody></table>
+              <br>
+              <br>
+              <hr width="40%"><br><br>
 
-</div>
+              <center>
+                <p style="font-size: larger;"><u>Mission Statement Type of Thingy</u></p>
+              </center>
+              <blockquote style="width: 50%; margin-left: 25%;">"This is America; we have people of all
+                stripes."<br><br>
 
-</center><br><br><br>
+                Lots of folks are kind of moderate. Moderate Democrat, moderate Republican, independent,
+                whatever.<br><br>
+
+                Let's not get boxed out forever because it's hard to agree on what's moderate. So what?<br><br>
+
+                Let's just try and send the sucker dinkin' off the back side of the Moon with a 5-iron like usual, am I
+                wrong? And we figured out how: by <a href="real-v-fake.html" target="_blank">not actually doing it</a>.
+                ;D<br><br>
+
+                We're ready to "<a href="http://en.wikipedia.org/wiki/Megazord">"combine forces into Megazord"</a>", and
+                do this thing up <i>right</i> as one big dysfunctional human family.<br><br>
+
+                <!-- If you look around some and you like where we're coming from, cool deal.  There's plenty of ways to get involved here,  <a href="http://www.cafepress.com/cp/customize/product2.aspx?number=977759875" target="_blank">buy a keychain</a>, <a href="http://www.themiddleparty.net/site2/index.php/articletree/add-article" target="_blank">add an article to the pool</a>, use the <a href="main.html" target="_blank">forums </a>... etc. etc...)<br><br> -->
+
+                It's "the best we could do on such short notice," anyway. Hope you like it.<br><br>
+
+              </blockquote>
+              <br><br><br><br>
+
+
+              <center>
+                <h4><a href="http://www.cafepress.com/cp/customize/product2.aspx?number=977759875" target="_blank">So,
+                    buy a keychain, ya cheap bum!</a>
+                  <span style="font-family:sans-serif;">:D</span>
+                </h4>
+              </center>
+              <br><br><br><br>
 
 
 
 
 
-<br><br>
-<hr width="40%">
-<br><br>
-<br><br><br><br><br>
+              <hr width="40%">
+              <center>
+                <div style="width: 60%; padding: 20px; border: 1px solid black; font-size: larger;">
+                  <table border="0" width="90%" style="margin-left: 5%">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <center>
+                            <h2>Okie doke!</h2><br><br>
+                            That being the gist, you can continue on to any of these exciting (!!!) locations:<br><br>
+                          </center>
+                        </td>
+                        <td style="width: 200px">
+                          <img src="img/menu.jpg" alt="Man Reads Menu" style="float: right;">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <br>
+                  <hr width="20%"><br>
+                  <table border="0" width="100%">
+                    <tbody>
+                      <tr>
+                        <td width="50%" style="line-height: 200%;">
+                          <center>
+                            <u>The Rest of the Main Pages</u><br><br>
+                            <a href="faq.html">frequently asked questions</a><br>
+                            <a href="various-issues.html">various issues IN ONE MINUTE EACH!</a><br>
+                            <a href="black-bart.html">"Black Bart the Bad Guy"</a><br>
+                            <a href="not-complicated.html">"it's not THAT complicated ..."</a><br>
+                            <a href="complementary.html">"complementarity"</a><br>
+                            <a href="fail-on-purpose.html">failing on purpose</a><br>
+                            <a href="real-v-fake.html">the "real vs. fake" page</a><br><br>
+                          </center>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </center><br><br><br>
 
 
 
-<center>
-<div style="border: 1px solid black; padding: 20px;">
-<table border="0">
-<tbody><tr><td>
-<p style="font-size: larger;">"Never fear to build castles in the sky; for that is the place to build them.<br><br>You then build up to them."</p>
-<p>&nbsp;-&nbsp; A favorite poem,
- sorta kinda recollected</p>
-
-</td><td width="300" align="right">
-
-<img src="img/cloudcity.jpg" width="300">
-</td></tr></tbody></table>
-</div>
-</center>
-
-<br><br>
-<hr width="40%">
-<br><br>
-
-<div style="text-align: right; width: 80%;">
-<a target="_blank" href="http://www.copyleftout.net/">copy left out overnight with gross roaches</a>
-</div>
-<br><br>
-</td></tr></tbody></table>
-
-</div></div></div></div></article></div>
-
-</main>
 
 
-<footer>
-</footer>
-</body></html>
+              <br><br>
+              <hr width="40%">
+              <br><br>
+              <br><br><br><br><br>
+
+
+
+              <center>
+                <div style="border: 1px solid black; padding: 20px;">
+                  <table border="0">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <p style="font-size: larger;">"Never fear to build castles in the sky; for that is the place
+                            to build them.<br><br>You then build up to them."</p>
+                          <p>&nbsp;-&nbsp; A favorite poem,
+                            sorta kinda recollected</p>
+
+                        </td>
+                        <td width="300" align="right">
+
+                          <img src="img/cloudcity.jpg" width="300">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </center>
+
+              <br><br>
+              <hr width="40%">
+              <br><br>
+
+              <div style="text-align: right; width: 80%;">
+                <a target="_blank" href="http://www.copyleftout.net/">copy left out overnight with gross roaches</a>
+              </div>
+              <br><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      </div>
+      </div>
+      </div>
+      </div>
+      </article>
+      </div>
+
+  </main>
+
+
+  <footer>
+  </footer>
+</body>
+
+</html>
