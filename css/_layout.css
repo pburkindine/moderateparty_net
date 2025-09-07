@@ -1,15 +1,13 @@
-
-
 .flexo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .content-tile {
   margin-bottom: 30px;
   order: 1;
   padding: 10px;
-/* border: 1px solid red; */
+  /* border: 1px solid red; */
 }
 
 .video-tile {
@@ -61,6 +59,7 @@
     order: 1;
     width: 100%
   }
+
   .video-tile {
     order: 0;
     width: 100%
@@ -78,6 +77,7 @@
     order: 0;
     width: 70%
   }
+
   .video-tile {
     order: 1;
     width: 30%
