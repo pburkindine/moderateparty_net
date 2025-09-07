@@ -27,15 +27,15 @@
           img.style.transition = 'transform 0.3s ease-in-out';
           img.style.transform = 'rotate(-5deg) scale(1.2) translateX(-30px)';
 
-          setTimeout(function () {
+          setTimeout(function() {
             img.style.transform = 'rotate(10deg) scale(0.9) translateX(30px)';
           }, 150);
 
-          setTimeout(function () {
+          setTimeout(function() {
             img.style.transform = 'rotate(3deg) scale(1) translateX(0px)';
           }, 300);
 
-          setTimeout(function () {
+          setTimeout(function() {
             img.style.transition = '';
           }, 600);
         } else {
@@ -44,7 +44,7 @@
           void img.offsetWidth;
           img.classList.add('spin');
 
-          setTimeout(function () {
+          setTimeout(function() {
             img.classList.remove('spin');
           }, 1300);
         }

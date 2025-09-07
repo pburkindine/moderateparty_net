@@ -40,7 +40,7 @@
   <script>
     $(function () {
       console.log('ready');
-      $("header").load("header.html", function () {
+      $("header").load("header.html", function() {
         console.log('Header loaded, initializing header animations');
         // Initialize Super Gramma animations after header is loaded
         if (window.initializeSuperGrammaAnimations) {
@@ -50,7 +50,7 @@
       $("footer").load("footer.html");
 
       // Also initialize animations for any Super Grammas already in the main content
-      setTimeout(function () {
+      setTimeout(function() {
         console.log('Initializing main content animations');
         if (window.initializeSuperGrammaAnimations) {
           window.initializeSuperGrammaAnimations();
