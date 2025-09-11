@@ -37,7 +37,7 @@
   <script>
     $(function () {
       console.log('ready');
-      $("header").load("header.html?v=" + Date.now(), function() {
+      $("header").load("header.html?v=" + Date.now(), function () {
         console.log('Header loaded, initializing animations');
         // Initialize Super Gramma animations after header is loaded
         if (window.initializeSuperGrammaAnimations) {
