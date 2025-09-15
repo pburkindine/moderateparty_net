@@ -71,6 +71,18 @@
     initializeMegazordAnimation();
   });
 
-  // Expose function globally for pages that load header dynamically
+  // Mobile menu toggle function
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.hamburger-btn');
+
+    if (menu && btn) {
+      menu.classList.toggle('active');
+      btn.classList.toggle('active');
+    }
+  }
+
+  // Expose functions globally for pages that load header dynamically
   window.initializeSuperGrammaAnimations = initializeSuperGrammaAnimations;
+  window.toggleMobileMenu = toggleMobileMenu;
 })();
