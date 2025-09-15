@@ -1457,3 +1457,35 @@ img[src*="megazord"] {
   font-weight: bold;
   margin: 0 4px;
 }
+
+/* Responsive Footer */
+.tmp-postcontent#linkBar {
+  font-size: 12px !important;
+  padding: 6px 0 !important;
+  white-space: normal !important;
+  line-height: 1.4 !important;
+}
+
+.tmp-postcontent#linkBar a {
+  display: inline-block;
+  margin: 2px 0;
+  white-space: nowrap;
+}
+
+/* Mobile footer adjustments */
+@media (max-width: 768px) {
+  .tmp-postcontent#linkBar {
+    font-size: 11px !important;
+    padding: 4px 0 !important;
+    width: 98% !important;
+    margin-left: 1% !important;
+  }
+
+  .tmp-postcontent#linkBar a {
+    margin: 1px 0;
+  }
+
+  .footer-bullet {
+    margin: 0 2px;
+  }
+}
