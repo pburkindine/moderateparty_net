@@ -1361,33 +1361,35 @@ img[src*="megazord"] {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 30px;
-  height: 30px;
+  height: 24px;
   margin: 0 auto;
 }
 
 .hamburger-line {
   width: 25px;
-  height: 3px;
+  height: 2px;
   background-color: #333;
   transition: all 0.3s ease;
-  border-radius: 2px;
+  border-radius: 1px;
+  display: block;
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(2) {
   opacity: 0;
+  transform: translateX(-20px);
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .mobile-menu {
