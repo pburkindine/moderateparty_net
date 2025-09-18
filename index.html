@@ -19,6 +19,16 @@
   },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
   a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
   twq('config','qhmcx');
+  twq('track','PageView');
+
+  // Debug: Check if Twitter pixel loaded
+  setTimeout(function() {
+    if (typeof twq !== 'undefined') {
+      console.log('Twitter pixel loaded successfully');
+    } else {
+      console.log('Twitter pixel failed to load');
+    }
+  }, 2000);
   </script>
   <!-- End Twitter conversion tracking base code -->
 
