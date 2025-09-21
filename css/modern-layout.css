@@ -1463,7 +1463,7 @@ img[src*="megazord"] {
 
 /* Responsive Footer */
 .tmp-postcontent#linkBar {
-  font-size: 12px !important;
+  font-size: 14px !important;
   padding: 6px 0 !important;
   white-space: normal !important;
   line-height: 1.4 !important;
@@ -1478,7 +1478,7 @@ img[src*="megazord"] {
 /* Mobile footer adjustments */
 @media (max-width: 768px) {
   .tmp-postcontent#linkBar {
-    font-size: 11px !important;
+    font-size: 12px !important;
     padding: 4px 0 !important;
     width: 98% !important;
     margin-left: 1% !important;
