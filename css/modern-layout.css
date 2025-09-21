@@ -773,7 +773,7 @@ footer a:hover {
 
 /* Clean up the "copy left out overnight with gross roaches" text */
 a[href*="copyleftout.net"] {
-  font-size: 12px;
+  font-size: 14px;
   color: #7f8c8d;
   text-decoration: underline;
 }
