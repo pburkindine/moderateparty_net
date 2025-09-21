@@ -4,17 +4,17 @@ ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN {
 }
 
 ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN a {
-	background: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png) no-repeat 2px -1px;
+	background: url(/web/20181210052654im_/https://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png) no-repeat 2px -1px;
 	display: block;
 	padding: 0 15px 3px 23px;
 }
 
 ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN a:hover {
-	background: #d8dfea url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png) no-repeat 2px -1px;
+	background: #d8dfea url(/web/20181210052654im_/https://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png) no-repeat 2px -1px;
 }
 
 .facebookconnect_button_bg {
-	background-image: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/bg.png);
+	background-image: url(/web/20181210052654im_/https://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/bg.png);
 	background-repeat: repeat-x;
 	background-position: 0px 0px;
 	margin-top: 2px;
@@ -25,7 +25,7 @@ ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN a:hover {
 }
 
 .facebookconnect_button {
-	background-image: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png);
+	background-image: url(/web/20181210052654im_/https://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	cursor: pointer;
@@ -40,7 +40,7 @@ ul.cbMenuULlist li.cbMenu_UE_MENU_FBC_UNJOIN a:hover {
 }
 
 .facebookconnect_button_small {
-	background-image: url(/web/20181210052654im_/http://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png);
+	background-image: url(/web/20181210052654im_/https://www.moderateparty.net/site2/components/com_comprofiler/plugin/user/plug_cbfacebookconnect/images/icon.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	cursor: pointer;
