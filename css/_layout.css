@@ -75,3 +75,13 @@
     padding: 50px;
   }
 }
+
+/* Video caption styling */
+.video-caption {
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  color: #333;
+}
