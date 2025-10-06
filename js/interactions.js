@@ -86,3 +86,58 @@
   window.initializeSuperGrammaAnimations = initializeSuperGrammaAnimations;
   window.toggleMobileMenu = toggleMobileMenu;
 })();
+
+// Planks collapsible: mobile-only, default collapsed on non-index
+(function(){
+  function initPlankToggle(){
+    var planks = document.getElementById('planks');
+    var btn = document.querySelector('.planks-toggle');
+    if(!planks || !btn) {
+      // Try again in a moment if elements not found (header may be loading)
+      setTimeout(initPlankToggle, 100);
+      return;
+    }
+
+    function setExpanded(expanded){
+      if(expanded){
+        planks.classList.remove('collapsed');
+        btn.setAttribute('aria-expanded','true');
+      } else {
+        planks.classList.add('collapsed');
+        btn.setAttribute('aria-expanded','false');
+      }
+    }
+
+    function applyInitial(){
+      if(window.innerWidth >= 768){
+        // Desktop: always expanded
+        planks.classList.remove('collapsed');
+        return;
+      }
+      // Mobile: check if we're on index page
+      var pathname = window.location.pathname;
+      var isIndex = pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('/');
+      setExpanded(isIndex);
+    }
+
+    if(!btn.dataset.bound){
+      btn.addEventListener('click', function(){
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        setExpanded(!expanded);
+      });
+      btn.dataset.bound = '1';
+    }
+
+    applyInitial();
+    window.addEventListener('resize', applyInitial);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initPlankToggle);
+  } else {
+    initPlankToggle();
+  }
+
+  // Also try after a delay for dynamically loaded headers
+  setTimeout(initPlankToggle, 500);
+})();
