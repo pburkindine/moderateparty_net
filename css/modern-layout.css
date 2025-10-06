@@ -207,6 +207,10 @@ header .d-flex.flex-column:not(.flex-md-row) {
   margin: 3px 5px !important;
   font-size: 13px;
   white-space: nowrap;
+
+  img {
+    display: inline-block;
+  }
 }
 
 .header-link a {
