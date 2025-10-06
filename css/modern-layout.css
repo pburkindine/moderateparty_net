@@ -54,7 +54,7 @@ header {
 
 /* Ensure all header content is visible */
 header * {
-  display: inherit !important;
+  display: inherit;
   visibility: visible !important;
   opacity: 1 !important;
 }
@@ -1410,7 +1410,9 @@ img[src*="megazord"] {
 }
 
 .mobile-menu-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   padding: 15px 25px;
   color: #333;
   text-decoration: none;
@@ -1418,6 +1420,7 @@ img[src*="megazord"] {
   border-bottom: 1px solid #f0f0f0;
   transition: background-color 0.2s ease;
   line-height: 1.4;
+  white-space: nowrap;
 }
 
 .mobile-menu-link:hover {
