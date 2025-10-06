@@ -17,11 +17,9 @@
       img.style.cursor = 'pointer';
 
       img.addEventListener('click', function () {
-        console.log('Super Gramma clicked!', img.className);
 
         // For main logo, use a simple approach
         if (img.classList.contains('main-super-gramma-center')) {
-          console.log('Main logo clicked - applying clean animation');
 
           // Simple transition-based animation
           img.style.transition = 'transform 0.3s ease-in-out';

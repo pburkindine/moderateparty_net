@@ -59,7 +59,9 @@
   <script>
     $(function () {
       console.log('ready');
-      $("header").load("header.html");
+      $("header").load("header.html", function() {
+        initializeSuperGrammaAnimations();
+      });
       $("footer").load("footer.html");
     });
   </script>
