@@ -1524,3 +1524,57 @@ img[src*="megazord"] {
     margin: 0 2px;
   }
 }
+
+/* Table of Contents Styles */
+#toc-list {
+  line-height: 2;
+  list-style-type: circle;
+  list-style-position: inside;
+  column-count: 2;
+  column-gap: 30px;
+  font-size: 13px;
+}
+
+#toc-list a {
+  color: #2563ab !important;
+  text-decoration: none !important;
+}
+
+#toc-list a:hover {
+  color: #1e40af !important;
+  text-decoration: underline !important;
+}
+
+/* World Peace section links */
+#toc-content a {
+  color: #2563ab !important;
+  text-decoration: none !important;
+}
+
+#toc-content a:hover {
+  color: #1e40af !important;
+  text-decoration: underline !important;
+}
+
+@media (max-width: 768px) {
+  #toc-list {
+    column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+    -moz-column-count: 1 !important;
+  }
+
+  #toc-list li[style*="break-before: column"] {
+    break-before: auto !important;
+    -webkit-column-break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  /* Left-align World Peace section on mobile */
+  #toc-content > div[style*="text-align: center"] {
+    text-align: left !important;
+  }
+
+  #toc-content > div[style*="text-align: center"] ul {
+    display: block !important;
+  }
+}
