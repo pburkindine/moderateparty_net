@@ -108,6 +108,58 @@
       <p style="margin-top: 5px;; font-size: 13px; "> -- An Intense, Over-Bearing Manifesto or Lengthy, Insulting Tirade
         -- </p>
 
+      <div style="margin: 30px auto; max-width: 550px; text-align: left; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+        <h3 onclick="toggleTOC()" style="text-align: center; margin-bottom: 15px; font-size: 16px; cursor: pointer; user-select: none;">
+          t.o.c. <span id="toc-toggle" style="font-size: 12px;">▼</span>
+        </h3><!-- *tik tik* -->
+        <div id="toc-content" style="display: block;">
+          <ul style="line-height: 2; list-style-type: circle; list-style-position: inside; column-count: 2; column-gap: 30px; font-size: 13px;">
+            <li><a href="#jerk" style="color: #3d5266; text-decoration: none;">Being a Jerk (Learn to Teach!)</a></li>
+            <li><a href="#politics" style="color: #3d5266; text-decoration: none;">Politics in General</a></li>
+            <li><a href="#sustainability" style="color: #3d5266; text-decoration: none;">Sustainability</a></li>
+            <li><a href="#capitalism" style="color: #3d5266; text-decoration: none;">Moderate Capitalism</a></li>
+            <li><a href="#tariffs" style="color: #3d5266; text-decoration: none;">Tariffs ("Internalized Economies")</a></li>
+            <li><a href="#taxes" style="color: #3d5266; text-decoration: none;">Taxes</a></li>
+            <li><a href="#campaignfinancereform" style="color: #3d5266; text-decoration: none;">Campaign Finance Reform</a></li>
+            <li><a href="#instantrunoffvoting" style="color: #3d5266; text-decoration: none;">Ranked Choice Voting / IRV</a></li>
+            <li><a href="#marijuana" style="color: #3d5266; text-decoration: none;">Marijuana</a></li>
+            <li><a href="#goldstandard" style="color: #3d5266; text-decoration: none;">The Gold Standard</a></li>
+            <li style="font-style: italic; color: #777; margin-top: 8px; list-style: none; break-before: column;">The "Secret Liberal" Section</li>
+            <li><a href="#healthcare" style="color: #3d5266; text-decoration: none;">Pro-Obamacare</a></li>
+            <li><a href="#education" style="color: #3d5266; text-decoration: none;">K-Jobs Education</a></li>
+            <li><a href="#theunions" style="color: #3d5266; text-decoration: none;">The Unions</a></li>
+            <li><a href="#animals" style="color: #3d5266; text-decoration: none;">Farm Animals</a></li>
+            <li style="font-style: italic; color: #777; margin-top: 8px; list-style: none;">The "Red-Pilled Gun Nut" Section</li>
+            <li><a href="#guns" style="color: #3d5266; text-decoration: none;">The 2nd Amendment</a></li>
+            <li><a href="#immigration" style="color: #3d5266; text-decoration: none;">Immigration</a></li>
+            <li><a href="#oneworldgovernment" style="color: #3d5266; text-decoration: none;">One-World Government</a></li>
+            <li><a href="#abortion" style="color: #3d5266; text-decoration: none;">Abortion => Pre-Natal Incubation</a></li>
+          </ul>
+          <div style="text-align: center; margin-top: 15px;">
+            <div style="font-style: italic; color: #777; margin-bottom: 8px;">The World Peace Today Section</div>
+            <ul style="line-height: 2; list-style-type: circle; list-style-position: inside; font-size: 13px; display: inline-block; text-align: left;">
+              <li><a href="#faith" style="color: #3d5266; text-decoration: none;">Faith and Family</a></li>
+              <li><a href="#israel" style="color: #3d5266; text-decoration: none;">Israel and Palestine</a></li>
+              <li><a href="#diversity" style="color: #3d5266; text-decoration: none;">Cultures - "Yay, Some of Those!"</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function toggleTOC() {
+          var content = document.getElementById('toc-content');
+          var toggle = document.getElementById('toc-toggle');
+          if (content.style.display === 'none') {
+            content.style.display = 'block';
+            toggle.innerHTML = '▼';
+          } else {
+            content.style.display = 'none';
+            toggle.innerHTML = '▶';
+          }
+        }
+      </script>
+
       <hr width="10%">
     </center>
 
