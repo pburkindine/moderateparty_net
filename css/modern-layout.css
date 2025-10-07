@@ -1569,6 +1569,11 @@ img[src*="megazord"] {
     page-break-before: auto !important;
   }
 
+  /* Secret Liberal section header margin on mobile */
+  #toc-list li[style*="break-before: column"][style*="margin-top: 0px"] {
+    margin-top: 8px !important;
+  }
+
   /* Left-align World Peace section on mobile */
   #toc-content > div[style*="text-align: center"] {
     text-align: left !important;
