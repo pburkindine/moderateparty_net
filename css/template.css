@@ -368,21 +368,6 @@ li p, .tmp-postcontent li p, .tmp-blockcontent li p
   z-index: 99;
 }
 
-.title-roaches {
-  max-height: 0px;
-  max-width: 56px;
-  overflow: visible;
-}
-
-.title-roach-1 {
-  width: 56px;
-}
-
-.title-roach-2 {
-  margin-left: 120px;
-  width: 25px;
-}
-
 .tmp-headline, .tmp-headline a, .tmp-headline a:link, .tmp-headline a:visited, .tmp-headline a:hover
 {
   font-weight: normal;
