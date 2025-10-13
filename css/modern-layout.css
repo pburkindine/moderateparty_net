@@ -1662,3 +1662,8 @@ img[src*="megazord"] {
 .flexo:last-of-type .content-tile::after {
   display: none;
 }
+
+/* Video tile spacing */
+.video-tile {
+  padding-bottom: 20px;
+}
