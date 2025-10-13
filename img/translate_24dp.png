@@ -108,7 +108,7 @@ body {
   </div>
     <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
                     <div id="wm-capinfo-collected-by">
-    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="background-color:#555;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
     <div style="padding:3px;position:relative" id="wm-collected-by-content">
       <div style="display:inline-block;vertical-align:top;width:49%;">
 			<span class="c-logo" style="background-image:url(https://archive.org/services/img/save-page-now)"></span>
@@ -117,7 +117,7 @@ body {
     </div>
     </div>
     <div id="wm-capinfo-timestamps">
-    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div style="background-color:#555;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
     <div>
       <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
       <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="/_static/images/loading.gif" alt="loading" /></div>
