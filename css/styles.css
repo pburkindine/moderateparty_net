@@ -34,7 +34,7 @@ a {color:#069;}
 #introHome p {font-size:1.25em;line-height:1.5em;}
 #introHome a.faq {font-size:.875em;display: block;text-align: right;line-height:1.5em;}
 #footerHome {max-width:413px;text-align:left;margin:45px auto 0;padding-left:37px;background:url("../images/logo_archive-sm.png") 0 0 no-repeat;}
-#footerHome p {font-family:"georgia","times new roman",serif;font-size:.6875em;color:#666;line-height:1.5em;margin-bottom:2em;}
+#footerHome p {font-family:"georgia","times new roman",serif;font-size:.6875em;color:#555;line-height:1.5em;margin-bottom:2em;}
 
 .no-script-message {
   width: 400px;
@@ -163,7 +163,7 @@ table#resultsUrl th {
     padding:5px; padding-right: 9px;
 }
 .dataTables_info {
-    color: #666 !important;
+    color: #555 !important;
 }
 
 /* SPN2 UI */
