@@ -96,8 +96,6 @@
 
     <a name="top"></a>
 
-
-
     <center>
       <p><span style="font-size: 24px; line-height: 1.6; text-decoration: underline; text-underline-offset: 8px;">Various Issues <span style="text-transform: uppercase">in one minute
               each</span>!!</span><br><br>
@@ -107,12 +105,13 @@
 
       <p style="margin-top: 5px;; font-size: 13px; "> -- An Intense, Over-Bearing Manifesto or Lengthy, Insulting Tirade
         -- </p>
+    </center>
 
-      <div style="margin: 30px auto; max-width: 550px; text-align: left; padding: 20px; background: #f9f9f9; border-radius: 8px;">
-        <h3 onclick="toggleTOC()" style="text-align: center; margin-bottom: 15px; font-size: 16px; cursor: pointer; user-select: none;">
-          t.o.c. <span id="toc-toggle" style="font-size: 12px;">▼</span>
-        </h3><!-- *tik tik* -->
-        <div id="toc-content" style="display: block;">
+    <div id="sticky-toc">
+      <h3 onclick="toggleTOC()" class="toc-header">
+        t.o.c. <span id="toc-toggle">▶</span>
+      </h3><!-- *tik tik* -->
+      <div id="toc-content" style="display: none;">
           <ul id="toc-list">
             <li><a href="#jerk">Being a Jerk</a> (Learn to Teach!)</li>
             <li><a href="#politics">Politics in General</a></li>
@@ -124,9 +123,9 @@
             <li><a href="#education">K-Jobs Education</a></li>
             <li><a href="#healthcare">Pro-Obamacare</a></li>
             <li><a href="#sustainability">Sustainability</a></li>
-            <li><a href="#animals">Farm Animals</a></li>
+            <!-- <li><a href="#animals">Farm Animals</a></li> -->
             <li style="font-style: italic; color: #777; margin-top: 8px; list-style: none;">The "Red-Pilled Gun Nut" Section</li>
-            <li><a href="#guns">Armed Bears &amp; Borders</a></li>
+            <li><a href="#guns">Armed Bears</a></li>
             <li><a href="#immigration">Immigration</a></li>
             <li><a href="#tariffs">Tariffs</a> ("Internalized Economies")</li>
             <!-- <li><a href="#abortion">Pre-Natal Incubation</a></li> -->
@@ -142,32 +141,31 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <script>
-        function toggleTOC() {
-          var content = document.getElementById('toc-content');
-          var toggle = document.getElementById('toc-toggle');
-          if (content.style.display === 'none') {
-            content.style.display = 'block';
-            toggle.innerHTML = '▼';
-          } else {
-            content.style.display = 'none';
-            toggle.innerHTML = '▶';
-          }
+    <script>
+      function toggleTOC() {
+        var content = document.getElementById('toc-content');
+        var toggle = document.getElementById('toc-toggle');
+        if (content.style.display === 'none') {
+          content.style.display = 'block';
+          toggle.innerHTML = '▼';
+        } else {
+          content.style.display = 'none';
+          toggle.innerHTML = '▶';
         }
+      }
 
-        // Initialize TOC state based on screen size
-        (function() {
-          var isMobile = window.innerWidth <= 768;
-          if (isMobile) {
-            var content = document.getElementById('toc-content');
-            var toggle = document.getElementById('toc-toggle');
-            content.style.display = 'none';
-            toggle.innerHTML = '▶';
-          }
-        })();
-      </script>
+      // Initialize TOC as collapsed on all devices
+      (function() {
+        var content = document.getElementById('toc-content');
+        var toggle = document.getElementById('toc-toggle');
+        content.style.display = 'none';
+        toggle.innerHTML = '▶';
+      })();
+    </script>
 
+    <center>
       <hr width="10%">
     </center>
 
@@ -745,7 +743,7 @@
           <a name="tariffs"></a><a name="internalizedeconomies"></a>
           <center><u>Tariffs</u></center>
           <center><a href="#top" style="font-size: small;">Top</a></center><br><br>
-          Trump's tariffs are a good thing.  They will build jobs at home. Buy <a href="https://en.wikipedia.org/wiki/Made_in_USA" target="_blank">Made in the USA</a>!  We used to call this an "internalized economy" and have been in favor since this started.  <br /><br />
+          Trump's tariffs are a good thing.  They will build jobs at home. Buy <a href="https://en.wikipedia.org/wiki/Made_in_USA" target="_blank">Made in the USA</a>!  We used to call this an "internalized economy" and have been in favor since this started.<br /><br />
 
           <center>
             <img src="img/made-in-the-usa.jpg" alt="Made in the USA" height="250px"><br/><br/>
