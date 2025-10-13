@@ -1637,4 +1637,10 @@ img[src*="megazord"] {
     box-shadow: 0 2px 0 #f5f5f5 !important;
     top: 0 !important;
   }
+
+  /* Center video-tiles on mobile */
+  .video-tile {
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
 }
