@@ -1646,3 +1646,19 @@ img[src*="megazord"] {
     margin: 0 auto !important;
   }
 }
+
+/* Section separator */
+.content-tile::after {
+  content: "•••";
+  display: block;
+  text-align: center;
+  color: #666;
+  margin: 20px 0 20px 0;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+/* Remove separator from last content-tile */
+.flexo:last-of-type .content-tile::after {
+  display: none;
+}
