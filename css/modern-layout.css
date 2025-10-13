@@ -126,10 +126,10 @@ header .d-flex.flex-column:not(.flex-md-row) {
   margin: 0 !important;
   padding: 2px 4px !important;
   background: none !important;
-  color: #666 !important;
+  color: #555 !important;
   text-decoration: underline !important;
   border-radius: 0 !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
   transition: none !important;
 }
 
