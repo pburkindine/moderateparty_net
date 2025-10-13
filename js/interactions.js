@@ -63,10 +63,24 @@
     }
   }
 
+  function initializeBonsaiAnimation() {
+    // Bonsai pulse and fade on click
+    var bonsai = document.querySelector('img[src*="bonsai"]');
+    if (bonsai) {
+      bonsai.style.cursor = 'pointer';
+      bonsai.addEventListener('click', function () {
+        bonsai.classList.remove('bonsai-pulse');
+        void bonsai.offsetWidth;
+        bonsai.classList.add('bonsai-pulse');
+      });
+    }
+  }
+
   // Initialize animations when DOM is ready
   ready(function () {
     initializeSuperGrammaAnimations();
     initializeMegazordAnimation();
+    initializeBonsaiAnimation();
   });
 
   // Mobile menu toggle function

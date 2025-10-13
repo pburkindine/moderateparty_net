@@ -1658,3 +1658,30 @@ img[src*="megazord"] {
 .video-tile {
   padding-bottom: 20px;
 }
+
+/* Bonsai pulse and fade animation */
+.bonsai-pulse {
+  animation: bonsai-pulse-fade .6s ease-out 1;
+}
+
+@keyframes bonsai-pulse-fade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    transform: scale(.85);
+    opacity: 0.6;
+  }
+
+  60% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
