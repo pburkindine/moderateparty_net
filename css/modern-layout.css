@@ -35,11 +35,6 @@ body {
   padding: 0;
 }
 
-/* Header improvements - remove cockroaches and make mobile friendly */
-.title-roaches {
-  display: none !important;
-  /* Remove cockroach imagery */
-}
 
 /* Ensure header is visible - very aggressive rules */
 header {
@@ -707,10 +702,6 @@ footer a:hover {
   color: #5dade2;
 }
 
-/* Remove cockroaches from title area only - keep them for copyleftout links */
-.title-roaches img[src*="roach"] {
-  display: none !important;
-}
 
 /* Main branding - prominent super gramma in center */
 .main-super-gramma-center {
@@ -770,7 +761,7 @@ footer a:hover {
   }
 }
 
-/* Clean up the "copy left out overnight with gross roaches" text */
+/* Clean up the "copy left out overnite" text */
 a[href*="copyleftout.net"] {
   font-size: 14px;
   color: #7f8c8d;
