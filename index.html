@@ -1,101 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P6GSQRGG');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-P6GSQRGG");
+  </script>
+  <!-- End Google Tag Manager -->
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+  ></script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17369108994"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=AW-17369108994"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'AW-17369108994');
-
-</script>
-<!-- Event snippet for Page view (1) conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-17369108994/msAECIu6h58bEIKkntpA'});
-</script>
+    gtag("config", "AW-17369108994");
+  </script>
+  <!-- Event snippet for Page view (1) conversion page -->
+  <script>
+    gtag("event", "conversion", {
+      send_to: "AW-17369108994/msAECIu6h58bEIKkntpA",
+    });
+  </script>
 
   <!-- Twitter conversion tracking base code -->
   <script>
-  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
-  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-  twq('config','qhmcx');
-  twq('track','PageView');
+    !(function (e, t, n, s, u, a) {
+      e.twq ||
+        ((s = e.twq =
+          function () {
+            s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+          }),
+        (s.version = "1.1"),
+        (s.queue = []),
+        (u = t.createElement(n)),
+        (u.async = !0),
+        (u.src = "https://static.ads-twitter.com/uwt.js"),
+        (a = t.getElementsByTagName(n)[0]),
+        a.parentNode.insertBefore(u, a));
+    })(window, document, "script");
+    twq("config", "qhmcx");
+    twq("track", "PageView");
 
-  // Debug: Check if Twitter pixel loaded
-  setTimeout(function() {
-    if (typeof twq !== 'undefined') {
-      console.log('Twitter pixel loaded successfully');
-    } else {
-      console.log('Twitter pixel failed to load');
-    }
-  }, 2000);
+    // Debug: Check if Twitter pixel loaded
+    setTimeout(function () {
+      if (typeof twq !== "undefined") {
+        console.log("Twitter pixel loaded successfully");
+      } else {
+        console.log("Twitter pixel failed to load");
+      }
+    }, 2000);
   </script>
   <!-- End Twitter conversion tracking base code -->
 
-  <link rel="image_src" href="img/supergrams_licensed.png">
+  <link rel="image_src" href="img/supergrams_licensed.png" />
 
   <!-- Open Graph meta tags for Facebook sharing -->
-  <meta property="og:title" content="moderate Party .net - Better Politics Eventually">
-  <meta property="og:description" content="With the powers of the Left and Right combined, We Form Into Megazord! Pro-Obamacare, Pro-Guns & Borders, K-Jobs Education, Pro-Sustainability, Pro-Pot, Pro-Faith/Family, Pro-Diversity, Less Robots, Pre-Natal Incubation">
-  <meta property="og:image" content="https://www.moderateparty.net/img/supergrams_licensed.png">
-  <meta property="og:url" content="https://www.moderateparty.net/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="moderate Party .net">
-
+  <meta
+    property="og:title"
+    content="moderate Party .net - Better Politics Eventually"
+  />
+  <meta
+    property="og:description"
+    content="With the powers of the Left and Right combined, We Form Into Megazord! Pro-Obamacare, Pro-Guns & Borders, K-Jobs Education, Pro-Sustainability, Pro-Pot, Pro-Faith/Family, Pro-Diversity, Less Robots, Pre-Natal Incubation"
+  />
+  <meta
+    property="og:image"
+    content="https://www.moderateparty.net/img/supergrams_licensed.png"
+  />
+  <meta property="og:url" content="https://www.moderateparty.net/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="moderate Party .net" />
 
   <!-- Twitter Card meta tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="moderate Party .net - Better Politics Eventually">
-  <meta name="twitter:description" content="With the powers of the Left and Right combined, We Form Into Megazord! Pro-Obamacare, Pro-Guns & Borders, K-Jobs Education, Pro-Sustainability, Pro-Pot, Pro-Faith/Family, Pro-Diversity, Less Robots, Pre-Natal Incubation">
-  <meta name="twitter:image" content="https://www.moderateparty.net/img/supergrams_licensed.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="moderate Party .net - Better Politics Eventually"
+  />
+  <meta
+    name="twitter:description"
+    content="With the powers of the Left and Right combined, We Form Into Megazord! Pro-Obamacare, Pro-Guns & Borders, K-Jobs Education, Pro-Sustainability, Pro-Pot, Pro-Faith/Family, Pro-Diversity, Less Robots, Pre-Natal Incubation"
+  />
+  <meta
+    name="twitter:image"
+    content="https://www.moderateparty.net/img/supergrams_licensed.png"
+  />
 
-  <meta name="keywords"
-    content="politics, moderate, middle, independent, conservative, Republican, liberal, Democrat, tea party, green party, libertarian, marijuana, abortion, pro-life">
-  <meta name="description"
-    content="&quot;Better Politics Eventually&quot; - Pro-Obamacare, Pro-Guns & Borders, K-Jobs Education, Pro-Sustainability, Pro-Pot, Pro-Faith/Family, Pro-Diversity, Less Robots, Pre-Natal Incubation">
+  <meta
+    name="keywords"
+    content="politics, moderate, middle, independent, conservative, Republican, liberal, Democrat, tea party, green party, libertarian, marijuana, abortion, pro-life"
+  />
+  <meta
+    name="description"
+    content='"Better Politics Eventually" - Pro-Obamacare, Pro-Guns & Borders, K-Jobs Education, Pro-Sustainability, Pro-Pot, Pro-Faith/Family, Pro-Diversity, Less Robots, Pre-Natal Incubation'
+  />
   <title>moderate Party .net</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.moderateparty.net/sitemap.xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link
+    rel="sitemap"
+    type="application/xml"
+    title="Sitemap"
+    href="https://www.moderateparty.net/sitemap.xml"
+  />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+    crossorigin="anonymous"
+  />
 
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/general.css" />
+  <link rel="stylesheet" href="css/_layout.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/modern-layout.css" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-
-  <link rel="stylesheet" href="css/system.css">
-  <link rel="stylesheet" href="css/general.css">
-  <link rel="stylesheet" href="css/_layout.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/modern-layout.css">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="css/template.css" media="screen">
-  <link rel="stylesheet" href="css/template.responsive.css" media="all">
-  <link rel="stylesheet" type="text/css" href="css/css">
-
+  <link rel="stylesheet" href="css/template.css" media="screen" />
+  <link rel="stylesheet" href="css/template.responsive.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="css/css" />
 
   <script>
     $(function () {
-      console.log('ready');
+      console.log("ready");
       $("header").load("header.html", function () {
         // console.log('Header loaded, initializing header animations');
         // Initialize Super Gramma animations after header is loaded
@@ -118,203 +170,331 @@
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6GSQRGG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript
+    ><iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-P6GSQRGG"
+      height="0"
+      width="0"
+      style="display: none; visibility: hidden"
+    ></iframe
+  ></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-  <header>
-
-  </header>
+  <header></header>
   <main class="main">
     <div class="d-flex flex-column flex-md-row mx-1 justify-content-md-between">
       <div class="hero-left align-self-md-start order-1 order-md-0">
+        <center>
+          <img src="img/bonsai_2.jpg" alt="Bonsai!" width="105px" /><br />
 
-        <center><img src="img/bonsai_2.jpg" alt="Bonsai!" width="105px"><br>
+          Gonna have a Rock-a-Zoola<br />'til the end of time!<br />Oh, yeah!<br /><br />
 
-          Gonna have a Rock-a-Zoola<br>'til the end of time!<br>Oh, yeah!<br><br>
-
-          * * Bop, Doo-Waa! * *<br>
+          * * Bop, Doo-Waa! * *<br />
           * * Bop-a Bop-a, Doo-Waa! * *
           <!-- Thanks, Tad!  -->
         </center>
       </div>
 
-      <div class="hero-center px-2 px-md-3 order-0 order-md-1" style="flex-grow: 2;"><br>
+      <div
+        class="hero-center px-2 px-md-3 order-0 order-md-1"
+        style="flex-grow: 2"
+      >
+        <br />
         <center>
-
-
-          <div class="super-gramma-brand-section" style="margin: 20px 0;">
-            <img src="img/super-gramma.png" alt="Super Gramma"
-              class="main-super-gramma-center super-gramma brand-gramma">
+          <div class="super-gramma-brand-section" style="margin: 20px 0">
+            <img
+              src="img/super-gramma.png"
+              alt="Super Gramma"
+              class="main-super-gramma-center super-gramma brand-gramma"
+            />
           </div>
 
-          <div id="biglink" style="font-size: 45px; margin: 30px 0 20px 0;">
-            moderate Party .net</div>
+          <div id="biglink" style="font-size: 45px; margin: 30px 0 20px 0">
+            moderate Party .net
+          </div>
 
+          <img
+            src="img/megazord.jpg"
+            height="240px"
+            alt="Let&#39;s DO this!"
+            border="0"
+          /><br />
 
-          <img src="img/megazord.jpg" height="240px" alt="Let&#39;s DO this!" border="0"><br />
+          <div style="margin: 10px 0 8px 0">
+            <div style="margin-bottom: 14px; font-size: 16px">
+              With the powers of the Left and Right combined,
+            </div>
+            <span style="font-size: 28px; text-transform: uppercase"
+              >We Form Into
+              <span
+                class="tooltips-link"
+                title="::What is a Megazord?  Ask Wikipedia..."
+                ><a
+                  href="http://en.wikipedia.org/wiki/Megazord"
+                  target="_blank"
+                  style="text-decoration: none !important"
+                  >Megazord</a
+                ></span
+              >
+              !!!!</span
+            >
 
-          <div style="margin: 10px 0 8px 0;">
-            <div style="margin-bottom: 14px; font-size: 16px;">With the powers of the Left and Right combined,</div>
-            <span style="font-size: 28px; text-transform: uppercase">We Form Into <span class="tooltips-link"
-                title="::What is a Megazord?  Ask Wikipedia..."><a href="http://en.wikipedia.org/wiki/Megazord"
-                  target="_blank" style="text-decoration: none !important;">Megazord</a></span> !!!!</span>
-
-            <hr width="30%"><br>
+            <hr width="30%" />
+            <br />
 
             <div class="super-gramma-container">
-              <img class="super-gramma acid-gramma-1" src="img/super-gramma.png" alt="Super Gramma">
-              <img class="super-gramma acid-gramma-2 flip" src="img/super-gramma.png" alt="Super Gramma">
-            </div><br><br>
+              <img
+                class="super-gramma acid-gramma-1"
+                src="img/super-gramma.png"
+                alt="Super Gramma"
+              />
+              <img
+                class="super-gramma acid-gramma-2 flip"
+                src="img/super-gramma.png"
+                alt="Super Gramma"
+              />
+            </div>
+            <br /><br />
 
-            <hr width="30%"><br>
-
+            <hr width="30%" />
+            <br />
+          </div>
         </center>
       </div>
 
-      <div class="hero-right order-2 align-self-md-start"
-        style="font-size: 14px; line-height: 130%; border-left: #919191 dashed 1px; padding-left: 11px; margin-top: 0;">
-
-
+      <div
+        class="hero-right order-2 align-self-md-start"
+        style="
+          font-size: 14px;
+          line-height: 130%;
+          border-left: #919191 dashed 1px;
+          padding-left: 11px;
+          margin-top: 0;
+        "
+      >
         <u>Q: what? huh?</u><br /><br />
 
         A: Whatsa whatsa moderate party.... <br /><br />
 
+        Starting from a question mark, that's all. It's not centrism; we take
+        sides. We just don't start from knowing who's right, let us think about
+        it for a minute, SHEESH.<br /><br />
 
+        "I have fences on both sides of my house," so to speak.<br />
+        <img
+          src="img/fence.webp"
+          alt="Fence"
+          style="
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+          "
+        /><br /><br />
 
-        Starting from a question mark, that's all. It's not centrism; we take sides. We just don't start from
-        knowing
-        who's right, let us think about it for a minute, SHEESH.<br /><br />
+        We don't want to start an actual political party (sounds like a bad
+        hassle). We'd rather it just be a thinker and something to talk
+        about.<br /><br /><br />
 
-        "I have fences on both sides of my house," so to speak.<br>
-        <img src="img/fence.webp" alt="Fence" style="max-width: 100px; height: auto; display: block; margin: 10px auto;" /><br><br>
-
-
-
-        We don't want to start an actual political party (sounds like a bad hassle). We'd rather it just be a
-        thinker
-        and something to talk about.<br /><br /><br/>
-
-
-
-        <div style="line-height: 1.6;">
-          <u>Q: Why do you just repost memes?<br/>
-          Why aren't there like candidates and arguing?</u><br /><br />
+        <div style="line-height: 1.6">
+          <u
+            >Q: Why do you just repost memes?<br />
+            Why aren't there like candidates and arguing?</u
+          ><br /><br />
         </div>
 
-          A: No offense, but this whole manner of doing politics is too square. No funk.<br /><br />
+        A: No offense, but this whole manner of doing politics is too square. No
+        funk.<br /><br />
 
+        It's the wrong speed entirely to us to quarrel instead of create with
+        our time. "Ya reap what ya sow."<br /><br />
 
-        It's the wrong speed entirely to us to quarrel instead of create with our time.  "Ya reap what ya sow."<br /><br />
-
-        Let's turn swords to ploughshares, figure out how to like each other and <a href="https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/makem-clancy-all-gods-critters.mp4" target="_blank">stay different</a>.<br /><br />
-         It can't be a war and be cool, you know?<br /><br />
-
-         <center>
-          <hr width="10%" /><br/><br/>
-        </center>
-
-          So anyway, here's a moderate Party for ya, have a look around!<br/><br/>
-
-        <center>
-          <hr width="10%" /><br/><br/>
-        </center>
+        Let's turn swords to ploughshares, figure out how to like each other and
+        <a
+          href="https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/makem-clancy-all-gods-critters.mp4"
+          target="_blank"
+          >stay different</a
+        >.<br /><br />
+        It can't be a war and be cool, you know?<br /><br />
 
         <center>
-          <a href="https://www.facebook.com/moderateparty/" target="_blank"><img style="width: 100px" src="img/fb.png" /></a><br /><br />
-<br/>
-            <a href="https://twitter.com/x?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @x</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <hr width="10%" />
+          <br /><br />
         </center>
 
+        So anyway, here's a moderate Party for ya, have a look around!<br /><br />
+
+        <center>
+          <hr width="10%" />
+          <br /><br />
+        </center>
+
+        <center>
+          <a href="https://www.facebook.com/moderateparty/" target="_blank"
+            ><img style="width: 100px" src="img/fb.png" /></a
+          ><br /><br />
+          <br />
+          <a
+            href="https://twitter.com/x?ref_src=twsrc%5Etfw"
+            class="twitter-follow-button"
+            data-show-count="false"
+            >Follow @x</a
+          >
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+        </center>
       </div>
     </div>
 
-
     <center>
-      <br>
-      <hr width="50%" /><br />
+      <br />
+      <hr width="50%" />
+      <br />
 
-      <span style="letter-spacing: .3em; line-height: 180%">
+      <span style="letter-spacing: 0.3em; line-height: 180%">
         <span class="text-underline">Pages</span><br /><br />
 
-        &bull; ❓ The <a class="neon" href="faq.html" target="_blank">F.A.Q.</a> &bull;<br><br />
+        &bull; ❓ The
+        <a class="neon" href="faq.html" target="_blank">F.A.Q.</a>
+        &bull;<br /><br />
 
-        &bull; ⚖️ <a class="neon" href="various-issues.html" target="_blank">various issues IN ONE MINUTE EACH !!</a> &bull;<br><br />
+        &bull; ⚖️
+        <a class="neon" href="various-issues.html" target="_blank"
+          >various issues IN ONE MINUTE EACH !!</a
+        >
+        &bull;<br /><br />
 
-        &bull; 🤔 <a class="neon" href="not-complicated.html" target="_blank">"...it's not THAT complicated..."</a> &bull;<br><br />
+        &bull; 🤔
+        <a class="neon" href="not-complicated.html" target="_blank"
+          >"...it's not THAT complicated..."</a
+        >
+        &bull;<br /><br />
 
-        &bull; 😵 <a class="neon" href="fail-on-purpose.html" target="_blank">"Failing a LOT on Purpose"</a> &bull;<br><br />
+        &bull; 😵
+        <a class="neon" href="fail-on-purpose.html" target="_blank"
+          >"Failing a LOT on Purpose"</a
+        >
+        &bull;<br /><br />
 
-        &bull; 🤠 <a class="neon" href="black-bart.html" target="_blank">"Black Bart" Thinking</a> &bull;<br><br />
+        &bull; 🤠
+        <a class="neon" href="black-bart.html" target="_blank"
+          >"Black Bart" Thinking</a
+        >
+        &bull;<br /><br />
 
-        &bull; <img src="img/superman_icon.png" style="width: 20px; height: 20px; vertical-align: -3px;"/> <a class="neon" href="steel-man.html" target="_blank">The "Steel Man" Technique</a> &bull;<br><br />
+        &bull;
+        <img
+          src="img/superman_icon.png"
+          style="width: 20px; height: 20px; vertical-align: -3px"
+        />
+        <a class="neon" href="steel-man.html" target="_blank"
+          >The "Steel Man" Technique</a
+        >
+        &bull;<br /><br />
 
-        &bull; 🌙☀️ <a class="neon" href="complementary.html" target="_blank">"Matched Set"</a> &bull;<br><br />
+        &bull; 🌙☀️
+        <a class="neon" href="complementary.html" target="_blank"
+          >"Matched Set"</a
+        >
+        &bull;<br /><br />
 
-        &bull; 🎭 The <a class="neon" href="real-v-fake.html" target="_blank">"Real vs. Fake Party?"</a> Page &bull;<br>
+        &bull; 🎭 The
+        <a class="neon" href="real-v-fake.html" target="_blank"
+          >"Real vs. Fake Party?"</a
+        >
+        Page &bull;<br />
       </span>
-    <hr width="50%" /><br />
-  </center>
-
-    <center><img style="max-width: 350px; margin-top: 100px;" src="img/synthesis.png" /></center>
-
-    <center>
-      <div style="display: block; line-height: 160%; margin-top: 150px;">
-
-
-
-        <video width="320" height="315" controls>
-          <source src="https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/futurama-neutral.mp4" type="video/mp4">
-        </video><br /><br />
-
-      </div>
-      <span style="font-size: smaller">
-        [The Neutral Planet President, from Futurama]</span>
-      <br><br><br>
+      <hr width="50%" />
+      <br />
     </center>
 
-
-
-
-
+    <center>
+      <img
+        style="max-width: 350px; margin-top: 100px"
+        src="img/synthesis.png"
+      />
+    </center>
 
     <center>
+      <div style="display: block; line-height: 160%; margin-top: 150px">
+        <video width="320" height="315" controls>
+          <source
+            src="https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/futurama-neutral.mp4"
+            type="video/mp4"
+          /></video
+        ><br /><br />
+      </div>
+      <span style="font-size: smaller">
+        [The Neutral Planet President, from Futurama]</span
+      >
+      <br /><br /><br />
+    </center>
 
-
-
-      <div class="tmp-block clearfix" style="margin-left: 42%; margin-top: 50px;">
+    <center>
+      <div
+        class="tmp-block clearfix"
+        style="margin-left: 42%; margin-top: 50px"
+      >
         <div class="tmp-blockcontent">
-          <div class="jvotesystem jvs-module" id="jvs-118396908561b3056f5a23d" data-box="2" data-view="module"
-            data-lastviewpage="1" data-chart="bar" data-mode="default" data-uniqid="118396908561b3056f5a23d">
+          <div
+            class="jvotesystem jvs-module"
+            id="jvs-118396908561b3056f5a23d"
+            data-box="2"
+            data-view="module"
+            data-lastviewpage="1"
+            data-chart="bar"
+            data-mode="default"
+            data-uniqid="118396908561b3056f5a23d"
+          >
             <div class="topbox">
               <div class="topbar"></div>
               <div class="title"></div>
               <p class="question">SUDDEN QUESTION! ANSWER NOW!!</p>
             </div>
             <div class="pagebox">
-              <div style="position:relative;width:100%;" data-p="1">
+              <div style="position: relative; width: 100%" data-p="1">
                 <div class="answer" data-a="1">
                   <div class="answerbox">
                     <div class="text">
-                      <input class="radiobutton" type="radio" name="jvsradios2" id="jvsradio1" data-a="1"><label
-                        for="jvsradio1" class="answertext">Yes</label>
+                      <input
+                        class="radiobutton"
+                        type="radio"
+                        name="jvsradios2"
+                        id="jvsradio1"
+                        data-a="1"
+                      /><label for="jvsradio1" class="answertext">Yes</label>
                     </div>
                   </div>
                 </div>
                 <div class="answer" data-a="2">
                   <div class="answerbox">
                     <div class="text">
-                      <input class="radiobutton" type="radio" name="jvsradios2" id="jvsradio2" data-a="2"><label
-                        for="jvsradio2" class="answertext">No</label>
+                      <input
+                        class="radiobutton"
+                        type="radio"
+                        name="jvsradios2"
+                        id="jvsradio2"
+                        data-a="2"
+                      /><label for="jvsradio2" class="answertext">No</label>
                     </div>
                   </div>
                 </div>
                 <div class="answer" data-a="3">
                   <div class="answerbox">
                     <div class="text">
-                      <input class="radiobutton" type="radio" name="jvsradios2" id="jvsradio3" data-a="3"><label
-                        for="jvsradio3" class="answertext">AHH!!!!</label>
+                      <input
+                        class="radiobutton"
+                        type="radio"
+                        name="jvsradios2"
+                        id="jvsradio3"
+                        data-a="3"
+                      /><label for="jvsradio3" class="answertext"
+                        >AHH!!!!</label
+                      >
                     </div>
                   </div>
                 </div>
@@ -322,53 +502,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
         </div>
-      </div><br><br><br>
+      </div>
+      <br /><br /><br />
 
-
-      <img src="img/chocco.jpg"
+      <img
+        src="img/chocco.jpg"
         alt="A church sign reads &#39;Save the Earth, it&#39;s the only planet with chocolate&#39; "
-        height="300px"><br><br><br>
+        height="300px"
+      /><br /><br /><br />
 
-        <hr width="20%" /><br />
+      <hr width="20%" />
+      <br />
 
-      <div style="margin-top: 75px; font-size: 14px;">
+      <div style="margin-top: 75px; font-size: 14px">
         <a href="http://www.copyleftout.net/" target="_blank">
-          copy left out overnite</a><br>
+          copy left out overnite</a
+        ><br />
         c. 2005
       </div>
-
-
     </center>
-    </div>
-    </div>
-    </div>
-    </article>
-    </div>
-
-
-
-    </div>
-    </div>
-    </div>
-    </div>
 
     <center style="margin-top: 100px; padding-bottom: 100px; display: block">
-      <a href="https://www.cafepress.com/shop/moderateparty/products" target="_new"
-        style="text-decoration: none !important" id="store link">Buy some Merch, ya Derch!<br>(0% profit :)<br><br/>
+      <a
+        href="https://www.cafepress.com/shop/moderateparty/products"
+        target="_new"
+        style="text-decoration: none !important"
+        id="store link"
+        >Buy some Merch, ya Derch!<br />(0% profit :)<br /><br />
 
-        <img src="img/keychains.jpg" alt="Keychains here!  Get ya keychain!">
-      </a><br><br>
+        <img
+          src="img/keychains.jpg"
+          alt="Keychains here!  Get ya keychain!"
+        /> </a
+      ><br /><br />
     </center>
-    </div>
-    </div>
-    </div>
-
-
   </main>
 
-
   <footer></footer>
-
 </body>
-
-</html>
