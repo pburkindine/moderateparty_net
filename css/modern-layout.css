@@ -124,7 +124,6 @@ header .d-flex.flex-column:not(.flex-md-row) {
 .header-outs a[href*="copyleftout"] {
   display: inline-block !important;
   margin: 0 !important;
-  padding: 2px 4px !important;
   background: none !important;
   color: #555 !important;
   text-decoration: underline !important;
@@ -141,7 +140,7 @@ header .d-flex.flex-column:not(.flex-md-row) {
 /* Mobile header fixes */
 @media screen and (max-width: 768px) {
   .header-outs {
-    padding: 10px 5px;
+    padding: 20px;
     /* Collapse whitespace */
     margin-top: 10px;
     text-align: center;
@@ -149,8 +148,6 @@ header .d-flex.flex-column:not(.flex-md-row) {
 
   .header-outs a[href*="facebook"] {
     display: inline-block;
-    /* Make it just a link, not a big button */
-    margin: 5px 10px;
     padding: 0;
     /* Remove button padding */
     background: none !important;
@@ -804,7 +801,7 @@ a[href*="copyleftout.net"]:hover {
 .header-outs {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   gap: 10px;
   margin-top: 15px;
 }
@@ -842,7 +839,7 @@ a[href*="copyleftout.net"]:hover {
   }
 
   .header-outs {
-    align-items: flex-start;
+    align-items: flex-end;
     margin-top: 0;
   }
 }
@@ -919,7 +916,7 @@ a[href*="copyleftout.net"]:hover {
 .header-outs {
   display: flex !important;
   flex-direction: column !important;
-  align-items: center !important;
+  align-items: end !important;
   gap: 10px !important;
   margin-top: 15px !important;
 }
@@ -1346,52 +1343,42 @@ img[src*="megazord"] {
   position: relative;
   margin: 15px 0;
   text-align: center;
+  width: 30%;
 }
 
 .hamburger-btn {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 8px 10px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: auto;
+  height: auto;
   margin: 0 auto;
   position: relative;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  font-size: 42px;
+  line-height: 1;
+  color: #333;
 }
 
-.hamburger-btn:hover {
-  background-color: #f8f9fa;
-}
-
-.hamburger-line {
-  width: 24px;
-  height: 3px;
-  background-color: #333;
-  border-radius: 1px;
-  display: block;
-  margin: 3px 0;
-  transition: all 0.2s ease;
-}
 
 /* Hamburger stays the same when clicked - that's fine! */
 
 .mobile-menu {
   position: absolute;
-  top: calc(100% + 5px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
+  width: 95%;
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 1000;
-  min-width: 280px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -1403,6 +1390,8 @@ img[src*="megazord"] {
 }
 
 .mobile-menu-content {
+  display: flex;
+  flex-direction: column;
   padding: 20px 0;
 }
 

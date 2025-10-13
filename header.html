@@ -1,5 +1,5 @@
 <center>
-  <div class="d-flex flex-column flex-md-row justify-content-between">
+  <div class="d-flex flex-column flex-md-row justify-content-md-between" style="position: relative;">
     <div class="d-flex flex-row align-items-center">
       <div style="margin-right: 20px; position: relative">
         <img
@@ -64,52 +64,52 @@
         </div>
       </div>
     </div>
-    <div class="header-outs">
-      <a
-        href="http://www.facebook.com/moderateparty"
-        target="_blank"
-        style="
-          font-size: 14px;
-          margin-bottom: 5px;
-          display: inline-flex;
-          align-items: center;
-        "
-        ><img
-          height="16px"
-          width="16px"
-          border="0"
-          src="img/facebook_logo.png"
-          alt=""
-          style="margin-right: 5px"
-        />Find us on Facebook</a
-      >
-      <a href="http://www.copyleftout.net/" target="_blank">
-        <img src="img/roach.png" style="width: 25px" border="0" />copy left out
-        overnite
-      </a>
-      <a
-        href="mailto:info@moderateparty.net"
-        target="_blank"
-        style="font-size: 14px; margin-top: 5px; display: block"
-      >
-        ✉️ info@moderateparty.net
-      </a>
+    <div class="d-flex flex-row align-items-stretch justify-content-between justify-content-md-end" style="width: 100%;">
+      <!-- Mobile Hamburger Menu -->
+      <div class="mobile-menu-container d-md-none text-center">
+        <button
+          class="hamburger-btn"
+          onclick="toggleMobileMenu()"
+          aria-label="Toggle navigation menu"
+        >
+          ☰
+        </button>
+      </div>
+
+      <div class="header-outs">
+        <a
+          href="http://www.facebook.com/moderateparty"
+          target="_blank"
+          style="
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: inline-flex;
+            align-items: center;
+          "
+          ><img
+            height="16px"
+            width="16px"
+            border="0"
+            src="img/facebook_logo.png"
+            alt=""
+            style="margin-right: 5px"
+          />Find us on Facebook</a
+        >
+        <a href="http://www.copyleftout.net/" target="_blank">
+          <img src="img/roach.png" style="width: 25px" border="0" />copy left out
+          overnite</a>
+        <a
+          href="mailto:info@moderateparty.net"
+          target="_blank"
+          style="font-size: 14px; margin-top: 5px; display: block"
+        >
+          ✉️ info@moderateparty.net
+        </a>
+      </div>
     </div>
-  </div>
 
-  <!-- Mobile Hamburger Menu -->
-  <div class="mobile-menu-container d-md-none">
-    <button
-      class="hamburger-btn"
-      onclick="toggleMobileMenu()"
-      aria-label="Toggle navigation menu"
-    >
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-
-    <div class="mobile-menu" id="mobileMenu">
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu d-md-none" id="mobileMenu">
       <div class="mobile-menu-content">
         <a href="index.html" class="mobile-menu-link">🏠 Home</a>
         <a href="various-issues.html" class="mobile-menu-link">⚖️ The Issues</a>
