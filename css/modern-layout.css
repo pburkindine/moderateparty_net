@@ -1536,7 +1536,7 @@ img[src*="megazord"] {
   padding: 20px !important;
   background: #f9f9f9 !important;
   border-radius: 8px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
 }
 
 .toc-header {
@@ -1550,6 +1550,7 @@ img[src*="megazord"] {
 
 #toc-toggle {
   font-size: 12px !important;
+  margin-left: 8px !important;
 }
 
 /* Collapsed state - reduce padding and margin */
@@ -1633,6 +1634,7 @@ img[src*="megazord"] {
     margin-bottom: 0 !important;
     padding: 12px 20px !important;
     border-radius: 0 !important;
+    border-top: 3px double #ccc !important;
     border-bottom: 3px double #ccc !important;
     box-shadow: 0 2px 0 #f5f5f5 !important;
     top: 0 !important;
