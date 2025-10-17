@@ -405,6 +405,11 @@ header .d-flex.flex-column:not(.flex-md-row) {
   .header-link:hover a {
     color: white !important;
   }
+
+  /* Hide Gold Standard on desktop */
+  #gold-standard-link {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 480px) {
