@@ -595,14 +595,6 @@
       text-align: center;
     }
 
-    /* Switch Faith & Family and Guns & Borders order on mobile */
-    .header-links .header-link:nth-child(2) {
-      order: 4;
-    }
-
-    .header-links .header-link:nth-child(4) {
-      order: 2;
-    }
 
     /* Keep super gramma images horizontal on mobile - little hits of acid dancing */
     .super-gramma-container {
