@@ -595,6 +595,11 @@ header .d-flex.flex-column:not(.flex-md-row) {
     text-align: center;
   }
 
+  /* Reorder header links on mobile: Faith & Family before Guns & Borders */
+  .header-link[href*="various-issues.html#faith"] {
+    order: -1;
+  }
+
   /* Keep super gramma images horizontal on mobile - little hits of acid dancing */
   .super-gramma-container {
     flex-direction: row;
@@ -1563,7 +1568,7 @@ img[src*="megazord"] {
 
 /* Anchor scroll offset to account for sticky TOC */
 a[name] {
-  scroll-margin-top: 150px !important;
+  scroll-margin-top: 180px !important;
 }
 
 #toc-list a {
