@@ -595,10 +595,6 @@ header .d-flex.flex-column:not(.flex-md-row) {
     text-align: center;
   }
 
-  /* Reorder header links on mobile: Faith & Family before Guns & Borders */
-  .header-link[href*="various-issues.html#faith"] {
-    order: -1;
-  }
 
   /* Keep super gramma images horizontal on mobile - little hits of acid dancing */
   .super-gramma-container {
