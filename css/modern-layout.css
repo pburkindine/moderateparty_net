@@ -1337,6 +1337,21 @@
     margin-top: 40px;
   }
 
+  /* Tablet portrait mode - match mobile order for Rock-a-Zoola */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .hero-center {
+      order: 1;
+    }
+
+    .hero-left {
+      order: 2;
+    }
+
+    .hero-right {
+      order: 3;
+    }
+  }
+
   /* Desktop spacing for Rockazoola - much more top padding */
   @media (min-width: 768px) {
     .hero-left {
