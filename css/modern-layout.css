@@ -1340,20 +1340,27 @@
   /* Tablet portrait mode - match mobile order for Rock-a-Zoola */
   @media (min-width: 768px) and (max-width: 1024px) {
     .hero-center {
-      order: 1;
+      order: 1 !important;
     }
 
     .hero-left {
-      order: 2;
+      order: 2 !important;
+      margin-top: 0 !important;
     }
 
     .hero-right {
-      order: 3;
+      order: 3 !important;
+    }
+
+    /* Hide desktop header links on tablet portrait, show hamburger menu instead */
+    .responsive .header-links,
+    .header-links {
+      display: none !important;
     }
   }
 
-  /* Desktop spacing for Rockazoola - much more top padding */
-  @media (min-width: 768px) {
+  /* Desktop spacing for Rockazoola - much more top padding (only above tablet) */
+  @media (min-width: 1025px) {
     .hero-left {
       margin-top: 80px;
     }
@@ -1439,8 +1446,15 @@
     border-bottom: none;
   }
 
-  /* Hide mobile menu on desktop */
-  @media (min-width: 768px) {
+  /* Hide desktop header-links on tablet and mobile */
+  @media (max-width: 1024px) {
+    .header-links {
+      display: none !important;
+    }
+  }
+
+  /* Hide mobile menu on desktop only */
+  @media (min-width: 1025px) {
     .mobile-menu-container {
       display: none !important;
     }
