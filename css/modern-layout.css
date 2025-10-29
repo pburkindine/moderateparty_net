@@ -560,6 +560,59 @@
     text-decoration: underline;
   }
 
+  /* Header right container - responsive width */
+  .header-right-container {
+    width: auto !important;
+  }
+
+  @media (min-width: 769px) {
+    .header-right-container {
+      width: 100% !important;
+    }
+  }
+
+  /* Show "Best on Desktop/Tablet" notice on mobile and tablet portrait, hide on tablet landscape and desktop */
+  .mobile-tablet-notice {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .mobile-tablet-notice span {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #555;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-tablet-notice {
+      display: none !important;
+    }
+  }
+
+  /*  Base header-outs link styling - apply to all breakpoints
+  .header-outs a {
+    color: #007bff;
+    text-decoration: underline;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    transition: color 0.2s ease;
+  }
+
+  .header-outs a:hover {
+    color: #0056b3;
+    background: none;
+  }
+
+  .header-outs a img {
+    vertical-align: middle;
+  }
+  */
+
   /* Mobile responsiveness */
   @media (max-width: 768px) {
     .d-flex.flex-md-row {
@@ -583,6 +636,90 @@
 
     .hero-right {
       order: 3;
+    }
+
+    /* Keep hamburger and outlinks side-by-side, centered with proper overflow handling */
+    .header-right-container {
+      width: 90% !important;
+      max-width: 90% !important;
+      margin: 0 auto !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+
+    .mobile-menu-container {
+      width: 25% !important;
+      flex-shrink: 0 !important;
+      text-align: center !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .header-outs {
+      width: 70% !important;
+      flex-shrink: 1 !important;
+      min-width: 0 !important;
+      font-size: 13px !important;
+      text-align: left !important;
+      padding-right: 5px !important;
+    }
+
+    /* Standard blue link styling for all header-outs links */
+    .header-outs a {
+      color: #007bff !important;
+      text-decoration: underline !important;
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+      display: inline-block !important;
+      margin-bottom: 5px !important;
+      margin-top: 0 !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+      background: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      transition: color 0.2s ease !important;
+    }
+
+    .header-outs a:hover {
+      color: #0056b3 !important;
+      background: none !important;
+    }
+
+    /* Keep Facebook icon with text on same line */
+    .header-outs a[href*="facebook"] {
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+    }
+
+    /* Keep copyleftout roach icon inline */
+    .header-outs a[href*="copyleftout"] {
+      display: inline !important;
+      white-space: nowrap !important;
+    }
+
+    .header-outs a img {
+      display: inline !important;
+      margin-right: 3px !important;
+      flex-shrink: 0 !important;
+      max-width: 16px !important;
+      height: auto !important;
+      vertical-align: middle !important;
+    }
+
+    .header-outs div,
+    .header-outs span {
+      font-size: 11px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
     }
 
     .header-links {
@@ -611,6 +748,12 @@
 
     #biglink {
       font-size: 32px !important;
+    }
+
+    /* Super Gramma in header - smaller on mobile */
+    header .super-gramma.header-gramma {
+      width: 80px !important;
+      max-width: 80px !important;
     }
   }
 
@@ -1295,8 +1438,8 @@
     }
   }
 
-  /* Fix header layout on desktop - force single row for header links */
-  @media (min-width: 768px) {
+  /* Fix header layout on desktop only (above tablet) - force single row for header links */
+  @media (min-width: 1025px) {
     header .d-flex.flex-column.flex-md-row {
       flex-wrap: nowrap !important;
       align-items: flex-start !important;
@@ -1337,8 +1480,8 @@
     margin-top: 40px;
   }
 
-  /* Tablet portrait mode - match mobile order for Rock-a-Zoola */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  /* Tablet portrait mode only - match mobile order for Rock-a-Zoola */
+  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
     .hero-center {
       order: 1 !important;
     }
@@ -1351,11 +1494,98 @@
     .hero-right {
       order: 3 !important;
     }
+  }
 
-    /* Hide desktop header links on tablet portrait, show hamburger menu instead */
-    .responsive .header-links,
+  /* Tablet portrait and landscape - keep header visible */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    /* Header links now visible on tablet/mobile */
+    /* .responsive .header-links,
     .header-links {
       display: none !important;
+    } */
+
+    /* Fix header overflow on tablet - keep 2-col layout, centered */
+    .header-right-container {
+      width: 90% !important;
+      max-width: 90% !important;
+      margin: 0 auto !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+
+    .mobile-menu-container {
+      width: 25% !important;
+      flex-shrink: 0 !important;
+      text-align: center !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .header-outs {
+      width: 70% !important;
+      flex-shrink: 1 !important;
+      min-width: 0 !important;
+      font-size: 14px !important;
+      text-align: left !important;
+      padding-right: 5px !important;
+    }
+
+    /* Standard blue link styling for all header-outs links on tablet */
+    .header-outs a {
+      color: #007bff !important;
+      text-decoration: underline !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+      display: inline-block !important;
+      margin-bottom: 5px !important;
+      margin-top: 0 !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+      background: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      transition: color 0.2s ease !important;
+    }
+
+    .header-outs a:hover {
+      color: #0056b3 !important;
+      background: none !important;
+    }
+
+    /* Keep Facebook icon with text on same line */
+    .header-outs a[href*="facebook"] {
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+    }
+
+    /* Keep copyleftout roach icon inline */
+    .header-outs a[href*="copyleftout"] {
+      display: inline !important;
+      white-space: nowrap !important;
+    }
+
+    .header-outs a img {
+      display: inline !important;
+      margin-right: 3px !important;
+      flex-shrink: 0 !important;
+      max-width: 16px !important;
+      height: auto !important;
+      vertical-align: middle !important;
+    }
+
+    .header-outs div,
+    .header-outs span {
+      font-size: 12px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
     }
   }
 
@@ -1446,12 +1676,12 @@
     border-bottom: none;
   }
 
-  /* Hide desktop header-links on tablet and mobile */
-  @media (max-width: 1024px) {
+  /* Header-links now visible on tablet and mobile */
+  /* @media (max-width: 1024px) {
     .header-links {
       display: none !important;
     }
-  }
+  } */
 
   /* Hide mobile menu on desktop only */
   @media (min-width: 1025px) {
