@@ -1847,6 +1847,73 @@
     text-decoration: underline !important;
   }
 
+  /* Desktop and tablet landscape - keep 2-column layout */
+  @media (min-width: 1024px), (orientation: landscape) and (min-width: 768px) {
+    #toc-list {
+      column-count: 2 !important;
+      -webkit-column-count: 2 !important;
+      -moz-column-count: 2 !important;
+    }
+  }
+
+  /* Mobile and tablet portrait - center TOC with larger clickable links */
+  @media (max-width: 1023px) and (orientation: portrait), (max-width: 768px) {
+    #toc-list {
+      column-count: 1 !important;
+      -webkit-column-count: 1 !important;
+      -moz-column-count: 1 !important;
+      text-align: center !important;
+      list-style-position: inside !important;
+      font-size: 16px !important;
+      line-height: 2.2 !important;
+      padding: 0 !important;
+    }
+
+    #toc-list li {
+      margin: 8px 0 !important;
+    }
+
+    #toc-list a {
+      display: inline-block !important;
+      padding: 8px 12px !important;
+      min-height: 44px !important;
+      line-height: 1.4 !important;
+      vertical-align: middle !important;
+    }
+
+    #toc-list li[style*="break-before: column"] {
+      break-before: auto !important;
+      -webkit-column-break-before: auto !important;
+      page-break-before: auto !important;
+    }
+
+    /* Secret Liberal section header margin on mobile */
+    #toc-list li[style*="break-before: column"][style*="margin-top: 0px"] {
+      margin-top: 8px !important;
+    }
+
+    /* Center World Peace section on mobile */
+    #toc-content > div[style*="text-align: center"] {
+      text-align: center !important;
+    }
+
+    #toc-content > div[style*="text-align: center"] ul {
+      display: block !important;
+      text-align: center !important;
+    }
+
+    #toc-content > center {
+      margin-bottom: 10px !important;
+    }
+
+    #toc-content > center a {
+      font-size: 16px !important;
+      padding: 8px 12px !important;
+      display: inline-block !important;
+    }
+  }
+
+  /* Mobile specific */
   @media (max-width: 768px) {
     #toc-list {
       column-count: 1 !important;
@@ -1863,15 +1930,6 @@
     /* Secret Liberal section header margin on mobile */
     #toc-list li[style*="break-before: column"][style*="margin-top: 0px"] {
       margin-top: 8px !important;
-    }
-
-    /* Left-align World Peace section on mobile */
-    #toc-content > div[style*="text-align: center"] {
-      text-align: left !important;
-    }
-
-    #toc-content > div[style*="text-align: center"] ul {
-      display: block !important;
     }
 
     /* Mobile sticky TOC adjustments */
