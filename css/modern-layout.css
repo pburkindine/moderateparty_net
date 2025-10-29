@@ -571,6 +571,11 @@
     }
   }
 
+  /* Hide planks navigation on various-issues page at all resolutions */
+  .page-various-issues #planks {
+    display: none !important;
+  }
+
   /* Show "Best on Desktop/Tablet" notice on mobile and tablet portrait, hide on tablet landscape and desktop */
   .mobile-tablet-notice {
     display: block;
