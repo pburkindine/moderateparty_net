@@ -167,6 +167,26 @@
     });
   </script>
   <script src="js/interactions.js" defer></script>
+
+  <style>
+    @keyframes flyInFromLeft {
+      0% {
+        transform: translateX(-200px);
+        opacity: 0;
+      }
+      60% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .fly-in-animation {
+      animation: flyInFromLeft 1.2s ease-out forwards;
+    }
+  </style>
 </head>
 
 <body>
@@ -223,6 +243,7 @@
             alt="Let&#39;s DO this!"
             border="0"
           /><br />
+          <span style="font-size: 12px; color: #999; font-style: italic; text-align: center;">Click!</span>
 
           <div style="margin: 10px 0 8px 0">
             <div style="margin-bottom: 14px; font-size: 16px">
@@ -288,6 +309,7 @@
         <img
           src="img/fence.webp"
           alt="Fence"
+          class="fly-in-animation"
           style="
             max-width: 100px;
             height: auto;
@@ -317,7 +339,7 @@
 
         "Ya reap what ya sow," right?  When does this way stop being a fight?<br/><br/>
 
-        Let's turn swords to ploughshares, figure out how to like each other and
+        Let's turn swords to plowshares, figure out how to like each other and
         <a
           href="https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/makem-clancy-all-gods-critters.mp4"
           target="_blank"
