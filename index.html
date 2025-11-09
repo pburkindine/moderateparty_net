@@ -164,6 +164,14 @@
           window.initializeSuperGrammaAnimations();
         }
       }, 100); // Small delay to ensure DOM is fully ready
+
+      // Fence click animation
+      $("#fence-img").on("click", function() {
+        $(this).removeClass("fly-in-animation");
+        // Force reflow to restart animation
+        void this.offsetWidth;
+        $(this).addClass("fly-in-animation");
+      });
     });
   </script>
   <script src="js/interactions.js" defer></script>
@@ -185,6 +193,21 @@
 
     .fly-in-animation {
       animation: flyInFromLeft 1.2s ease-out forwards;
+    }
+
+    .fence-clickable {
+      cursor: pointer;
+    }
+
+    /* Reserve space for header to prevent layout shift during load */
+    header {
+      min-height: 250px;
+    }
+
+    @media (max-width: 767px) {
+      header {
+        min-height: 200px;
+      }
     }
   </style>
 </head>
@@ -307,9 +330,10 @@
 
         "I have fences on both sides of my house," so to speak.<br />
         <img
+          id="fence-img"
           src="img/fence.webp"
           alt="Fence"
-          class="fly-in-animation"
+          class="fence-clickable"
           style="
             max-width: 100px;
             height: auto;
