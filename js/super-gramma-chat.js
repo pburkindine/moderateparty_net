@@ -60,7 +60,17 @@
       </div>
     `;
 
-    document.body.insertAdjacentHTML('beforeend', widgetHTML);
+    // Try to append to footer, fallback to body
+    const footer = document.querySelector('footer');
+    if (footer) {
+      // Make sure footer has position relative for absolute positioning to work
+      if (getComputedStyle(footer).position === 'static') {
+        footer.style.position = 'relative';
+      }
+      footer.insertAdjacentHTML('beforeend', widgetHTML);
+    } else {
+      document.body.insertAdjacentHTML('beforeend', widgetHTML);
+    }
   }
 
   // Add CSS styles
@@ -68,8 +78,8 @@
     const styles = `
       <style>
         .sg-chat-widget {
-          position: fixed;
-          bottom: 20px;
+          position: absolute;
+          bottom: 15px;
           right: 20px;
           z-index: 9999;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -295,20 +305,20 @@
         /* Mobile styles */
         @media (max-width: 768px) {
           .sg-chat-widget {
-            top: 10px;
-            right: 10px;
-            bottom: auto;
+            bottom: 15px;
+            right: 15px;
           }
 
           .sg-chat-button {
             padding: 10px;
             border-radius: 50%;
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0;
+            box-shadow: 0 4px 20px rgba(0,123,255,0.5);
           }
 
           .sg-button-text {
@@ -316,8 +326,8 @@
           }
 
           .sg-button-img {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             margin: 0;
           }
 
