@@ -294,11 +294,17 @@
 
         /* Mobile styles */
         @media (max-width: 768px) {
+          .sg-chat-widget {
+            top: 10px;
+            right: 10px;
+            bottom: auto;
+          }
+
           .sg-chat-button {
-            padding: 12px;
+            padding: 10px;
             border-radius: 50%;
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -310,16 +316,22 @@
           }
 
           .sg-button-img {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             margin: 0;
           }
 
           .sg-chat-window {
-            width: calc(100vw - 20px);
-            height: calc(100vh - 100px);
-            bottom: 80px;
-            right: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            max-width: 100vw;
+            max-height: 100vh;
+            border-radius: 0;
           }
         }
       </style>
