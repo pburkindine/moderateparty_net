@@ -162,6 +162,9 @@
       if (separator) separator.style.setProperty('display', 'none', 'important');
       document.body.setAttribute('data-page', 'various-issues');
 
+      // Set static top padding for header (no planks, so smaller padding needed)
+      document.body.style.setProperty('padding-top', '250px', 'important');
+
       // Remove loading overlay
       const loadingOverlay = document.getElementById('header-loading-overlay');
       if (loadingOverlay) {

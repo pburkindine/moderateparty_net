@@ -669,18 +669,25 @@ describe('interactions.js logic tests', () => {
   test('Various-issues page hides planks and separator entirely', () => {
     // Detect various-issues page
     let pathname = '/various-issues.html';
-    let isVariousIssuesPage = pathname.endsWith('/various-issues.html');
+    let isVariousIssuesPage = pathname.includes('/various-issues');
     assert.strictEqual(isVariousIssuesPage, true, 'Should detect various-issues.html');
 
     // On various-issues page, planks and separator should be hidden
     const { planks, separator } = createMocks();
+    const mockBody = { style: {}, setAttribute: () => {} };
+    mockBody.style.setProperty = (prop, value, priority) => {
+      mockBody.style[prop] = value;
+    };
+
     if (isVariousIssuesPage) {
-      planks.style.display = 'none';
-      if (separator) separator.style.display = 'none';
+      planks.style.setProperty('display', 'none', 'important');
+      if (separator) separator.style.setProperty('display', 'none', 'important');
+      mockBody.style.setProperty('padding-top', '250px', 'important');
     }
 
-    assert.strictEqual(planks.style.display, 'none', 'Planks should be hidden on various-issues page');
-    assert.strictEqual(separator.style.display, 'none', 'Separator should be hidden on various-issues page');
+    assert.strictEqual(planks.style.getPropertyValue('display'), 'none', 'Planks should be hidden on various-issues page');
+    assert.strictEqual(separator.style.getPropertyValue('display'), 'none', 'Separator should be hidden on various-issues page');
+    assert.strictEqual(mockBody.style['padding-top'], '250px', 'Body should have 250px padding on various-issues page');
   });
 
 });
