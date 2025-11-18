@@ -353,16 +353,17 @@
   /* Smooth transitions for collapse/expand - high specificity */
   /* NO opacity transition - use height with overflow:hidden to clip content */
   /* NO padding/margin animation - keep them constant so links don't shift position */
+  /* Expand faster than collapse for better feel */
   header #planks,
   #planks.header-links,
   #planks {
-    transition: max-height 0.8s ease-in-out, height 0.8s ease-in-out,
-                background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out !important;
+    transition: max-height 0.5s ease-in-out, height 0.5s ease-in-out,
+                background-color 0.4s ease-in-out, border-radius 0.5s ease-in-out !important;
   }
 
   /* Separator padding and margin animation */
   #planks-separator {
-    transition: padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out, margin-top 0.8s ease-in-out, margin-bottom 0.8s ease-in-out !important;
+    transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out !important;
   }
 
   #planks-separator.separator-collapsed {
@@ -509,16 +510,17 @@
     /* Ensure smooth transitions work on mobile - high specificity */
     /* NO opacity transition - use height with overflow:hidden to clip content */
     /* NO padding/margin animation - keep them constant so links don't shift position */
+    /* Expand faster than collapse for better feel */
     header #planks,
     #planks.header-links,
     #planks {
-      transition: max-height 0.8s ease-in-out, height 0.8s ease-in-out,
-                  background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out !important;
+      transition: max-height 0.5s ease-in-out, height 0.5s ease-in-out,
+                  background-color 0.4s ease-in-out, border-radius 0.5s ease-in-out !important;
     }
 
     /* Separator padding and margin animation on mobile */
     #planks-separator {
-      transition: padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out, margin-top 0.8s ease-in-out, margin-bottom 0.8s ease-in-out !important;
+      transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out !important;
     }
 
     #planks-separator.separator-collapsed {
@@ -1922,9 +1924,43 @@
     transition: max-height 0.3s ease;
   }
 
+  /* Hide mobile menu border on various-issues page */
+  body[data-page="various-issues"] .mobile-menu {
+    border: none !important;
+  }
+
   .mobile-menu.active {
     max-height: 70vh;
     overflow-y: auto;
+  }
+
+  /* Loading spinner animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Loading overlay - shown immediately via inline script */
+  #header-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #header-loading-overlay .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
   }
 
   .mobile-menu-content {

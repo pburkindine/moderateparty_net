@@ -151,9 +151,27 @@
       // Don't set overflow hidden - separator should always be visible
     }
 
-    // Detect if we're on index page
+    // Detect if we're on index page or various-issues page
     const pathname = window.location.pathname;
     const isIndexPage = pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('/');
+    const isVariousIssuesPage = pathname.includes('/various-issues');
+
+    // Hide planks entirely on various-issues page (has its own TOC)
+    if (isVariousIssuesPage) {
+      planks.style.setProperty('display', 'none', 'important');
+      if (separator) separator.style.setProperty('display', 'none', 'important');
+      document.body.setAttribute('data-page', 'various-issues');
+
+      // Remove loading overlay
+      const loadingOverlay = document.getElementById('header-loading-overlay');
+      if (loadingOverlay) {
+        loadingOverlay.style.opacity = '0';
+        loadingOverlay.style.transition = 'opacity 0.2s ease';
+        setTimeout(() => loadingOverlay.remove(), 200);
+      }
+
+      return; // Exit early - no need to set up animations
+    }
 
     // Start collapsed on non-index pages, expanded on index
     let isCollapsed = !isIndexPage;
@@ -217,8 +235,6 @@
       // Fixed values: 475px when expanded, 320px when collapsed
       const totalHeight = isCollapsed ? 320 : 475;
 
-      console.log('🔧 setHeaderPadding:', { isCollapsed, totalHeight, isIndexPage, pathname: window.location.pathname });
-
       // Use setProperty with !important to override any CSS rules - only on body
       document.body.style.setProperty('padding-top', `${totalHeight}px`, 'important');
     }
@@ -227,11 +243,8 @@
     setHeaderPadding();
 
     function checkScroll() {
-      console.log('🔧 checkScroll called:', { isInitializing });
-
       // Don't process scroll events during initialization
       if (isInitializing) {
-        console.log('🔧 Scroll blocked during init');
         return;
       }
 
@@ -260,7 +273,6 @@
 
       const scrollY = window.scrollY || window.pageYOffset;
 
-
       // On index page: collapse when scroll down > 50px
       // On other pages: expand ONLY when scrolled to exactly top (scrollY = 0)
       let shouldCollapse;
@@ -276,8 +288,6 @@
           shouldCollapse = scrollY !== 0; // Expand ONLY at scrollY === 0
         }
       }
-
-      console.log('🔧 Scroll decision:', { shouldCollapse, willChange: shouldCollapse !== isCollapsed });
 
       if (shouldCollapse !== isCollapsed) {
         isCollapsed = shouldCollapse;
@@ -339,8 +349,8 @@
           planks.style.setProperty('padding-right', '0', 'important');
           planks.style.pointerEvents = 'none';
 
-          // Set transition for height only (no padding animation)
-          planks.style.setProperty('transition', 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out', 'important');
+          // Set transition for height only (no padding animation) - faster expand
+          planks.style.setProperty('transition', 'max-height 0.5s ease-in-out, height 0.5s ease-in-out, background-color 0.4s ease-in-out, border-radius 0.5s ease-in-out', 'important');
 
           // Force reflow to register transition
           void planks.offsetHeight;
@@ -396,7 +406,7 @@
           // Use getBoundingClientRect for more accurate measurement
           const startRect = header.getBoundingClientRect();
           const startPadding = startRect.height;
-          const duration = 800; // ms
+          const duration = 500; // ms - faster animation
           const startTime = Date.now();
 
           function animatePadding() {
@@ -446,7 +456,7 @@
               // Header padding-bottom should stay at 0 (transition already animated it)
               header.style.paddingBottom = '0';
             }
-          }, 850);
+          }, 550); // Match faster 0.5s animation duration
         } else {
           // User scrolled back to top - reveal planks
           // Remove collapsed classes
@@ -546,12 +556,12 @@
           planks.style.overflow = 'hidden';
           planks.style.position = 'relative'; // For absolute positioned placeholder
 
-          // Show placeholder only AFTER container has grown enough (delay ~250ms)
+          // Show placeholder only AFTER container has grown enough (delay ~150ms for faster animation)
           setTimeout(() => {
             if (!isCollapsed && placeholder) {
               placeholder.style.setProperty('display', 'block', 'important');
             }
-          }, 250);
+          }, 150);
           planks.style.opacity = '1';
           planks.style.setProperty('padding-top', '0', 'important');
           planks.style.setProperty('padding-bottom', '0', 'important');
@@ -576,12 +586,12 @@
           planks.style.setProperty('border-width', '', 'important');
 
           // Set transition inline BEFORE changing height values
-          // NO padding animation - set it instantly after animation completes
-          planks.style.setProperty('transition', 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out', 'important');
+          // NO padding animation - set it instantly after animation completes - faster expand
+          planks.style.setProperty('transition', 'max-height 0.5s ease-in-out, height 0.5s ease-in-out, background-color 0.4s ease-in-out, border-radius 0.5s ease-in-out', 'important');
 
-          // Set separator transition BEFORE changing values (include margin)
+          // Set separator transition BEFORE changing values (include margin) - faster expand
           if (separator) {
-            separator.style.transition = 'padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out, margin-top 0.8s ease-in-out, margin-bottom 0.8s ease-in-out';
+            separator.style.transition = 'padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out';
           }
 
           // Force reflow to ensure transition is registered
@@ -617,7 +627,7 @@
               planks.style.maxHeight = 'none';
               planks.style.overflow = 'visible'; // Now allow overflow for full text visibility
             }
-          }, 850);
+          }, 550); // Match faster 0.5s animation duration
 
           // Restore separator padding and margin (transition handles animation)
           if (separator) {
@@ -633,7 +643,7 @@
           // Use getBoundingClientRect for more accurate measurement
           const startRect = header.getBoundingClientRect();
           const startPadding = startRect.height;
-          const duration = 800; // ms
+          const duration = 500; // ms - faster expand
           const startTime = Date.now();
 
           function animatePadding() {
@@ -680,7 +690,14 @@
     // Mark initialization complete after a short delay to prevent jumping
     setTimeout(() => {
       isInitializing = false;
-      console.log('🔧 Initialization complete:', { isCollapsed, isIndexPage, scrollY: window.scrollY });
+
+      // Remove loading overlay
+      const loadingOverlay = document.getElementById('header-loading-overlay');
+      if (loadingOverlay) {
+        loadingOverlay.style.opacity = '0';
+        loadingOverlay.style.transition = 'opacity 0.2s ease';
+        setTimeout(() => loadingOverlay.remove(), 200);
+      }
     }, 100);
 
     // Also check on resize

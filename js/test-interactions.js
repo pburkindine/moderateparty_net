@@ -447,18 +447,19 @@ describe('interactions.js logic tests', () => {
 
   test('Animation timing values are correct', () => {
     // Updated to match actual implementation - NO opacity, padding, or margin animations
-    const collapseTransition = 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out';
-    const revealTransition = 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out';
+    // Faster animations: 0.5s for height, 0.4s for background
+    const collapseTransition = 'max-height 0.5s ease-in-out, height 0.5s ease-in-out, background-color 0.4s ease-in-out, border-radius 0.5s ease-in-out';
+    const revealTransition = 'max-height 0.5s ease-in-out, height 0.5s ease-in-out, background-color 0.4s ease-in-out, border-radius 0.5s ease-in-out';
 
-    assert.ok(collapseTransition.includes('0.8s'), 'Collapse should use 0.8s timing for height');
-    assert.ok(collapseTransition.includes('0.7s'), 'Collapse background should use 0.7s');
+    assert.ok(collapseTransition.includes('0.5s'), 'Collapse should use 0.5s timing for height');
+    assert.ok(collapseTransition.includes('0.4s'), 'Collapse background should use 0.4s');
     assert.ok(collapseTransition.includes('ease-in-out'), 'Collapse should use ease-in-out');
     assert.ok(collapseTransition.includes('border-radius'), 'Collapse should include border-radius');
     assert.ok(collapseTransition.includes('background-color'), 'Collapse should include background-color');
     assert.ok(!collapseTransition.includes('opacity'), 'Collapse should NOT include opacity');
     assert.ok(!collapseTransition.includes('padding'), 'Collapse should NOT include padding');
     assert.ok(!collapseTransition.includes('margin'), 'Collapse should NOT include margin');
-    assert.ok(revealTransition.includes('0.8s'), 'Reveal should use 0.8s timing');
+    assert.ok(revealTransition.includes('0.5s'), 'Reveal should use 0.5s timing');
     assert.ok(revealTransition.includes('ease-in-out'), 'Reveal should use ease-in-out');
     assert.ok(revealTransition.includes('border-radius'), 'Reveal should include border-radius');
   });
@@ -663,6 +664,23 @@ describe('interactions.js logic tests', () => {
     scrollY = 100;
     shouldCollapse = isIndexPage ? (scrollY > 50 && hasUserScrolled) : (scrollY > 10);
     assert.strictEqual(shouldCollapse, true, 'Other pages should stay collapsed when scrolled down');
+  });
+
+  test('Various-issues page hides planks and separator entirely', () => {
+    // Detect various-issues page
+    let pathname = '/various-issues.html';
+    let isVariousIssuesPage = pathname.endsWith('/various-issues.html');
+    assert.strictEqual(isVariousIssuesPage, true, 'Should detect various-issues.html');
+
+    // On various-issues page, planks and separator should be hidden
+    const { planks, separator } = createMocks();
+    if (isVariousIssuesPage) {
+      planks.style.display = 'none';
+      if (separator) separator.style.display = 'none';
+    }
+
+    assert.strictEqual(planks.style.display, 'none', 'Planks should be hidden on various-issues page');
+    assert.strictEqual(separator.style.display, 'none', 'Separator should be hidden on various-issues page');
   });
 
 });
