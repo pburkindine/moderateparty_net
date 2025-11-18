@@ -603,12 +603,12 @@
           planks.style.overflow = 'hidden';
           planks.style.position = 'relative'; // For absolute positioned placeholder
 
-          // Show placeholder only AFTER container has grown enough (delay ~100ms)
+          // Show placeholder only AFTER container has grown enough (delay ~200ms)
           setTimeout(() => {
             if (!isCollapsed && placeholder) {
               placeholder.style.setProperty('display', 'block', 'important');
             }
-          }, 100);
+          }, 200);
           planks.style.opacity = '1';
           planks.style.setProperty('padding-top', '0', 'important');
           planks.style.setProperty('padding-bottom', '0', 'important');

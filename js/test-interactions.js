@@ -211,60 +211,69 @@ describe('interactions.js logic tests', () => {
     const planksInitialHeight = 80;
     const separatorHeight = 30;
 
-    // Simulate scroll > 30
-    const scrollY = 35;
-    const shouldCollapse = scrollY > 30;
+    // Simulate scroll > 200px (updated threshold)
+    const scrollY = 210;
+    const shouldCollapse = scrollY > 200;
 
-    assert.strictEqual(shouldCollapse, true, 'Should collapse when scrollY > 30');
+    assert.strictEqual(shouldCollapse, true, 'Should collapse when scrollY > 200');
 
     if (shouldCollapse !== isCollapsed) {
       isCollapsed = shouldCollapse;
 
-      // Set transition FIRST
-      planks.style.transition = 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, opacity 0.7s ease-in-out, padding 0.8s ease-in-out, margin 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out';
+      // Mock links to hide
+      const mockLink = new MockElement('A');
+      mockLink.className = 'header-link';
+      planks.querySelectorAll = (selector) => {
+        if (selector === '.header-link') return [mockLink];
+        if (selector === '.planks-placeholder') return [];
+        return [];
+      };
 
-      // Remove background with !important
-      planks.style.setProperty('background-color', 'transparent', 'important');
-      planks.style.setProperty('background', 'transparent', 'important');
-      planks.style.setProperty('box-shadow', 'none', 'important');
+      // Hide links
+      const links = planks.querySelectorAll('.header-link');
+      links.forEach(link => {
+        link.style.setProperty('display', 'none', 'important');
+      });
 
-      // Collapse planks - set all dimensions and spacing to 0
+      // Set position relative for placeholder
+      planks.style.position = 'relative';
+
+      // Set transition FIRST (NO opacity, padding, margin)
+      planks.style.transition = 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out';
+
+      // Set padding to 0 instantly (no animation)
+      planks.style.setProperty('padding-top', '0', 'important');
+      planks.style.setProperty('padding-bottom', '0', 'important');
+      planks.style.setProperty('padding-left', '0', 'important');
+      planks.style.setProperty('padding-right', '0', 'important');
+
+      // Collapse planks - set dimensions to 0
       planks.style.maxHeight = '0';
       planks.style.height = '0';
-      planks.style.opacity = '0';
-      planks.style.paddingTop = '0';
-      planks.style.paddingBottom = '0';
-      planks.style.paddingLeft = '0';
-      planks.style.paddingRight = '0';
-      planks.style.marginTop = '0';
-      planks.style.marginBottom = '0';
-      planks.style.marginLeft = '0';
-      planks.style.marginRight = '0';
-      planks.style.borderRadius = '0';
+      planks.style.overflow = 'hidden';
+      planks.style.opacity = '1'; // Opacity stays at 1
       planks.style.pointerEvents = 'none';
 
-      // Separator padding animation
+      // Separator padding animation (still valid)
       if (separator) {
         separator.style.display = '';
         separator.style.opacity = '1';
         separator.style.visibility = 'visible';
         separator.style.transition = 'padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out';
-        separator.style.paddingTop = '2px';
-        separator.style.paddingBottom = '2px';
-        separator.style.paddingLeft = '0';
-        separator.style.paddingRight = '0';
+        separator.style.paddingTop = '4px';
+        separator.style.paddingBottom = '4px';
       }
     }
 
     assert.strictEqual(isCollapsed, true, 'isCollapsed should be true');
     assert.strictEqual(planks.style.maxHeight, '0', 'Planks maxHeight should be 0');
     assert.strictEqual(planks.style.height, '0', 'Planks height should be 0');
-    assert.strictEqual(planks.style.opacity, '0', 'Planks opacity should be 0');
-    assert.strictEqual(planks.style.getPropertyValue('background-color'), 'transparent', 'Planks background should be transparent');
+    assert.strictEqual(planks.style.opacity, '1', 'Planks opacity should stay at 1 (no opacity animation)');
+    assert.strictEqual(planks.style.position, 'relative', 'Planks should have position relative for placeholder');
     assert.strictEqual(planks.style.pointerEvents, 'none', 'Planks pointerEvents should be none');
     // Separator should remain visible with reduced padding
     assert.strictEqual(separator.style.opacity, '1', 'Separator should stay visible');
-    assert.strictEqual(separator.style.paddingTop, '2px', 'Separator padding should shrink to hug arrows');
+    assert.strictEqual(separator.style.paddingTop, '4px', 'Separator padding should shrink to 4px');
     assert.ok(separator.style.transition.includes('0.8s'), 'Separator should have transition');
   });
 
@@ -288,62 +297,70 @@ describe('interactions.js logic tests', () => {
 
     // Simulate scroll back to top
     const scrollY = 10;
-    const shouldCollapse = scrollY > 30;
+    const shouldCollapse = scrollY > 200;
 
-    assert.strictEqual(shouldCollapse, false, 'Should not collapse when scrollY <= 30');
+    assert.strictEqual(shouldCollapse, false, 'Should not collapse when scrollY <= 200');
 
     if (shouldCollapse !== isCollapsed) {
       isCollapsed = shouldCollapse;
 
-      // Restore display and reset collapsed styles
-      planks.style.display = '';
-      planks.style.paddingTop = '';
-      planks.style.paddingBottom = '';
-      planks.style.paddingLeft = '';
-      planks.style.paddingRight = '';
-      planks.style.marginTop = '';
-      planks.style.marginBottom = '';
-      planks.style.marginLeft = '';
-      planks.style.marginRight = '';
-      planks.style.borderRadius = ''; // Restore rounded corners
-      planks.style.backgroundColor = ''; // Restore background
-      planks.style.boxShadow = ''; // Restore shadow
-      planks.style.pointerEvents = 'auto';
-      planks.style.overflow = 'hidden';
+      // Mock links to show
+      const mockLink = new MockElement('A');
+      mockLink.className = 'header-link';
+      planks.querySelectorAll = (selector) => {
+        if (selector === '.header-link') return [mockLink];
+        return [];
+      };
 
-      // Recalculate height (simplified for test - actual code uses absolute positioning)
-      planks.style.height = 'auto';
-      planks.style.maxHeight = 'none';
-      void planks.offsetHeight; // Force reflow
-      const currentHeight = planks.offsetHeight;
-      if (currentHeight > 0) {
-        planksInitialHeight = currentHeight;
-      }
+      // Set position relative for placeholder
+      planks.style.position = 'relative';
 
-      // Reset to 0 for animation start, then animate to full height
+      // Set transition (NO opacity, padding, margin)
+      planks.style.transition = 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out';
+
+      // Set padding to 0 first, will restore after animation
+      planks.style.setProperty('padding-top', '0', 'important');
+      planks.style.setProperty('padding-bottom', '0', 'important');
+      planks.style.setProperty('padding-left', '0', 'important');
+      planks.style.setProperty('padding-right', '0', 'important');
+
+      // Start from 0 height
       planks.style.maxHeight = '0';
       planks.style.height = '0';
-      // Then animate (simplified - actual code uses requestAnimationFrame)
-      planks.style.maxHeight = `${planksInitialHeight}px`;
-      planks.style.height = 'auto';
-      planks.style.opacity = '1';
+      planks.style.overflow = 'hidden';
+      planks.style.opacity = '1'; // Opacity stays at 1
 
-      // Separator stays visible
+      // Then animate to full height (simplified)
+      planks.style.maxHeight = `${planksInitialHeight}px`;
+      planks.style.height = `${planksInitialHeight}px`;
+
+      // After animation completes, restore padding and set to auto
+      // (in actual code this happens in setTimeout after 850ms)
+      planks.style.pointerEvents = 'auto';
+
+      // Show links after animation (in actual code this happens after timeout)
+      const links = planks.querySelectorAll('.header-link');
+      links.forEach(link => {
+        link.style.display = '';
+      });
+
+      // Separator padding restored
       if (separator) {
         separator.style.display = '';
-        separator.style.maxHeight = `${separatorHeight}px`;
-        separator.style.height = 'auto';
         separator.style.opacity = '1';
         separator.style.visibility = 'visible';
+        separator.style.transition = 'padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out';
+        separator.style.paddingTop = '8px';
+        separator.style.paddingBottom = '8px';
       }
     }
 
     assert.strictEqual(isCollapsed, false, 'isCollapsed should be false');
     assert.strictEqual(planks.style.maxHeight, '80px', 'Planks maxHeight should be restored');
-    assert.strictEqual(planks.style.opacity, '1', 'Planks opacity should be 1');
-    assert.strictEqual(planks.style.borderRadius, '', 'Planks borderRadius should be restored');
-    assert.strictEqual(planks.style.backgroundColor, '', 'Planks background should be restored');
-    assert.strictEqual(separator.style.maxHeight, '30px', 'Separator maxHeight should be restored');
+    assert.strictEqual(planks.style.opacity, '1', 'Planks opacity should stay at 1');
+    assert.strictEqual(planks.style.position, 'relative', 'Planks should have position relative for placeholder');
+    assert.strictEqual(planks.style.pointerEvents, 'auto', 'Planks pointerEvents should be auto');
+    assert.strictEqual(separator.style.paddingTop, '8px', 'Separator padding should be restored');
   });
 
   test('Header padding calculation includes planks and separator', () => {
@@ -422,24 +439,26 @@ describe('interactions.js logic tests', () => {
     }, 'Should handle missing header/planks');
   });
 
-  test('Scroll threshold is 100px', () => {
-    assert.strictEqual(100 > 100, false, '100px should not collapse');
-    assert.strictEqual(101 > 100, true, '101px should collapse');
-    assert.strictEqual(99 > 100, false, '99px should not collapse');
+  test('Scroll threshold is 200px', () => {
+    assert.strictEqual(200 > 200, false, '200px should not collapse');
+    assert.strictEqual(201 > 200, true, '201px should collapse');
+    assert.strictEqual(199 > 200, false, '199px should not collapse');
   });
 
   test('Animation timing values are correct', () => {
-    // Updated to match actual implementation - slower, smoother animations
-    const collapseTransition = 'max-height 0.6s ease-in-out, height 0.6s ease-in-out, opacity 0.5s ease-in-out, padding 0.6s ease-in-out, margin 0.6s ease-in-out, background-color 0.5s ease-in-out, border-radius 0.6s ease-in-out';
-    const revealTransition = 'max-height 0.6s ease-in-out, height 0.6s ease-in-out, opacity 0.5s ease-in-out, padding 0.6s ease-in-out, margin 0.6s ease-in-out, background-color 0.5s ease-in-out, border-radius 0.6s ease-in-out';
+    // Updated to match actual implementation - NO opacity, padding, or margin animations
+    const collapseTransition = 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out';
+    const revealTransition = 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out';
 
-    assert.ok(collapseTransition.includes('0.6s'), 'Collapse should use 0.6s timing');
-    assert.ok(collapseTransition.includes('0.5s'), 'Collapse opacity should use 0.5s');
+    assert.ok(collapseTransition.includes('0.8s'), 'Collapse should use 0.8s timing for height');
+    assert.ok(collapseTransition.includes('0.7s'), 'Collapse background should use 0.7s');
     assert.ok(collapseTransition.includes('ease-in-out'), 'Collapse should use ease-in-out');
     assert.ok(collapseTransition.includes('border-radius'), 'Collapse should include border-radius');
     assert.ok(collapseTransition.includes('background-color'), 'Collapse should include background-color');
-    assert.ok(revealTransition.includes('0.6s'), 'Reveal should use 0.6s timing');
-    assert.ok(revealTransition.includes('0.5s'), 'Reveal opacity should use 0.5s');
+    assert.ok(!collapseTransition.includes('opacity'), 'Collapse should NOT include opacity');
+    assert.ok(!collapseTransition.includes('padding'), 'Collapse should NOT include padding');
+    assert.ok(!collapseTransition.includes('margin'), 'Collapse should NOT include margin');
+    assert.ok(revealTransition.includes('0.8s'), 'Reveal should use 0.8s timing');
     assert.ok(revealTransition.includes('ease-in-out'), 'Reveal should use ease-in-out');
     assert.ok(revealTransition.includes('border-radius'), 'Reveal should include border-radius');
   });
