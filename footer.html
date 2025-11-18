@@ -1,15 +1,25 @@
 <style>
   @media (max-width: 768px) {
+    /* Hide footer on mobile - hamburger menu contains this info */
     #linkBar {
-      font-size: 16px;
-      padding: 12px 0 12px 0;
+      display: none !important;
+    }
+    #sg-chat-container {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 769px) {
+    #linkBar {
+      font-size: 13px;
+      padding: 8px 0 8px 0;
     }
     #linkBar .footer-bullet {
-      font-size: 18px;
+      font-size: 13px;
     }
     #linkBar .footer-bullet img {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       vertical-align: -3px;
     }
   }

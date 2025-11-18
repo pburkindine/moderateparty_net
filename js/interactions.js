@@ -94,6 +94,91 @@
     }
   }
 
+  // Mobile: Collapse planks section when header becomes sticky
+  function initializePlanksCollapse() {
+    // Only on mobile
+    if (window.innerWidth > 768) return;
+
+    const header = document.querySelector('header');
+    const planks = document.getElementById('planks');
+
+    if (!header || !planks) {
+      // Try again if elements not loaded yet
+      setTimeout(initializePlanksCollapse, 100);
+      return;
+    }
+
+    // Calculate header's natural height using getBoundingClientRect
+    // This gives us the actual rendered height
+    function getHeaderHeight() {
+      const rect = header.getBoundingClientRect();
+      return rect.height;
+    }
+
+    let headerNaturalHeight = getHeaderHeight();
+    let isSticky = false;
+
+    function checkSticky() {
+      // Get header's position relative to viewport
+      const headerRect = header.getBoundingClientRect();
+      const headerTop = headerRect.top;
+
+      // Header is sticky when its top is at 0 (stuck to top of viewport)
+      const currentlySticky = headerTop === 0 && window.scrollY > 0;
+
+      if (currentlySticky !== isSticky) {
+        isSticky = currentlySticky;
+
+        if (isSticky) {
+          // Header just became sticky - collapse planks by exact header height
+          const currentHeight = getHeaderHeight();
+          planks.style.marginTop = `-${currentHeight}px`;
+          planks.style.transition = 'margin-top 0.3s ease';
+        } else {
+          // Header is no longer sticky - restore planks
+          planks.style.marginTop = '';
+        }
+      }
+    }
+
+    // Check on scroll
+    let scrollTimer;
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth > 768) return; // Only on mobile
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(checkSticky, 10);
+    }, { passive: true });
+
+    // Initial check
+    checkSticky();
+
+    // Recalculate header height on resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (window.innerWidth <= 768) {
+          headerNaturalHeight = getHeaderHeight();
+          checkSticky(); // Recheck sticky state
+        } else {
+          // Desktop: reset planks
+          planks.style.marginTop = '';
+        }
+      }, 250);
+    });
+  }
+
+  // Initialize planks collapse on mobile
+  ready(function () {
+    initializeSuperGrammaAnimations();
+    initializeMegazordAnimation();
+    initializeBonsaiAnimation();
+    initializePlanksCollapse();
+  });
+
+  // Also try after header loads (AJAX)
+  setTimeout(initializePlanksCollapse, 500);
+
   // Expose functions globally for pages that load header dynamically
   window.initializeSuperGrammaAnimations = initializeSuperGrammaAnimations;
   window.toggleMobileMenu = toggleMobileMenu;

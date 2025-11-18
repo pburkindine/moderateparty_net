@@ -12,31 +12,25 @@
   let isOpen = false;
   let isTyping = false;
 
-  // Position widget above footer
+  // Position widget above footer (desktop) or at bottom (mobile)
   function positionWidget() {
     const footer = document.getElementById('linkBar');
     const widget = document.getElementById('super-gramma-chat');
-    if (footer && widget) {
+    if (!widget) return;
+
+    // On mobile: no footer, position at very bottom right
+    if (window.innerWidth <= 768) {
+      widget.style.bottom = '15px';
+      console.log('Super Gramma: Positioned at bottom (mobile, no footer)');
+      return;
+    }
+
+    // Desktop: position above footer
+    if (footer) {
       const footerHeight = footer.offsetHeight;
-      let bottomPosition = footerHeight + 15;
-
-      // On mobile, ensure chat button doesn't overlap with header
-      if (window.innerWidth <= 768) {
-        const header = document.querySelector('header');
-        if (header) {
-          const headerHeight = header.offsetHeight;
-          const viewportHeight = window.innerHeight;
-          // Ensure button is at least 80px from top (below header area)
-          const minTopSpace = 80;
-          const maxBottom = viewportHeight - minTopSpace;
-          if (bottomPosition > maxBottom) {
-            bottomPosition = maxBottom;
-          }
-        }
-      }
-
+      const bottomPosition = footerHeight + 15;
       widget.style.bottom = `${bottomPosition}px`;
-      console.log(`Super Gramma: Positioned ${bottomPosition}px from bottom`);
+      console.log(`Super Gramma: Positioned ${bottomPosition}px from bottom (desktop)`);
     }
   }
 
@@ -101,22 +95,23 @@
       </div>
     `;
 
-    // Append to the chat container in footer
+    // On mobile: append to body (footer is hidden)
+    // On desktop: append to footer container
+    const isMobile = window.innerWidth <= 768;
     const container = document.getElementById('sg-chat-container');
-    if (container) {
-      container.insertAdjacentHTML('beforeend', widgetHTML);
 
-      // Position based on actual footer height
-      positionWidget();
-
-      // Reposition on window resize (footer height may change)
-      window.addEventListener('resize', positionWidget);
-
-      console.log('Super Gramma: Chat widget added to footer container');
-    } else {
-      // Fallback: append to body if container not found
+    if (isMobile || !container) {
+      // Mobile or container not found: append to body
       document.body.insertAdjacentHTML('beforeend', widgetHTML);
-      console.log('Super Gramma: Chat widget added to body (fallback)');
+      positionWidget();
+      window.addEventListener('resize', positionWidget);
+      console.log('Super Gramma: Chat widget added to body (mobile or fallback)');
+    } else {
+      // Desktop: append to footer container
+      container.insertAdjacentHTML('beforeend', widgetHTML);
+      positionWidget();
+      window.addEventListener('resize', positionWidget);
+      console.log('Super Gramma: Chat widget added to footer container (desktop)');
     }
   }
 

@@ -172,10 +172,49 @@
 
   /* Mobile header fixes */
   @media screen and (max-width: 768px) {
+    /* Make header sticky on mobile */
+    header {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1001 !important;
+      background: white !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+      padding: 10px 0 !important; /* Condensed padding */
+      margin: 0 !important;
+    }
+
+    /* Condense spacing around header-right-container */
+    header .d-flex.flex-column.flex-md-row {
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 10px !important; /* Reduced gap */
+    }
+
+    .header-right-container {
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 8px !important; /* Reduced gap between hamburger and header-outs */
+    }
+
+    .mobile-menu-container {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 4px !important; /* Small gap between hamburger and notice */
+    }
+
+    .mobile-tablet-notice {
+      font-size: 11px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1.2 !important;
+    }
+
     .header-outs {
-      padding: 20px;
-      /* Collapse whitespace */
-      margin-top: 10px;
+      padding: 8px 12px !important; /* Condensed padding */
+      margin: 0 !important; /* Remove margin */
       text-align: center;
     }
 
