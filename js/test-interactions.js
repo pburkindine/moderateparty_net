@@ -483,48 +483,48 @@ describe('interactions.js logic tests', () => {
     assert.strictEqual(shouldCollapse, true, 'Should collapse after user scrolls');
   });
 
-  test('Fixed padding values: 450px expanded, 150px collapsed', () => {
+  test('Fixed padding values: 475px expanded, 320px collapsed', () => {
     let isCollapsed = false;
-    let paddingExpanded = isCollapsed ? 150 : 450;
-    assert.strictEqual(paddingExpanded, 450, 'Padding should be 450px when expanded');
+    let paddingExpanded = isCollapsed ? 320 : 475;
+    assert.strictEqual(paddingExpanded, 475, 'Padding should be 475px when expanded');
 
     isCollapsed = true;
-    let paddingCollapsed = isCollapsed ? 150 : 450;
-    assert.strictEqual(paddingCollapsed, 150, 'Padding should be 150px when collapsed');
+    let paddingCollapsed = isCollapsed ? 320 : 475;
+    assert.strictEqual(paddingCollapsed, 320, 'Padding should be 320px when collapsed');
   });
 
-  test('Padding animates from 450px to 150px on collapse', () => {
+  test('Padding animates from 475px to 320px on collapse', () => {
     // Test start of animation
     let progress = 0;
-    let currentPadding = 450 - (progress * 300);
-    assert.strictEqual(currentPadding, 450, 'Padding starts at 450px');
+    let currentPadding = 475 - (progress * 155);
+    assert.strictEqual(currentPadding, 475, 'Padding starts at 475px');
 
     // Test mid animation
     progress = 0.5;
-    currentPadding = 450 - (progress * 300);
-    assert.strictEqual(currentPadding, 300, 'Padding should be 300px at 50% progress');
+    currentPadding = 475 - (progress * 155);
+    assert.strictEqual(currentPadding, 397.5, 'Padding should be 397.5px at 50% progress');
 
     // Test end of animation
     progress = 1;
-    currentPadding = 450 - (progress * 300);
-    assert.strictEqual(currentPadding, 150, 'Padding ends at 150px');
+    currentPadding = 475 - (progress * 155);
+    assert.strictEqual(currentPadding, 320, 'Padding ends at 320px');
   });
 
-  test('Padding animates from 150px to 450px on expand', () => {
+  test('Padding animates from 320px to 475px on expand', () => {
     // Test start of animation
     let progress = 0;
-    let currentPadding = 150 + (progress * 300);
-    assert.strictEqual(currentPadding, 150, 'Padding starts at 150px');
+    let currentPadding = 320 + (progress * 155);
+    assert.strictEqual(currentPadding, 320, 'Padding starts at 320px');
 
     // Test mid animation
     progress = 0.5;
-    currentPadding = 150 + (progress * 300);
-    assert.strictEqual(currentPadding, 300, 'Padding should be 300px at 50% progress');
+    currentPadding = 320 + (progress * 155);
+    assert.strictEqual(currentPadding, 397.5, 'Padding should be 397.5px at 50% progress');
 
     // Test end of animation
     progress = 1;
-    currentPadding = 150 + (progress * 300);
-    assert.strictEqual(currentPadding, 450, 'Padding ends at 450px');
+    currentPadding = 320 + (progress * 155);
+    assert.strictEqual(currentPadding, 475, 'Padding ends at 475px');
   });
 
   test('Placeholder setup creates single element', () => {
@@ -614,6 +614,55 @@ describe('interactions.js logic tests', () => {
     separator.style.paddingBottom = '8px';
     assert.strictEqual(separator.style.paddingTop, '8px', 'Separator padding-top should be 8px when expanded');
     assert.strictEqual(separator.style.paddingBottom, '8px', 'Separator padding-bottom should be 8px when expanded');
+  });
+
+  test('Page detection: index starts expanded, others start collapsed', () => {
+    // Simulate index page
+    let pathname = '/index.html';
+    let isIndexPage = pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('/');
+    let isCollapsed = !isIndexPage;
+    assert.strictEqual(isIndexPage, true, 'Should detect index.html as index page');
+    assert.strictEqual(isCollapsed, false, 'Index page should start expanded');
+
+    // Simulate other page
+    pathname = '/faq.html';
+    isIndexPage = pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('/');
+    isCollapsed = !isIndexPage;
+    assert.strictEqual(isIndexPage, false, 'Should detect faq.html as non-index page');
+    assert.strictEqual(isCollapsed, true, 'Non-index page should start collapsed');
+
+    // Simulate root
+    pathname = '/';
+    isIndexPage = pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('/');
+    isCollapsed = !isIndexPage;
+    assert.strictEqual(isIndexPage, true, 'Should detect / as index page');
+    assert.strictEqual(isCollapsed, false, 'Root should start expanded');
+  });
+
+  test('Scroll behavior differs by page: index collapses on scroll, others expand at top', () => {
+    let scrollY = 60;
+    let hasUserScrolled = true;
+
+    // Index page: collapse when scrollY > 50
+    let isIndexPage = true;
+    let shouldCollapse = isIndexPage ? (scrollY > 50 && hasUserScrolled) : (scrollY > 10);
+    assert.strictEqual(shouldCollapse, true, 'Index page should collapse when scrolled down > 50px');
+
+    // Index page at top
+    scrollY = 10;
+    shouldCollapse = isIndexPage ? (scrollY > 50 && hasUserScrolled) : (scrollY > 10);
+    assert.strictEqual(shouldCollapse, false, 'Index page should expand when at top');
+
+    // Other page: expand only when scrollY <= 10
+    isIndexPage = false;
+    scrollY = 5;
+    shouldCollapse = isIndexPage ? (scrollY > 50 && hasUserScrolled) : (scrollY > 10);
+    assert.strictEqual(shouldCollapse, false, 'Other pages should expand when scrolled to very top');
+
+    // Other page scrolled down
+    scrollY = 100;
+    shouldCollapse = isIndexPage ? (scrollY > 50 && hasUserScrolled) : (scrollY > 10);
+    assert.strictEqual(shouldCollapse, true, 'Other pages should stay collapsed when scrolled down');
   });
 
 });

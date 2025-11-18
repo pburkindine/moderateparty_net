@@ -179,6 +179,11 @@
       overflow-y: auto !important;
     }
 
+    /* Add bottom padding on mobile for space after "copy left out" link */
+    main {
+      padding-bottom: 80px !important;
+    }
+
     /* Make header fixed on mobile - always at top */
     header {
       position: fixed !important;

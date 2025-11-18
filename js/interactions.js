@@ -151,8 +151,14 @@
       // Don't set overflow hidden - separator should always be visible
     }
 
-    let isCollapsed = false;
+    // Detect if we're on index page
+    const pathname = window.location.pathname;
+    const isIndexPage = pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('/');
+
+    // Start collapsed on non-index pages, expanded on index
+    let isCollapsed = !isIndexPage;
     let hasUserScrolled = false; // Track if user has actually scrolled (not just loaded scrolled)
+    let isInitializing = true; // Prevent state changes during initialization
 
     // Create simple placeholder element (no wrapper - preserve flex layout)
     let placeholder = null;
@@ -173,20 +179,62 @@
     // Set up placeholder once
     setupPlaceholder();
 
-    // Set initial body padding to account for full header (header + planks + separator)
-    setHeaderPadding();
+    // If starting collapsed (non-index pages), set initial collapsed state
+    if (isCollapsed) {
+      // Hide links, show placeholder
+      const links = planks.querySelectorAll('.header-link');
+      links.forEach(link => {
+        link.style.setProperty('display', 'none', 'important');
+      });
+      if (placeholder) {
+        placeholder.style.setProperty('display', 'block', 'important');
+      }
+
+      // Set collapsed visual state
+      planks.style.maxHeight = '0';
+      planks.style.height = '0';
+      planks.style.overflow = 'hidden';
+      planks.style.position = 'relative';
+      planks.style.setProperty('padding-top', '0', 'important');
+      planks.style.setProperty('padding-bottom', '0', 'important');
+      planks.style.setProperty('padding-left', '0', 'important');
+      planks.style.setProperty('padding-right', '0', 'important');
+      planks.classList.add('planks-collapsed');
+      header.classList.add('header-planks-collapsed');
+      header.style.setProperty('min-height', '0', 'important');
+
+      // Separator collapsed state
+      if (separator) {
+        separator.classList.add('separator-collapsed');
+        separator.style.setProperty('padding-top', '4px', 'important');
+        separator.style.setProperty('padding-bottom', '4px', 'important');
+      }
+    }
 
     // Set body/main padding to account for fixed header
     // Use getBoundingClientRect for accurate measurement including all children
     function setHeaderPadding() {
-      // Fixed values: 450px when expanded, 150px when collapsed
-      const totalHeight = isCollapsed ? 150 : 450;
+      // Fixed values: 475px when expanded, 320px when collapsed
+      const totalHeight = isCollapsed ? 320 : 475;
+
+      console.log('🔧 setHeaderPadding:', { isCollapsed, totalHeight, isIndexPage, pathname: window.location.pathname });
 
       // Use setProperty with !important to override any CSS rules - only on body
       document.body.style.setProperty('padding-top', `${totalHeight}px`, 'important');
     }
 
+    // Set initial body padding to account for full header (header + planks + separator)
+    setHeaderPadding();
+
     function checkScroll() {
+      console.log('🔧 checkScroll called:', { isInitializing });
+
+      // Don't process scroll events during initialization
+      if (isInitializing) {
+        console.log('🔧 Scroll blocked during init');
+        return;
+      }
+
       if (window.innerWidth > 768) {
         // Desktop: reset
         planks.style.maxHeight = '';
@@ -211,9 +259,25 @@
       }
 
       const scrollY = window.scrollY || window.pageYOffset;
-      // Lazy collapse - wait for 50px scroll before zipping up (feels more relaxed)
-      // BUT: Only collapse if user has actually scrolled (not just loaded scrolled)
-      const shouldCollapse = scrollY > 50 && hasUserScrolled;
+
+
+      // On index page: collapse when scroll down > 50px
+      // On other pages: expand ONLY when scrolled to exactly top (scrollY = 0)
+      let shouldCollapse;
+      if (isIndexPage) {
+        // Index: collapse on scroll down (normal behavior)
+        shouldCollapse = scrollY > 50 && hasUserScrolled;
+      } else {
+        // Other pages: stay collapsed unless scrolled to exact top
+        // If user hasn't scrolled yet, keep initial collapsed state
+        if (!hasUserScrolled) {
+          shouldCollapse = true; // Keep collapsed on load
+        } else {
+          shouldCollapse = scrollY !== 0; // Expand ONLY at scrollY === 0
+        }
+      }
+
+      console.log('🔧 Scroll decision:', { shouldCollapse, willChange: shouldCollapse !== isCollapsed });
 
       if (shouldCollapse !== isCollapsed) {
         isCollapsed = shouldCollapse;
@@ -338,8 +402,9 @@
           function animatePadding() {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Animate from 450px to 150px during collapse
-            const currentPadding = 450 - (progress * 300); // 450 -> 150
+            // Animate from 475px to 320px during collapse
+            const currentPadding = 475 - (progress * 155); // 475 -> 320
+            isAnimatingPadding = true;
             document.body.style.setProperty('padding-top', `${currentPadding}px`, 'important');
 
 
@@ -347,6 +412,7 @@
               requestAnimationFrame(animatePadding);
             } else {
               setHeaderPadding(); // Final update
+              isAnimatingPadding = false;
             }
           }
           requestAnimationFrame(animatePadding);
@@ -573,14 +639,16 @@
           function animatePadding() {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Animate from 150px to 450px during expand
-            const currentPadding = 150 + (progress * 300); // 150 -> 450
+            // Animate from 320px to 475px during expand
+            const currentPadding = 320 + (progress * 155); // 320 -> 475
+            isAnimatingPadding = true;
             document.body.style.setProperty('padding-top', `${currentPadding}px`, 'important');
 
             if (progress < 1) {
               requestAnimationFrame(animatePadding);
             } else {
               setHeaderPadding(); // Final update using offsetHeight
+              isAnimatingPadding = false;
             }
           }
           requestAnimationFrame(animatePadding);
@@ -595,14 +663,25 @@
     // Set initial padding
     setHeaderPadding();
 
-    // Check on scroll immediately (no throttling for instant response)
+    // Check on scroll - with flag to detect real user scrolling vs programmatic
+    let isAnimatingPadding = false;
     function handleScroll() {
       if (window.innerWidth > 768) return;
-      // Mark that user has actually scrolled (not just loaded scrolled)
-      hasUserScrolled = true;
+
+      // Don't mark as user scrolled if we're animating padding (that causes scroll events)
+      if (!isAnimatingPadding) {
+        hasUserScrolled = true;
+      }
+
       checkScroll();
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Mark initialization complete after a short delay to prevent jumping
+    setTimeout(() => {
+      isInitializing = false;
+      console.log('🔧 Initialization complete:', { isCollapsed, isIndexPage, scrollY: window.scrollY });
+    }, 100);
 
     // Also check on resize
     let resizeTimer;
@@ -614,7 +693,7 @@
           planksInitialHeight = planks.offsetHeight;
           if (separator) separatorHeight = separator.offsetHeight;
           setHeaderPadding();
-          checkScroll();
+          if (!isInitializing) checkScroll();
         } else {
           document.body.style.paddingTop = '';
           const main = document.querySelector('main') || document.querySelector('.main');
@@ -652,23 +731,27 @@
       }, 100);
     });
 
-    // Initial check after a brief delay to ensure layout is settled - force expanded state
+    // Initial check after a brief delay to ensure layout is settled
+    // Only force expanded state on index page
     setTimeout(() => {
-      const scrollY = window.scrollY || window.pageYOffset;
-      if (scrollY <= 30) {
-        // Force expanded state at top
-        isCollapsed = false;
-        planks.style.maxHeight = `${planksInitialHeight}px`;
-        planks.style.height = 'auto';
-        planks.style.opacity = '1';
-        if (separator) {
-          separator.style.maxHeight = `${separatorHeight}px`;
-          separator.style.height = 'auto';
-          separator.style.opacity = '1';
+      if (isIndexPage) {
+        const scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY <= 30) {
+          // Force expanded state at top (index only)
+          isCollapsed = false;
+          planks.style.maxHeight = `${planksInitialHeight}px`;
+          planks.style.height = 'auto';
+          planks.style.opacity = '1';
+          if (separator) {
+            separator.style.maxHeight = `${separatorHeight}px`;
+            separator.style.height = 'auto';
+            separator.style.opacity = '1';
+          }
+          setHeaderPadding();
         }
-        setHeaderPadding();
       }
-      checkScroll();
+      // Don't check scroll during initialization
+      if (!isInitializing) checkScroll();
     }, 100);
   }
 
