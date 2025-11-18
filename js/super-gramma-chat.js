@@ -23,6 +23,18 @@
     }
   }
 
+  // Position chat window to align with button
+  function positionChatWindow() {
+    const button = document.getElementById('sg-chat-button');
+    const chatWindow = document.getElementById('sg-chat-window');
+    if (button && chatWindow) {
+      const buttonRect = button.getBoundingClientRect();
+      // Position window bottom-aligned with button
+      const bottomPosition = window.innerHeight - buttonRect.bottom;
+      chatWindow.style.bottom = `${bottomPosition}px`;
+    }
+  }
+
   // Create chat widget HTML
   function createChatWidget() {
     const widgetHTML = `
@@ -137,9 +149,9 @@
         }
 
         .sg-chat-window {
-          position: absolute;
-          bottom: 80px;
-          right: 0;
+          position: fixed;
+          /* Position will be set by JS to align with button */
+          right: 20px;
           width: 380px;
           max-width: calc(100vw - 40px);
           height: 500px;
@@ -429,6 +441,8 @@
     const chatButton = document.getElementById('sg-chat-button');
 
     if (isOpen) {
+      // Position window before showing it
+      positionChatWindow();
       chatWindow.style.display = 'flex';
       chatButton.style.display = 'none';
       document.getElementById('sg-chat-input').focus();
