@@ -29,7 +29,7 @@
               <img src="img/super-gramma.png" alt="Super Gramma" class="sg-header-img" />
               <div>
                 <div class="sg-header-title">Chat</div>
-                <div class="sg-header-subtitle">☕🍂🧶💬</div>
+                <div class="sg-header-subtitle">☕🥐🍂🐌🌻💬</div>
               </div>
             </div>
             <button id="sg-close-button" class="sg-close-button" aria-label="Close chat">✕</button>
@@ -332,6 +332,27 @@
             max-width: 100vw;
             max-height: 100vh;
             border-radius: 0;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .sg-chat-header {
+            flex-shrink: 0;
+          }
+
+          .sg-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
+          }
+
+          .sg-chat-input-container {
+            flex-shrink: 0;
+            padding: 12px;
+          }
+
+          .sg-chat-input {
+            font-size: 16px;
           }
         }
       </style>
