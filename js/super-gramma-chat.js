@@ -171,6 +171,7 @@
           background: white;
           border-radius: 12px;
           box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+          z-index: 10000; /* Above other content */
           display: flex;
           flex-direction: column;
           overflow: hidden;
@@ -408,6 +409,7 @@
             border-radius: 0;
             display: flex;
             flex-direction: column;
+            z-index: 9999 !important; /* Very high - above header (1001), hamburger (1002), and everything else */
           }
 
           .sg-chat-header {
@@ -472,16 +474,33 @@
     isOpen = !isOpen;
     const chatWindow = document.getElementById('sg-chat-window');
     const chatButton = document.getElementById('sg-chat-button');
+    const chatWidget = document.getElementById('super-gramma-chat');
+    const isMobile = window.innerWidth <= 768;
 
     if (isOpen) {
+      // On mobile: move chat window to body to escape widget container's stacking context
+      if (isMobile && chatWindow && chatWidget && chatWindow.parentNode === chatWidget) {
+        document.body.appendChild(chatWindow);
+      }
+
       // Position window before showing it
       positionChatWindow();
       chatWindow.style.display = 'flex';
       chatButton.style.display = 'none';
       document.getElementById('sg-chat-input').focus();
+
+      // Ensure chat window has highest z-index
+      if (isMobile) {
+        chatWindow.style.zIndex = '9999';
+      }
     } else {
       chatWindow.style.display = 'none';
       chatButton.style.display = 'flex';
+
+      // On mobile: move chat window back to widget container when closed
+      if (isMobile && chatWindow && chatWidget && chatWindow.parentNode === document.body) {
+        chatWidget.appendChild(chatWindow);
+      }
     }
   }
 

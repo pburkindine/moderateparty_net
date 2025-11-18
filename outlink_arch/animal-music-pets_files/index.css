@@ -10,7 +10,7 @@ svg{ position: absolute; }
 strong, b { font-weight: bold; }
 sup { font-size:55%; vertical-align: super; line-height: 1;}
 #viewport { background: #e20074; overflow: hidden; }
-#border{ border: solid 1px #666; -webkit-box-sizing: border-box; box-sizing: border-box; pointer-events: none;}
+#border{ border: solid 1px #555; -webkit-box-sizing: border-box; box-sizing: border-box; pointer-events: none;}
 
 .adSize{ width: 728px; height: 90px; }
 #failSafe { width: 293px; height: 118px; top: 50%; left: 50%; -webkit-transform:translateX(-50%) translateY(-50%); -ms-transform:translateX(-50%) translateY(-50%); transform:translateX(-50%) translateY(-50%); }
@@ -18,7 +18,7 @@ sup { font-size:55%; vertical-align: super; line-height: 1;}
 /* classes */
 .posAbs { position: absolute !important;}
 .frames {opacity: 0; }
-.topL { top:0px; left:0px; } 
+.topL { top:0px; left:0px; }
 .pointEvNone {pointer-events: none;}
 .visHid { visibility: hidden; opacity: 0; }
 .verticalAlignCenter{ /* Internet Explorer 10 */ display:-ms-flexbox; -ms-flex-pack:center; -ms-flex-align:center; /* Firefox */ display:-moz-box; -moz-box-pack:center; -moz-box-align:center; /* Safari, Opera, and Chrome */ display:-webkit-box; -webkit-box-pack:center; -webkit-box-align:center; /* W3C */ display:box; box-pack:center; box-align:center; }

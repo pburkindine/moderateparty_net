@@ -99,6 +99,10 @@
       $(function () {
         console.log("ready");
         $("header").load("header.html", function () {
+          // Initialize planks collapse after header loads (mobile only)
+          if (window.initializePlanksCollapse) {
+            setTimeout(window.initializePlanksCollapse, 100);
+          }
           console.log("Header loaded, initializing animations");
           // Initialize Super Gramma animations after header is loaded
           if (window.initializeSuperGrammaAnimations) {

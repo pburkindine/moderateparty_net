@@ -172,15 +172,58 @@
 
   /* Mobile header fixes */
   @media screen and (max-width: 768px) {
-    /* Make header sticky on mobile */
+    /* Ensure body/html allow sticky positioning */
+    html, body {
+      height: auto !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+    }
+
+    /* Make header fixed on mobile - always at top */
     header {
-      position: sticky !important;
+      position: fixed !important;
       top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
       z-index: 1001 !important;
       background: white !important;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-      padding: 10px 0 !important; /* Condensed padding */
+      padding-top: 10px !important; /* Top padding */
+      padding-bottom: 10px !important; /* Bottom padding - will animate to 0 */
+      padding-left: 0 !important;
+      padding-right: 0 !important;
       margin: 0 !important;
+      width: 100% !important;
+      transition: padding-bottom 0.8s ease-in-out !important; /* Animate padding when planks collapse */
+    }
+
+    /* When planks are collapsed, reduce header bottom padding to hug separator */
+    header.header-planks-collapsed {
+      padding-top: 10px !important; /* Keep top padding */
+      padding-bottom: 0 !important; /* Remove bottom padding to hug separator */
+      min-height: 0 !important; /* Override any min-height rules (including inline 400px from index.html) */
+      height: auto !important; /* Ensure height is auto, not fixed */
+    }
+
+    /* Override inline style min-height: 400px from index.html when collapsed */
+    @media (max-width: 480px) {
+      header.header-planks-collapsed {
+        min-height: 0 !important; /* Override inline style min-height: 400px */
+      }
+    }
+
+    /* Ensure header padding animates smoothly */
+    header {
+      transition: padding-bottom 0.8s ease-in-out;
+    }
+
+    /* Add padding to body/main to account for fixed header */
+    body {
+      padding-top: 0 !important; /* Will be set by JS based on header height */
+    }
+
+    main, .main {
+      padding-top: 0 !important; /* Will be set by JS based on header height */
     }
 
     /* Condense spacing around header-right-container */
@@ -206,10 +249,11 @@
     }
 
     .mobile-tablet-notice {
-      font-size: 11px !important;
+      font-size: 10px !important;
       margin: 0 !important;
       padding: 0 !important;
       line-height: 1.2 !important;
+      font-style: italic !important;
     }
 
     .header-outs {
@@ -287,10 +331,40 @@
     justify-content: center !important;
     gap: 8px;
     padding: 20px 10px;
-    background: #f8f9fa;
+    background: #e9ecef;
     border-radius: 10px;
     margin: 15px 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative !important;
+    z-index: 1 !important; /* Below logo */
+  }
+
+  /* When planks are collapsed, keep background color but remove shadow */
+  /* NOTE: Don't set dimensions here - let inline styles handle animation */
+  #planks.planks-collapsed {
+    box-shadow: none !important;
+  }
+
+  /* Smooth transitions for collapse/expand - high specificity */
+  /* NO opacity transition - use height with overflow:hidden to clip content */
+  /* NO padding/margin animation - keep them constant so links don't shift position */
+  header #planks,
+  #planks.header-links,
+  #planks {
+    transition: max-height 0.8s ease-in-out, height 0.8s ease-in-out,
+                background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out !important;
+  }
+
+  /* Separator padding and margin animation */
+  #planks-separator {
+    transition: padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out, margin-top 0.8s ease-in-out, margin-bottom 0.8s ease-in-out !important;
+  }
+
+  #planks-separator.separator-collapsed {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .header-link {
@@ -393,12 +467,64 @@
       grid-template-columns: 1fr 1fr !important;
       gap: 3px 8px !important;
       padding: 12px !important;
+      padding-bottom: 18px !important; /* Extra bottom padding to prevent text cutoff */
       margin: 10px auto !important;
       max-width: 350px !important;
-      background: #f8f9fa !important;
+      background: #e9ecef !important;
       border-radius: 8px !important;
       float: none !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+      overflow: visible !important; /* Allow content to be fully visible */
+    }
+
+    /* When collapsed, keep background color but remove shadow */
+    #planks.planks-collapsed {
+      box-shadow: none !important;
+      gap: 0 !important; /* Remove grid gap */
+      min-height: 0 !important; /* Force no minimum height */
+    }
+
+    /* DON'T manipulate links - let container height animation clip them naturally */
+    /* Links stay in normal flow, container's overflow:hidden clips them as height animates */
+    /* NO display:none - that causes instant disappearance */
+    /* NO height/padding/margin manipulation - let container handle clipping */
+
+    /* Force planks to 0 height when collapsed - BUT don't override inline styles during transition */
+    /* Let inline styles handle the animation, CSS just ensures no minimum */
+    #planks.planks-collapsed {
+      min-height: 0 !important;
+      /* Don't set height/max-height here - let inline styles animate smoothly */
+      /* After animation completes, inline !important will lock it at 0 */
+      /* Keep background color - just collapse vertically */
+      overflow: hidden !important; /* Ensure overflow is hidden */
+      /* Ensure grid doesn't prevent collapse */
+      grid-template-rows: 0fr !important; /* Collapse grid rows */
+    }
+
+    /* Ensure smooth transitions work on mobile - high specificity */
+    /* NO opacity transition - use height with overflow:hidden to clip content */
+    /* NO padding/margin animation - keep them constant so links don't shift position */
+    header #planks,
+    #planks.header-links,
+    #planks {
+      transition: max-height 0.8s ease-in-out, height 0.8s ease-in-out,
+                  background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out !important;
+    }
+
+    /* Separator padding and margin animation on mobile */
+    #planks-separator {
+      transition: padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out, margin-top 0.8s ease-in-out, margin-bottom 0.8s ease-in-out !important;
+    }
+
+    #planks-separator.separator-collapsed {
+      padding-top: 4px !important;
+      padding-bottom: 4px !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      line-height: 1 !important;
+      height: auto !important;
     }
 
     .responsive .header-link,
@@ -858,6 +984,26 @@
     header .super-gramma.header-gramma {
       width: 80px !important;
       max-width: 80px !important;
+      position: relative !important;
+      z-index: 1003 !important; /* Above planks and header */
+    }
+
+    /* Ensure Super Gramma logo container stays above planks */
+    header .d-flex.flex-row.align-items-center {
+      position: relative !important;
+      z-index: 1003 !important; /* Higher than planks */
+    }
+
+    /* Ensure logo wrapper div also has high z-index */
+    header .d-flex.flex-row.align-items-center > div:first-child {
+      position: relative !important;
+      z-index: 1003 !important;
+    }
+
+    /* Planks should be below logo */
+    #planks {
+      position: relative !important;
+      z-index: 1 !important;
     }
   }
 
@@ -1833,14 +1979,7 @@
   @media (max-width: 768px) {
     .planks-toggle { display: block; }
   }
-  #planks.collapsed {
-    max-height: 0 !important;
-    overflow: hidden !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
+  /* Old collapsed rule removed - using planks-collapsed class instead */
 
   /* Responsive Video Container */
   .video-container {

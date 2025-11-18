@@ -154,6 +154,10 @@
         if (window.initializeSuperGrammaAnimations) {
           window.initializeSuperGrammaAnimations();
         }
+        // Initialize planks collapse after header loads (mobile only)
+        if (window.initializePlanksCollapse) {
+          setTimeout(window.initializePlanksCollapse, 100);
+        }
       });
       $("footer").load("footer.html");
 
