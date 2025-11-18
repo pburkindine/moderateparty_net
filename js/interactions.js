@@ -179,36 +179,11 @@
     // Set body/main padding to account for fixed header
     // Use getBoundingClientRect for accurate measurement including all children
     function setHeaderPadding() {
-      // Use getBoundingClientRect for more accurate height measurement
-      const rect = header.getBoundingClientRect();
-      let totalHeight = rect.height;
+      // Fixed values: 450px when expanded, 150px when collapsed
+      const totalHeight = isCollapsed ? 150 : 450;
 
-      // CRITICAL: Always use offsetHeight for initial setup to ensure we get the full height
-      // getBoundingClientRect can sometimes be inaccurate during transitions
-      const headerOffsetHeight = header.offsetHeight;
-
-      // Use the larger of the two measurements to ensure content isn't hidden
-      if (headerOffsetHeight > totalHeight) {
-        totalHeight = headerOffsetHeight;
-      }
-
-      // If planks are expanded, make absolutely sure we account for them
-      if (planks && planksInitialHeight > 0 && !isCollapsed) {
-        const planksCurrentHeight = planks.offsetHeight;
-        // If planks are visible, add them to the header height if not already included
-        if (planksCurrentHeight > 0) {
-          // Calculate: header without planks + planks + separator
-          const headerWithoutPlanks = totalHeight - planksCurrentHeight - (separator ? separator.offsetHeight : 0);
-          const fullHeight = headerWithoutPlanks + planksInitialHeight + (separator ? separatorHeight : 0);
-          if (fullHeight > totalHeight) {
-            totalHeight = fullHeight;
-          }
-        }
-      }
-
-      document.body.style.paddingTop = `${totalHeight}px`;
-      const main = document.querySelector('main') || document.querySelector('.main');
-      if (main) main.style.paddingTop = `${totalHeight}px`;
+      // Use setProperty with !important to override any CSS rules - only on body
+      document.body.style.setProperty('padding-top', `${totalHeight}px`, 'important');
     }
 
     function checkScroll() {
@@ -236,9 +211,9 @@
       }
 
       const scrollY = window.scrollY || window.pageYOffset;
-      // Lazy collapse - wait for 100px scroll before zipping up (feels more relaxed)
+      // Lazy collapse - wait for 50px scroll before zipping up (feels more relaxed)
       // BUT: Only collapse if user has actually scrolled (not just loaded scrolled)
-      const shouldCollapse = scrollY > 200 && hasUserScrolled;
+      const shouldCollapse = scrollY > 50 && hasUserScrolled;
 
       if (shouldCollapse !== isCollapsed) {
         isCollapsed = shouldCollapse;
@@ -248,15 +223,6 @@
 
           // Get current height BEFORE collapsing (needed for smooth animation)
           const currentHeight = planks.offsetHeight;
-          const headerHeightBefore = header.getBoundingClientRect().height;
-          const bodyPaddingBefore = parseFloat(document.body.style.paddingTop) || 0;
-
-            planksHeight: currentHeight,
-            headerHeight: headerHeightBefore,
-            bodyPadding: bodyPaddingBefore,
-            planksComputedHeight: window.getComputedStyle(planks).height,
-            planksComputedMaxHeight: window.getComputedStyle(planks).maxHeight
-          });
 
           // Keep background color - just collapse vertically, don't change color
           // Remove box-shadow when collapsed though
@@ -286,11 +252,6 @@
           planks.classList.add('planks-collapsed');
           // Also add class to header to collapse its padding
           header.classList.add('header-planks-collapsed');
-
-            planksHasClass: planks.classList.contains('planks-collapsed'),
-            headerHasClass: header.classList.contains('header-planks-collapsed'),
-            headerPaddingBottom: window.getComputedStyle(header).paddingBottom
-          });
 
           // Hide all links, show placeholder
           const links = planks.querySelectorAll('.header-link');
@@ -331,14 +292,6 @@
           // DON'T set visibility:hidden yet - let height animation work first
           // Visibility will be set to hidden AFTER animation completes
 
-          // Log to verify height is actually 0
-          setTimeout(() => {
-              planksOffsetHeight: planks.offsetHeight,
-              planksComputedHeight: window.getComputedStyle(planks).height,
-              planksComputedMaxHeight: window.getComputedStyle(planks).maxHeight,
-              planksDisplay: window.getComputedStyle(planks).display
-            });
-          }, 100);
 
           // Force header to allow shrinking - override any min-height
           header.style.setProperty('min-height', '0', 'important');
@@ -354,17 +307,6 @@
           header.style.paddingBottom = '0';
 
           // Log after setting values
-          setTimeout(() => {
-            const planksHeightAfter = planks.offsetHeight;
-            const planksComputedAfter = window.getComputedStyle(planks);
-              planksOffsetHeight: planksHeightAfter,
-              planksComputedHeight: planksComputedAfter.height,
-              planksComputedMaxHeight: planksComputedAfter.maxHeight,
-              planksComputedOpacity: planksComputedAfter.opacity,
-              planksComputedVisibility: planksComputedAfter.visibility,
-              planksComputedDisplay: planksComputedAfter.display
-            });
-          }, 100);
 
           // Animate separator padding AND margin to hug arrows (remove all whitespace)
           if (separator) {
@@ -396,26 +338,10 @@
           function animatePadding() {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Measure header height continuously using offsetHeight - more reliable during collapse
-            // getBoundingClientRect can be inaccurate during transitions
-            const currentHeaderHeight = header.offsetHeight;
-            document.body.style.paddingTop = `${currentHeaderHeight}px`;
-            const main = document.querySelector('main') || document.querySelector('.main');
-            if (main) main.style.paddingTop = `${currentHeaderHeight}px`;
+            // Animate from 450px to 150px during collapse
+            const currentPadding = 450 - (progress * 300); // 450 -> 150
+            document.body.style.setProperty('padding-top', `${currentPadding}px`, 'important');
 
-            // Log every 200ms
-            if (Math.floor(elapsed / 200) !== Math.floor((elapsed - 16) / 200)) {
-              const planksCurrentHeight = planks.offsetHeight;
-              const separatorCurrentHeight = separator ? separator.offsetHeight : 0;
-                progress: (progress * 100).toFixed(1) + '%',
-                headerHeight: currentHeaderHeight,
-                headerOffsetHeight: header.offsetHeight,
-                bodyPadding: currentHeaderHeight,
-                planksHeight: planksCurrentHeight,
-                separatorHeight: separatorCurrentHeight,
-                planksComputedHeight: window.getComputedStyle(planks).height
-              });
-            }
 
             if (progress < 1) {
               requestAnimationFrame(animatePadding);
@@ -647,21 +573,9 @@
           function animatePadding() {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Measure header height continuously using getBoundingClientRect - more accurate
-            const currentRect = header.getBoundingClientRect();
-            const currentHeaderHeight = currentRect.height;
-
-            // Log planks height during animation to verify it's animating
-            if (Math.floor(elapsed / 200) !== Math.floor((elapsed - 16) / 200)) {
-                progress: (progress * 100).toFixed(1) + '%',
-                planksHeight: planks.offsetHeight,
-                planksComputedHeight: window.getComputedStyle(planks).height,
-                headerHeight: currentHeaderHeight
-              });
-            }
-            document.body.style.paddingTop = `${currentHeaderHeight}px`;
-            const main = document.querySelector('main') || document.querySelector('.main');
-            if (main) main.style.paddingTop = `${currentHeaderHeight}px`;
+            // Animate from 150px to 450px during expand
+            const currentPadding = 150 + (progress * 300); // 150 -> 450
+            document.body.style.setProperty('padding-top', `${currentPadding}px`, 'important');
 
             if (progress < 1) {
               requestAnimationFrame(animatePadding);

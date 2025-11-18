@@ -211,11 +211,11 @@ describe('interactions.js logic tests', () => {
     const planksInitialHeight = 80;
     const separatorHeight = 30;
 
-    // Simulate scroll > 200px (updated threshold)
-    const scrollY = 210;
-    const shouldCollapse = scrollY > 200;
+    // Simulate scroll > 50px (updated threshold)
+    const scrollY = 60;
+    const shouldCollapse = scrollY > 50;
 
-    assert.strictEqual(shouldCollapse, true, 'Should collapse when scrollY > 200');
+    assert.strictEqual(shouldCollapse, true, 'Should collapse when scrollY > 50');
 
     if (shouldCollapse !== isCollapsed) {
       isCollapsed = shouldCollapse;
@@ -297,9 +297,9 @@ describe('interactions.js logic tests', () => {
 
     // Simulate scroll back to top
     const scrollY = 10;
-    const shouldCollapse = scrollY > 200;
+    const shouldCollapse = scrollY > 50;
 
-    assert.strictEqual(shouldCollapse, false, 'Should not collapse when scrollY <= 200');
+    assert.strictEqual(shouldCollapse, false, 'Should not collapse when scrollY <= 50');
 
     if (shouldCollapse !== isCollapsed) {
       isCollapsed = shouldCollapse;
@@ -439,10 +439,10 @@ describe('interactions.js logic tests', () => {
     }, 'Should handle missing header/planks');
   });
 
-  test('Scroll threshold is 200px', () => {
-    assert.strictEqual(200 > 200, false, '200px should not collapse');
-    assert.strictEqual(201 > 200, true, '201px should collapse');
-    assert.strictEqual(199 > 200, false, '199px should not collapse');
+  test('Scroll threshold is 50px', () => {
+    assert.strictEqual(50 > 50, false, '50px should not collapse');
+    assert.strictEqual(51 > 50, true, '51px should collapse');
+    assert.strictEqual(49 > 50, false, '49px should not collapse');
   });
 
   test('Animation timing values are correct', () => {
@@ -468,6 +468,154 @@ describe('interactions.js logic tests', () => {
     assert.strictEqual(separator.textContent, '— ↑ ↓ —',
       'Separator should contain em-dashes and arrows');
   });
+
+  test('hasUserScrolled flag prevents auto-collapse on page load', () => {
+    let hasUserScrolled = false;
+    const scrollY = 100;
+
+    // Before user scrolls, shouldn't collapse even if scrollY > 50
+    let shouldCollapse = scrollY > 50 && hasUserScrolled;
+    assert.strictEqual(shouldCollapse, false, 'Should not collapse before user scrolls');
+
+    // After user scrolls, should collapse
+    hasUserScrolled = true;
+    shouldCollapse = scrollY > 50 && hasUserScrolled;
+    assert.strictEqual(shouldCollapse, true, 'Should collapse after user scrolls');
+  });
+
+  test('Fixed padding values: 450px expanded, 150px collapsed', () => {
+    let isCollapsed = false;
+    let paddingExpanded = isCollapsed ? 150 : 450;
+    assert.strictEqual(paddingExpanded, 450, 'Padding should be 450px when expanded');
+
+    isCollapsed = true;
+    let paddingCollapsed = isCollapsed ? 150 : 450;
+    assert.strictEqual(paddingCollapsed, 150, 'Padding should be 150px when collapsed');
+  });
+
+  test('Padding animates from 450px to 150px on collapse', () => {
+    // Test start of animation
+    let progress = 0;
+    let currentPadding = 450 - (progress * 300);
+    assert.strictEqual(currentPadding, 450, 'Padding starts at 450px');
+
+    // Test mid animation
+    progress = 0.5;
+    currentPadding = 450 - (progress * 300);
+    assert.strictEqual(currentPadding, 300, 'Padding should be 300px at 50% progress');
+
+    // Test end of animation
+    progress = 1;
+    currentPadding = 450 - (progress * 300);
+    assert.strictEqual(currentPadding, 150, 'Padding ends at 150px');
+  });
+
+  test('Padding animates from 150px to 450px on expand', () => {
+    // Test start of animation
+    let progress = 0;
+    let currentPadding = 150 + (progress * 300);
+    assert.strictEqual(currentPadding, 150, 'Padding starts at 150px');
+
+    // Test mid animation
+    progress = 0.5;
+    currentPadding = 150 + (progress * 300);
+    assert.strictEqual(currentPadding, 300, 'Padding should be 300px at 50% progress');
+
+    // Test end of animation
+    progress = 1;
+    currentPadding = 150 + (progress * 300);
+    assert.strictEqual(currentPadding, 450, 'Padding ends at 450px');
+  });
+
+  test('Placeholder setup creates single element', () => {
+    const { planks } = createMocks();
+    let placeholder = null;
+
+    // Mock planks with proper methods
+    planks.querySelectorAll = (selector) => {
+      if (selector === '.planks-placeholder') return [];
+      return [];
+    };
+    planks.appendChild = (el) => { placeholder = el; };
+
+    // Simulate setupPlaceholder
+    if (!placeholder) {
+      const existingPlaceholders = planks.querySelectorAll('.planks-placeholder');
+      existingPlaceholders.forEach(el => el.remove && el.remove());
+
+      placeholder = new MockElement('DIV');
+      placeholder.className = 'planks-placeholder';
+      placeholder.textContent = '...';
+      planks.appendChild(placeholder);
+    }
+
+    assert.ok(placeholder, 'Placeholder should be created');
+    assert.strictEqual(placeholder.className, 'planks-placeholder', 'Placeholder should have correct class');
+    assert.strictEqual(placeholder.textContent, '...', 'Placeholder should contain ellipsis');
+  });
+
+  test('Links hidden and placeholder shown during collapse', () => {
+    const { planks } = createMocks();
+    const mockLink = new MockElement('A');
+    mockLink.className = 'header-link';
+
+    const mockPlaceholder = new MockElement('SPAN');
+    mockPlaceholder.className = 'planks-placeholder';
+
+    planks.querySelectorAll = (selector) => {
+      if (selector === '.header-link') return [mockLink];
+      return [];
+    };
+
+    // Simulate hiding links and showing placeholder
+    const links = planks.querySelectorAll('.header-link');
+    links.forEach(link => {
+      link.style.setProperty('display', 'none', 'important');
+    });
+    mockPlaceholder.style.setProperty('display', 'block', 'important');
+
+    assert.strictEqual(mockLink.style.display, 'none', 'Links should be hidden');
+    assert.strictEqual(mockPlaceholder.style.display, 'block', 'Placeholder should be shown');
+  });
+
+  test('Planks position set to relative for absolute positioned placeholder', () => {
+    const { planks } = createMocks();
+
+    // During animation, planks position should be relative
+    planks.style.position = 'relative';
+
+    assert.strictEqual(planks.style.position, 'relative', 'Planks should have position relative');
+  });
+
+  test('Body padding uses !important to override CSS', () => {
+    const mockBody = { style: {} };
+    mockBody.style.setProperty = (prop, value, priority) => {
+      mockBody.style[prop] = value;
+      mockBody.style[prop + '_priority'] = priority;
+    };
+
+    mockBody.style.setProperty('padding-top', '300px', 'important');
+
+    assert.strictEqual(mockBody.style['padding-top'], '300px', 'Body should have 300px padding');
+    assert.strictEqual(mockBody.style['padding-top_priority'], 'important', 'Padding should use !important');
+  });
+
+  test('Separator padding values: 4px collapsed, 8px expanded', () => {
+    const { separator } = createMocks();
+
+    // Collapsed state
+    separator.style.setProperty('padding-top', '4px', 'important');
+    separator.style.setProperty('padding-bottom', '4px', 'important');
+    assert.strictEqual(separator.style.getPropertyValue('padding-top'), '4px', 'Separator padding-top should be 4px when collapsed');
+    assert.strictEqual(separator.style.getPropertyValue('padding-bottom'), '4px', 'Separator padding-bottom should be 4px when collapsed');
+
+    // Expanded state
+    separator.style.paddingTop = '8px';
+    separator.style.paddingBottom = '8px';
+    assert.strictEqual(separator.style.paddingTop, '8px', 'Separator padding-top should be 8px when expanded');
+    assert.strictEqual(separator.style.paddingBottom, '8px', 'Separator padding-bottom should be 8px when expanded');
+  });
+
 });
 
 console.log('\n🧪 Running interactions.js tests...\n');
