@@ -365,7 +365,7 @@
           .sg-chat-widget {
             right: 15px;
             /* bottom set by JS */
-            z-index: 50 !important; /* Lower than hamburger menu (z-index: 1000) and header */
+            z-index: 1 !important; /* Very low - stay below header and menu */
           }
 
           /* Ensure header and hamburger stay above chat */

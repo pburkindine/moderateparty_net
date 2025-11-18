@@ -466,7 +466,7 @@
     }
 
     /* Hide Gold Standard on desktop */
-    #gold-standard-link {
+    #gold-standard-link, #ranked-choice-link {
       display: none !important;
     }
   }
