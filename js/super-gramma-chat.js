@@ -12,6 +12,17 @@
   let isOpen = false;
   let isTyping = false;
 
+  // Position widget above footer
+  function positionWidget() {
+    const footer = document.getElementById('linkBar');
+    const widget = document.getElementById('super-gramma-chat');
+    if (footer && widget) {
+      const footerHeight = footer.offsetHeight;
+      widget.style.bottom = `${footerHeight + 15}px`;
+      console.log(`Super Gramma: Positioned ${footerHeight + 15}px from bottom`);
+    }
+  }
+
   // Create chat widget HTML
   function createChatWidget() {
     const widgetHTML = `
@@ -36,6 +47,7 @@
           </div>
 
           <div id="sg-chat-messages" class="sg-chat-messages">
+            <!-- IMMUTABLE: Opening greeting crafted by Pete - do not modify -->
             <div class="sg-message sg-assistant">
               <div class="sg-message-content">
                 <p>Hi, sweetheart! I'm Super Gramma. I'm up all night to talk about politics, or your problems, or quantum physics for all I care :) What's on yer mind? 🍦</p>
@@ -60,16 +72,22 @@
       </div>
     `;
 
-    // Try to append to footer, fallback to body
-    const footer = document.querySelector('footer');
-    if (footer) {
-      // Make sure footer has position relative for absolute positioning to work
-      if (getComputedStyle(footer).position === 'static') {
-        footer.style.position = 'relative';
-      }
-      footer.insertAdjacentHTML('beforeend', widgetHTML);
+    // Append to the chat container in footer
+    const container = document.getElementById('sg-chat-container');
+    if (container) {
+      container.insertAdjacentHTML('beforeend', widgetHTML);
+
+      // Position based on actual footer height
+      positionWidget();
+
+      // Reposition on window resize (footer height may change)
+      window.addEventListener('resize', positionWidget);
+
+      console.log('Super Gramma: Chat widget added to footer container');
     } else {
+      // Fallback: append to body if container not found
       document.body.insertAdjacentHTML('beforeend', widgetHTML);
+      console.log('Super Gramma: Chat widget added to body (fallback)');
     }
   }
 
@@ -78,9 +96,10 @@
     const styles = `
       <style>
         .sg-chat-widget {
-          position: absolute;
-          bottom: 15px;
+          position: fixed;
           right: 20px;
+          /* bottom will be set by JS based on footer height */
+          pointer-events: auto;
           z-index: 9999;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
@@ -305,8 +324,8 @@
         /* Mobile styles */
         @media (max-width: 768px) {
           .sg-chat-widget {
-            bottom: 15px;
             right: 15px;
+            /* bottom set by JS */
           }
 
           .sg-chat-button {
@@ -530,11 +549,22 @@
     document.getElementById('sg-send-button').disabled = false;
   }
 
-  // Initialize when DOM is ready
+  // Initialize when DOM is ready and footer is loaded
+  function waitForFooter() {
+    const footer = document.querySelector('footer');
+    if (footer && footer.innerHTML.trim() !== '') {
+      // Footer is loaded and has content
+      init();
+    } else {
+      // Footer not ready, check again soon
+      setTimeout(waitForFooter, 100);
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', waitForFooter);
   } else {
-    init();
+    waitForFooter();
   }
 
 })();
