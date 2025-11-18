@@ -258,6 +258,16 @@
           margin-top: 8px;
         }
 
+        .sg-message-content a {
+          color: #007bff;
+          text-decoration: underline;
+        }
+
+        .sg-user .sg-message-content a {
+          color: white;
+          text-decoration: underline;
+        }
+
         .sg-typing {
           display: inline-flex;
           gap: 4px;
@@ -522,9 +532,14 @@
     const contentDiv = document.createElement('div');
     contentDiv.className = 'sg-message-content';
 
-    // Convert line breaks to paragraphs
+    // Convert markdown links to HTML: [text](url) -> <a href="url">text</a>
+    const convertMarkdownLinks = (text) => {
+      return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+    };
+
+    // Convert line breaks to paragraphs and parse markdown links
     const paragraphs = content.split('\n\n').filter(p => p.trim());
-    contentDiv.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+    contentDiv.innerHTML = paragraphs.map(p => `<p>${convertMarkdownLinks(p)}</p>`).join('');
 
     messageDiv.appendChild(contentDiv);
     messagesContainer.appendChild(messageDiv);
