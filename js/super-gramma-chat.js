@@ -534,7 +534,11 @@
 
     // Convert markdown links to HTML: [text](url) -> <a href="url">text</a>
     const convertMarkdownLinks = (text) => {
-      return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+      // Convert markdown links
+      text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+      // Convert plain email addresses to mailto links
+      text = text.replace(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g, '<a href="mailto:$1">$1</a>');
+      return text;
     };
 
     // Convert line breaks to paragraphs and parse markdown links
