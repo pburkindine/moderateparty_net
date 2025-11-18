@@ -62,7 +62,7 @@
             <!-- IMMUTABLE: Opening greeting crafted by Pete - do not modify -->
             <div class="sg-message sg-assistant">
               <div class="sg-message-content">
-                <p>Hi, sweetheart! I'm Super Gramma. I'm up all night to talk about politics, or your problems, or quantum physics for all I care :) What's on yer mind? 🍦</p>
+                <p>Hi, sweetheart! I'm Super Gramma. I'm up all night to talk about politics, or your problems, or quantum physics for all I care :) What's on yer mind? 🍦 Maybe a story?</p>
               </div>
             </div>
           </div>
