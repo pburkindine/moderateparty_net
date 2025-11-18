@@ -109,7 +109,7 @@
     padding: 0;
     background: none !important;
     color: #555 !important;
-    text-decoration: underline;
+    text-decoration: none !important; /* Remove underline from link */
     border-radius: 0;
     font-size: 16px;
     transition: color 0.3s ease;
@@ -126,7 +126,7 @@
     margin: 0 !important;
     background: none !important;
     color: #555 !important;
-    text-decoration: underline !important;
+    text-decoration: none !important; /* Remove underline from link */
     border-radius: 0 !important;
     font-size: 14px !important;
     transition: none !important;
@@ -135,6 +135,34 @@
   .header-outs a[href*="copyleftout"]:hover {
     background: none !important;
     color: #333 !important;
+  }
+
+  /* Email link */
+  .header-outs a[href^="mailto:"] {
+    text-decoration: none !important; /* Remove underline from link */
+  }
+
+  /* Remove underline from images and spaces, add underline only to text spans */
+  .header-outs a img,
+  .header-outs a[href*="facebook"] img,
+  .header-outs a[href*="copyleftout"] img,
+  .header-outs a[href^="mailto:"] img {
+    text-decoration: none !important;
+  }
+
+  /* Add underline only to text spans */
+  .header-outs a .header-link-text,
+  .header-outs a[href*="facebook"] .header-link-text,
+  .header-outs a[href*="copyleftout"] .header-link-text,
+  .header-outs a[href^="mailto:"] .header-link-text {
+    text-decoration: underline;
+  }
+
+  .header-outs a:hover .header-link-text,
+  .header-outs a[href*="facebook"]:hover .header-link-text,
+  .header-outs a[href*="copyleftout"]:hover .header-link-text,
+  .header-outs a[href^="mailto:"]:hover .header-link-text {
+    text-decoration: underline;
   }
 
   /* Mobile header fixes */
@@ -156,7 +184,7 @@
       /* Make it look like a link */
       font-size: 14px;
       /* Smaller text */
-      text-decoration: underline;
+      text-decoration: none !important; /* Remove underline from link */
       /* Link style */
       border-radius: 0;
       /* Remove rounded corners */
@@ -166,6 +194,21 @@
     .header-outs a[href*="facebook"]:hover {
       background: none !important;
       color: #2980b9 !important;
+    }
+
+    /* Mobile: Remove underline from images, add underline only to text spans */
+    .header-outs a img,
+    .header-outs a[href*="facebook"] img,
+    .header-outs a[href*="copyleftout"] img,
+    .header-outs a[href^="mailto:"] img {
+      text-decoration: none !important;
+    }
+
+    .header-outs a .header-link-text,
+    .header-outs a[href*="facebook"] .header-link-text,
+    .header-outs a[href*="copyleftout"] .header-link-text,
+    .header-outs a[href^="mailto:"] .header-link-text {
+      text-decoration: underline;
     }
 
     .header-outs a[href*="copyleftout"] {
@@ -1540,7 +1583,7 @@
     /* Standard blue link styling for all header-outs links on tablet */
     .header-outs a {
       color: #007bff !important;
-      text-decoration: underline !important;
+      text-decoration: none !important; /* Remove underline from link */
       font-size: 14px !important;
       line-height: 1.6 !important;
       display: inline-block !important;
@@ -1560,6 +1603,21 @@
     .header-outs a:hover {
       color: #0056b3 !important;
       background: none !important;
+    }
+
+    /* Tablet: Remove underline from images, add underline only to text spans */
+    .header-outs a img,
+    .header-outs a[href*="facebook"] img,
+    .header-outs a[href*="copyleftout"] img,
+    .header-outs a[href^="mailto:"] img {
+      text-decoration: none !important;
+    }
+
+    .header-outs a .header-link-text,
+    .header-outs a[href*="facebook"] .header-link-text,
+    .header-outs a[href*="copyleftout"] .header-link-text,
+    .header-outs a[href^="mailto:"] .header-link-text {
+      text-decoration: underline;
     }
 
     /* Keep Facebook icon with text on same line */

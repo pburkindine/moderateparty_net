@@ -18,8 +18,25 @@
     const widget = document.getElementById('super-gramma-chat');
     if (footer && widget) {
       const footerHeight = footer.offsetHeight;
-      widget.style.bottom = `${footerHeight + 15}px`;
-      console.log(`Super Gramma: Positioned ${footerHeight + 15}px from bottom`);
+      let bottomPosition = footerHeight + 15;
+
+      // On mobile, ensure chat button doesn't overlap with header
+      if (window.innerWidth <= 768) {
+        const header = document.querySelector('header');
+        if (header) {
+          const headerHeight = header.offsetHeight;
+          const viewportHeight = window.innerHeight;
+          // Ensure button is at least 80px from top (below header area)
+          const minTopSpace = 80;
+          const maxBottom = viewportHeight - minTopSpace;
+          if (bottomPosition > maxBottom) {
+            bottomPosition = maxBottom;
+          }
+        }
+      }
+
+      widget.style.bottom = `${bottomPosition}px`;
+      console.log(`Super Gramma: Positioned ${bottomPosition}px from bottom`);
     }
   }
 
@@ -348,6 +365,17 @@
           .sg-chat-widget {
             right: 15px;
             /* bottom set by JS */
+            z-index: 50 !important; /* Lower than hamburger menu (z-index: 1000) and header */
+          }
+
+          /* Ensure header and hamburger stay above chat */
+          header {
+            z-index: 1001 !important;
+          }
+
+          .hamburger-btn,
+          .mobile-menu-container {
+            z-index: 1002 !important;
           }
 
           .sg-chat-button {
