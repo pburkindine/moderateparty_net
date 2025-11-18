@@ -122,7 +122,9 @@
 
   /* Copyleftout link - keep old school style with cockroaches */
   .header-outs a[href*="copyleftout"] {
-    display: inline-block !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
     margin: 0 !important;
     background: none !important;
     color: #555 !important;
@@ -212,7 +214,9 @@
     }
 
     .header-outs a[href*="copyleftout"] {
-      display: inline-block !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
       margin: 0 !important;
       text-align: left !important;
     }
@@ -224,6 +228,8 @@
     width: 16px;
     height: auto;
     margin: 0 2px;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
   }
 
   /* Header links - make mobile friendly and professional */
@@ -749,7 +755,8 @@
 
     /* Keep copyleftout roach icon inline */
     .header-outs a[href*="copyleftout"] {
-      display: inline !important;
+      display: inline-flex !important;
+      align-items: center !important;
       white-space: nowrap !important;
     }
 
@@ -1502,7 +1509,9 @@
     }
 
     .header-outs a[href*="copyleftout"] {
-      display: block !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
       margin-bottom: 8px !important;
     }
 
@@ -1630,7 +1639,8 @@
 
     /* Keep copyleftout roach icon inline */
     .header-outs a[href*="copyleftout"] {
-      display: inline !important;
+      display: inline-flex !important;
+      align-items: center !important;
       white-space: nowrap !important;
     }
 
