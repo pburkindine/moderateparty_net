@@ -141,6 +141,9 @@
 
   /* Email link */
   .header-outs a[href^="mailto:"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
     text-decoration: none !important; /* Remove underline from link */
   }
 
@@ -219,6 +222,13 @@
       white-space: nowrap !important;
       margin: 0 !important;
       text-align: left !important;
+    }
+
+    .header-outs a[href^="mailto:"] {
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      margin: 0 !important;
     }
   }
 
@@ -1639,6 +1649,13 @@
 
     /* Keep copyleftout roach icon inline */
     .header-outs a[href*="copyleftout"] {
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+    }
+
+    /* Keep email icon inline */
+    .header-outs a[href^="mailto:"] {
       display: inline-flex !important;
       align-items: center !important;
       white-space: nowrap !important;
