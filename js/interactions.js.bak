@@ -115,6 +115,7 @@
     const planks = document.getElementById('planks');
 
     if (!header || !planks) {
+      console.log('Mobile header: Waiting for header/planks to load...', { header: !!header, planks: !!planks });
       // Try again if elements not loaded yet (header loads via AJAX)
       setTimeout(initializeMobileHeader, 200);
       return;
@@ -242,6 +243,7 @@
 
       if (shouldCollapse !== isCollapsed) {
         isCollapsed = shouldCollapse;
+        console.log('Planks collapse: State changed', { isCollapsed, scrollY, hasUserScrolled });
 
         if (isCollapsed) {
           // User started scrolling - zip planks upward like blinds/tongue retracting!
@@ -251,6 +253,7 @@
           const headerHeightBefore = header.getBoundingClientRect().height;
           const bodyPaddingBefore = parseFloat(document.body.style.paddingTop) || 0;
 
+          console.log('🔵 COLLAPSE START:', {
             planksHeight: currentHeight,
             headerHeight: headerHeightBefore,
             bodyPadding: bodyPaddingBefore,
@@ -278,6 +281,7 @@
           planks.style.setProperty('transition', 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out', 'important');
 
           const transitionAfter = window.getComputedStyle(planks).transition;
+          console.log('🔵 Transition set:', transitionAfter);
 
           // Force another reflow to ensure transition is registered
           void planks.offsetHeight;
@@ -287,6 +291,7 @@
           // Also add class to header to collapse its padding
           header.classList.add('header-planks-collapsed');
 
+          console.log('🔵 Classes added:', {
             planksHasClass: planks.classList.contains('planks-collapsed'),
             headerHasClass: header.classList.contains('header-planks-collapsed'),
             headerPaddingBottom: window.getComputedStyle(header).paddingBottom
@@ -333,6 +338,7 @@
 
           // Log to verify height is actually 0
           setTimeout(() => {
+            console.log('🔵 After setting height to 0:', {
               planksOffsetHeight: planks.offsetHeight,
               planksComputedHeight: window.getComputedStyle(planks).height,
               planksComputedMaxHeight: window.getComputedStyle(planks).maxHeight,
@@ -357,6 +363,7 @@
           setTimeout(() => {
             const planksHeightAfter = planks.offsetHeight;
             const planksComputedAfter = window.getComputedStyle(planks);
+            console.log('🔵 After setting 0 values:', {
               planksOffsetHeight: planksHeightAfter,
               planksComputedHeight: planksComputedAfter.height,
               planksComputedMaxHeight: planksComputedAfter.maxHeight,
@@ -407,6 +414,7 @@
             if (Math.floor(elapsed / 200) !== Math.floor((elapsed - 16) / 200)) {
               const planksCurrentHeight = planks.offsetHeight;
               const separatorCurrentHeight = separator ? separator.offsetHeight : 0;
+              console.log('🔵 Padding animation:', {
                 progress: (progress * 100).toFixed(1) + '%',
                 headerHeight: currentHeaderHeight,
                 headerOffsetHeight: header.offsetHeight,
@@ -653,6 +661,7 @@
 
             // Log planks height during animation to verify it's animating
             if (Math.floor(elapsed / 200) !== Math.floor((elapsed - 16) / 200)) {
+              console.log('🟢 Expand animation progress:', {
                 progress: (progress * 100).toFixed(1) + '%',
                 planksHeight: planks.offsetHeight,
                 planksComputedHeight: window.getComputedStyle(planks).height,
