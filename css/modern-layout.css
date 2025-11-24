@@ -1973,6 +1973,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+    width: 100%;
     padding: 15px 25px;
     color: #333;
     text-decoration: none;
@@ -1981,6 +1982,7 @@
     transition: background-color 0.2s ease;
     line-height: 1.4;
     white-space: nowrap;
+    box-sizing: border-box;
   }
 
   .mobile-menu-link:hover {
