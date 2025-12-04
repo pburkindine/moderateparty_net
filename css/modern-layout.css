@@ -2286,3 +2286,12 @@
       opacity: 1;
     }
   }
+
+  /* Hide Super Gramma Chat Widget completely on all devices */
+  #super-gramma-chat,
+  .sg-chat-widget,
+  .sg-chat-button,
+  .sg-chat-window {
+    display: none !important;
+    visibility: hidden !important;
+  }
