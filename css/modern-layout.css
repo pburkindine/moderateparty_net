@@ -364,6 +364,15 @@
   /* Separator padding and margin animation */
   #planks-separator {
     transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out !important;
+    /* Hide separator on desktop - only show on mobile/tablet */
+    display: none;
+  }
+
+  /* Show separator only on mobile/tablet */
+  @media screen and (max-width: 1024px) {
+    #planks-separator {
+      display: block;
+    }
   }
 
   #planks-separator.separator-collapsed {
@@ -521,6 +530,7 @@
     /* Separator padding and margin animation on mobile */
     #planks-separator {
       transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out !important;
+      display: block !important;
     }
 
     #planks-separator.separator-collapsed {
