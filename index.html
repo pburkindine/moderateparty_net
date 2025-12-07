@@ -162,6 +162,15 @@
         if (window.initializePlanksCollapse) {
           setTimeout(window.initializePlanksCollapse, 100);
         }
+        // Remove loading overlay when header finishes loading
+        setTimeout(() => {
+          const loadingOverlay = document.getElementById('header-loading-overlay');
+          if (loadingOverlay) {
+            loadingOverlay.style.opacity = '0';
+            loadingOverlay.style.transition = 'opacity 0.2s ease';
+            setTimeout(() => loadingOverlay.remove(), 200);
+          }
+        }, 100);
       });
       $("footer").load("footer.html");
 

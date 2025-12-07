@@ -4,6 +4,9 @@
 (function() {
   'use strict';
 
+  // DISABLED: AI chat completely disabled - exit early
+  return;
+
   // Configuration
   const API_ENDPOINT = '/api/chat'; // Cloudflare Function endpoint
   const MAX_HISTORY = 10; // Keep last 10 messages for context

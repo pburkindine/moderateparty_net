@@ -116,9 +116,26 @@
 
     if (!header || !planks) {
       // Try again if elements not loaded yet (header loads via AJAX)
-      setTimeout(initializeMobileHeader, 200);
+      // But remove loading overlay anyway after a few attempts
+      const attempts = window._headerInitAttempts || 0;
+      window._headerInitAttempts = attempts + 1;
+
+      if (attempts < 10) {
+        setTimeout(initializeMobileHeader, 200);
+      } else {
+        // Give up after 10 attempts (2 seconds) and remove overlay
+        const loadingOverlay = document.getElementById('header-loading-overlay');
+        if (loadingOverlay) {
+          loadingOverlay.style.opacity = '0';
+          loadingOverlay.style.transition = 'opacity 0.2s ease';
+          setTimeout(() => loadingOverlay.remove(), 200);
+        }
+      }
       return;
     }
+
+    // Reset attempt counter on success
+    window._headerInitAttempts = 0;
 
 
     // Store initial planks height for animation
@@ -791,6 +808,16 @@
 
   // Also try after header loads (AJAX) - header loads via jQuery .load()
   setTimeout(initializeMobileHeader, 800);
+
+  // Fallback: Remove loading overlay after reasonable timeout (in case header fails to load)
+  setTimeout(() => {
+    const loadingOverlay = document.getElementById('header-loading-overlay');
+    if (loadingOverlay) {
+      loadingOverlay.style.opacity = '0';
+      loadingOverlay.style.transition = 'opacity 0.2s ease';
+      setTimeout(() => loadingOverlay.remove(), 200);
+    }
+  }, 2000); // 2 second fallback timeout
 
   // Expose for manual initialization after header loads
   window.initializePlanksCollapse = initializePlanksCollapse;
