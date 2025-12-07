@@ -803,6 +803,16 @@
   // Also try after header loads (AJAX) - header loads via jQuery .load()
   setTimeout(initializeMobileHeader, 800);
 
+  // Fallback: Remove loading overlay after reasonable timeout (in case header fails to load)
+  setTimeout(() => {
+    const loadingOverlay = document.getElementById('header-loading-overlay');
+    if (loadingOverlay) {
+      loadingOverlay.style.opacity = '0';
+      loadingOverlay.style.transition = 'opacity 0.2s ease';
+      setTimeout(() => loadingOverlay.remove(), 200);
+    }
+  }, 3000); // 3 second fallback timeout
+
   // Expose for manual initialization after header loads
   window.initializePlanksCollapse = initializePlanksCollapse;
   window.initializeMobileHeader = initializeMobileHeader;

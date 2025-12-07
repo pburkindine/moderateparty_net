@@ -99,6 +99,15 @@
       console.log("ready");
       $("header").load("header.html", function () {
         initializeSuperGrammaAnimations();
+        // Remove loading overlay when header finishes loading
+        setTimeout(() => {
+          const loadingOverlay = document.getElementById('header-loading-overlay');
+          if (loadingOverlay) {
+            loadingOverlay.style.opacity = '0';
+            loadingOverlay.style.transition = 'opacity 0.2s ease';
+            setTimeout(() => loadingOverlay.remove(), 200);
+          }
+        }, 100);
       });
       $("footer").load("footer.html");
     });
