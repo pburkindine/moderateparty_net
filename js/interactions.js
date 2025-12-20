@@ -245,6 +245,127 @@
     // Set initial body padding to account for full header (header + planks + separator)
     setHeaderPadding();
 
+    // Function to manually toggle planks collapse/expand (bypasses scroll logic)
+    function togglePlanksManually() {
+      if (isInitializing) return; // Don't toggle during initialization
+
+      // Toggle state
+      isCollapsed = !isCollapsed;
+
+      // Force update by calling checkScroll with the new state
+      // But we need to bypass the scroll-based logic, so we'll directly apply the state
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (isCollapsed) {
+        // Collapse manually
+        const currentHeight = planks.offsetHeight;
+        planks.style.setProperty('box-shadow', 'none', 'important');
+        planks.style.height = `${currentHeight}px`;
+        planks.style.maxHeight = `${currentHeight}px`;
+        void planks.offsetHeight;
+        planks.style.setProperty('transition', 'max-height 0.8s ease-in-out, height 0.8s ease-in-out, background-color 0.7s ease-in-out, border-radius 0.8s ease-in-out', 'important');
+        void planks.offsetHeight;
+        planks.classList.add('planks-collapsed');
+        header.classList.add('header-planks-collapsed');
+        const links = planks.querySelectorAll('.header-link');
+        links.forEach(link => link.style.setProperty('display', 'none', 'important'));
+        planks.style.position = 'relative';
+        if (placeholder) placeholder.style.setProperty('display', 'block', 'important');
+        planks.style.maxHeight = '0';
+        planks.style.height = '0';
+        planks.style.overflow = 'hidden';
+        planks.style.opacity = '1';
+        planks.style.setProperty('padding-top', '0', 'important');
+        planks.style.setProperty('padding-bottom', '0', 'important');
+        planks.style.setProperty('padding-left', '0', 'important');
+        planks.style.setProperty('padding-right', '0', 'important');
+        planks.style.gap = '0';
+        planks.style.minHeight = '0';
+        planks.style.gridTemplateRows = '0fr';
+        planks.style.pointerEvents = 'none';
+        header.style.setProperty('min-height', '0', 'important');
+        header.style.setProperty('height', 'auto', 'important');
+        const headerComputedStyle = window.getComputedStyle(header);
+        const initialPaddingBottom = headerComputedStyle.paddingBottom || '10px';
+        header.style.paddingBottom = initialPaddingBottom;
+        void header.offsetHeight;
+        header.style.paddingBottom = '0';
+        if (separator) {
+          separator.classList.add('separator-collapsed');
+          separator.style.transition = 'padding-top 0.8s ease-in-out, padding-bottom 0.8s ease-in-out, margin-top 0.8s ease-in-out, margin-bottom 0.8s ease-in-out';
+          separator.style.setProperty('padding-top', '4px', 'important');
+          separator.style.setProperty('padding-bottom', '4px', 'important');
+          separator.style.setProperty('padding-left', '0', 'important');
+          separator.style.setProperty('padding-right', '0', 'important');
+          separator.style.setProperty('margin-top', '0', 'important');
+          separator.style.setProperty('margin-bottom', '0', 'important');
+          separator.style.setProperty('line-height', '1', 'important');
+        }
+        setHeaderPadding();
+      } else {
+        // Expand manually
+        planks.style.setProperty('box-shadow', '0 2px 8px rgba(0, 0, 0, 0.1)', 'important');
+        planks.classList.remove('planks-collapsed');
+        header.classList.remove('header-planks-collapsed');
+        if (separator) separator.classList.remove('separator-collapsed');
+        const links = planks.querySelectorAll('.header-link');
+        links.forEach(link => link.style.setProperty('display', 'none', 'important'));
+        planks.style.position = 'relative';
+        planks.style.maxHeight = '0';
+        planks.style.height = '0';
+        planks.style.overflow = 'hidden';
+        planks.style.opacity = '1';
+        planks.style.setProperty('padding-top', '0', 'important');
+        planks.style.setProperty('padding-bottom', '0', 'important');
+        planks.style.setProperty('padding-left', '0', 'important');
+        planks.style.setProperty('padding-right', '0', 'important');
+        void planks.offsetHeight;
+        planks.style.setProperty('transition', 'max-height 0.5s ease-in-out, height 0.5s ease-in-out, background-color 0.4s ease-in-out, border-radius 0.5s ease-in-out', 'important');
+        if (separator) {
+          separator.style.transition = 'padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out';
+        }
+        void planks.offsetHeight;
+        planks.style.maxHeight = `${planksInitialHeight}px`;
+        planks.style.height = `${planksInitialHeight}px`;
+        planks.style.overflow = 'hidden';
+        setTimeout(() => {
+          if (!isCollapsed) {
+            if (placeholder) placeholder.style.display = 'none';
+            links.forEach(link => link.style.display = '');
+            planks.style.setProperty('padding-top', '12px', 'important');
+            planks.style.setProperty('padding-bottom', '18px', 'important');
+            planks.style.setProperty('padding-left', '12px', 'important');
+            planks.style.setProperty('padding-right', '12px', 'important');
+            void planks.offsetHeight;
+            planks.style.height = 'auto';
+            planks.style.maxHeight = 'none';
+            planks.style.overflow = 'visible';
+          }
+        }, 550);
+        if (separator) {
+          separator.style.paddingTop = separatorInitialPaddingTop;
+          separator.style.paddingBottom = separatorInitialPaddingBottom;
+          separator.style.paddingLeft = '';
+          separator.style.paddingRight = '';
+          separator.style.marginTop = '';
+          separator.style.marginBottom = '';
+        }
+        setHeaderPadding();
+      }
+    }
+
+    // Add click handler to separator to toggle planks
+    if (separator) {
+      separator.style.cursor = 'pointer';
+      separator.setAttribute('role', 'button');
+      separator.setAttribute('aria-label', 'Toggle planks menu');
+      separator.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        togglePlanksManually();
+      });
+    }
+
     function checkScroll() {
       // Don't process scroll events during initialization
       if (isInitializing) {
@@ -288,7 +409,8 @@
         if (!hasUserScrolled) {
           shouldCollapse = true; // Keep collapsed on load
         } else {
-          shouldCollapse = scrollY !== 0; // Expand ONLY at scrollY === 0
+          // More robust: check if we're at the very top (within 5px tolerance)
+          shouldCollapse = scrollY > 5; // Expand ONLY when scrollY <= 5px
         }
       }
 
@@ -689,15 +811,19 @@
 
     // Check on scroll - with flag to detect real user scrolling vs programmatic
     let isAnimatingPadding = false;
+    let scrollTimeout;
     function handleScroll() {
       if (window.innerWidth > 768) return;
 
-      // Don't mark as user scrolled if we're animating padding (that causes scroll events)
-      if (!isAnimatingPadding) {
-        hasUserScrolled = true;
-      }
-
-      checkScroll();
+      // Debounce scroll events to prevent glitchy behavior
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        // Don't mark as user scrolled if we're animating padding (that causes scroll events)
+        if (!isAnimatingPadding) {
+          hasUserScrolled = true;
+        }
+        checkScroll();
+      }, 50); // 50ms debounce
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -784,6 +910,29 @@
       // Don't check scroll during initialization
       if (!isInitializing) checkScroll();
     }, 100);
+
+    // Periodic check to ensure state stays in sync (prevents getting stuck)
+    // Check every 2 seconds to catch any state desync issues
+    setInterval(() => {
+      if (window.innerWidth <= 768 && !isInitializing && !isAnimatingPadding) {
+        const scrollY = window.scrollY || window.pageYOffset;
+        let expectedCollapsed;
+        if (isIndexPage) {
+          expectedCollapsed = scrollY > 50 && hasUserScrolled;
+        } else {
+          if (!hasUserScrolled) {
+            expectedCollapsed = true;
+          } else {
+            expectedCollapsed = scrollY > 5;
+          }
+        }
+        // Only fix if state is clearly wrong (more than 100px difference)
+        if (expectedCollapsed !== isCollapsed && Math.abs(scrollY) > 100) {
+          // State is out of sync, force a check
+          checkScroll();
+        }
+      }
+    }, 2000);
   }
 
   // Rename for backwards compatibility

@@ -366,12 +366,20 @@
     transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out !important;
     /* Hide separator on desktop - only show on mobile/tablet */
     display: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Show separator only on mobile/tablet */
   @media screen and (max-width: 1024px) {
     #planks-separator {
       display: block;
+      padding: 12px 0 !important; /* Larger padding for better click target */
+      min-height: 44px; /* Minimum touch target size */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
@@ -530,7 +538,22 @@
     /* Separator padding and margin animation on mobile */
     #planks-separator {
       transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, margin-top 0.5s ease-in-out, margin-bottom 0.5s ease-in-out !important;
-      display: block !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      padding: 12px 0 !important; /* Larger padding for better click target */
+      min-height: 44px; /* Minimum touch target size */
+    }
+
+    #planks-separator:hover {
+      opacity: 0.7;
+    }
+
+    #planks-separator:active {
+      opacity: 0.5;
     }
 
     #planks-separator.separator-collapsed {
