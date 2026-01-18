@@ -498,6 +498,8 @@
       float: none !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
       overflow: visible !important; /* Allow content to be fully visible */
+      pointer-events: auto !important;
+      z-index: 1 !important;
     }
 
     /* When collapsed, keep background color but remove shadow */
@@ -522,6 +524,14 @@
       overflow: hidden !important; /* Ensure overflow is hidden */
       /* Ensure grid doesn't prevent collapse */
       grid-template-rows: 0fr !important; /* Collapse grid rows */
+      pointer-events: none !important; /* Disable clicks when collapsed */
+    }
+
+    /* Ensure links are clickable when NOT collapsed */
+    #planks:not(.planks-collapsed) .header-link,
+    #planks:not(.planks-collapsed) .header-link a {
+      pointer-events: auto !important;
+      cursor: pointer !important;
     }
 
     /* Ensure smooth transitions work on mobile - high specificity */
@@ -569,12 +579,13 @@
 
     .responsive .header-link,
     .header-link {
-      display: block !important;
+      display: flex !important;
+      align-items: center !important;
       width: auto !important;
       margin: 0 !important;
-      padding: 4px 6px !important;
-      font-size: 11px !important;
-      line-height: 1.3 !important;
+      padding: 8px 6px !important;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
       text-align: left !important;
       white-space: normal !important;
       float: none !important;
@@ -584,6 +595,11 @@
       border-radius: 0 !important;
       color: #2c3e50 !important;
       transition: none !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      min-height: 44px !important;
+      -webkit-tap-highlight-color: rgba(0, 123, 255, 0.3);
+      touch-action: manipulation;
     }
 
     .responsive .header-link:hover,
@@ -597,7 +613,7 @@
     .responsive .header-link a,
     .header-link a {
       color: inherit !important;
-      text-decoration: none !important;
+      text-decoration: underline !important;
       padding: 0 !important;
       margin: 0 !important;
       background: none !important;
@@ -605,14 +621,19 @@
       box-shadow: none !important;
       border-radius: 0 !important;
       display: inline !important;
-      width: auto !important;
-      height: auto !important;
-      min-height: auto !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 44px !important;
       line-height: inherit !important;
       font-size: inherit !important;
       white-space: inherit !important;
       text-align: inherit !important;
       float: none !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      -webkit-tap-highlight-color: rgba(0, 123, 255, 0.3);
+      touch-action: manipulation;
+      flex: 1;
     }
 
     .responsive .header-link:hover a,
