@@ -2181,7 +2181,7 @@
   /* Table of Contents Styles */
   #sticky-toc {
     position: sticky !important;
-    top: 10px !important;
+    top: 20px !important;
     z-index: 10 !important;
     margin: 30px auto !important;
     max-width: 550px !important;
@@ -2190,6 +2190,35 @@
     background: #f9f9f9 !important;
     border-radius: 8px !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+    align-self: flex-start !important;
+  }
+
+  /* Ensure parent containers don't prevent sticky positioning */
+  body[data-page="various-issues"] main {
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  /* Ensure sticky TOC can stick properly - needs to be relative to viewport */
+  body[data-page="various-issues"] #sticky-toc {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 20px !important;
+    align-self: flex-start !important;
+  }
+
+  /* Desktop: account for header height */
+  @media (min-width: 769px) {
+    body[data-page="various-issues"] #sticky-toc {
+      top: 20px !important;
+    }
+  }
+
+  /* Mobile: account for fixed header */
+  @media (max-width: 768px) {
+    body[data-page="various-issues"] #sticky-toc {
+      top: 10px !important;
+    }
   }
 
   .toc-header {
