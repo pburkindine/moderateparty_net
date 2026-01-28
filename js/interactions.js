@@ -359,10 +359,21 @@
       separator.style.cursor = 'pointer';
       separator.setAttribute('role', 'button');
       separator.setAttribute('aria-label', 'Toggle planks menu');
-      separator.addEventListener('click', function(e) {
+      separator.style.touchAction = 'manipulation';
+      separator.style.webkitTapHighlightColor = 'transparent';
+
+      // Handle both click and touch events for mobile
+      function handleToggle(e) {
         e.preventDefault();
         e.stopPropagation();
         togglePlanksManually();
+      }
+
+      separator.addEventListener('click', handleToggle);
+      separator.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        handleToggle(e);
       });
     }
 
@@ -801,11 +812,22 @@
     // Add click handler to separator to toggle planks
     if (separator) {
       separator.style.cursor = 'pointer';
-      separator.addEventListener('click', function(e) {
+      separator.style.touchAction = 'manipulation';
+      separator.style.webkitTapHighlightColor = 'transparent';
+
+      // Handle both click and touch events for mobile
+      function handleToggle(e) {
         e.preventDefault();
         e.stopPropagation();
         // Toggle collapsed state
         togglePlanks(!isCollapsed);
+      }
+
+      separator.addEventListener('click', handleToggle);
+      separator.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        handleToggle(e);
       });
     }
 

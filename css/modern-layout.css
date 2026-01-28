@@ -551,11 +551,15 @@
       display: flex !important;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      cursor: pointer !important;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
       padding: 12px 0 !important; /* Larger padding for better click target */
       min-height: 44px; /* Minimum touch target size */
+      pointer-events: auto !important;
+      z-index: 100 !important;
+      touch-action: manipulation !important;
+      -webkit-touch-callout: none;
     }
 
     #planks-separator:hover {
@@ -2224,21 +2228,21 @@
   body[data-page="various-issues"] #sticky-toc {
     position: -webkit-sticky !important;
     position: sticky !important;
-    top: 20px !important;
+    top: 250px !important;
     align-self: flex-start !important;
   }
 
-  /* Desktop: account for header height */
+  /* Desktop: account for header height - stick to bottom of header */
   @media (min-width: 769px) {
     body[data-page="various-issues"] #sticky-toc {
-      top: 20px !important;
+      top: 250px !important;
     }
   }
 
-  /* Mobile: account for fixed header */
+  /* Mobile: account for fixed header - stick to bottom of header */
   @media (max-width: 768px) {
     body[data-page="various-issues"] #sticky-toc {
-      top: 10px !important;
+      top: 250px !important;
     }
   }
 
@@ -2380,7 +2384,30 @@
     }
 
     /* Center video-tiles on mobile */
-    .video-tile {
+    /* Jiggle/shimmy animation for images in video-tile */
+  @keyframes jiggle {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-2px, -1px) rotate(-1deg); }
+    20% { transform: translate(2px, 1px) rotate(1deg); }
+    30% { transform: translate(-1px, 2px) rotate(-1deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(2px, 1px) rotate(1deg); }
+    70% { transform: translate(-2px, -1px) rotate(-1deg); }
+    80% { transform: translate(1px, -1px) rotate(1deg); }
+    90% { transform: translate(-1px, 2px) rotate(-1deg); }
+  }
+
+  .video-tile img {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  .video-tile img.jiggle {
+    animation: jiggle 0.5s ease-in-out;
+  }
+
+  .video-tile {
       text-align: center !important;
       margin: 0 auto !important;
     }
@@ -2403,6 +2430,29 @@
   }
 
   /* Video tile spacing */
+  /* Jiggle/shimmy animation for images in video-tile */
+  @keyframes jiggle {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-2px, -1px) rotate(-1deg); }
+    20% { transform: translate(2px, 1px) rotate(1deg); }
+    30% { transform: translate(-1px, 2px) rotate(-1deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(2px, 1px) rotate(1deg); }
+    70% { transform: translate(-2px, -1px) rotate(-1deg); }
+    80% { transform: translate(1px, -1px) rotate(1deg); }
+    90% { transform: translate(-1px, 2px) rotate(-1deg); }
+  }
+
+  .video-tile img {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  .video-tile img.jiggle {
+    animation: jiggle 0.5s ease-in-out;
+  }
+
   .video-tile {
     padding-bottom: 20px;
   }
