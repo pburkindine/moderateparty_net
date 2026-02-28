@@ -395,46 +395,159 @@
     </center>
 
     <center>
-      <div class="tmp-block clearfix" style="margin-left: 42%; margin-top: 50px">
-        <div class="tmp-blockcontent">
-          <div class="jvotesystem jvs-module" id="jvs-118396908561b3056f5a23d" data-box="2" data-view="module"
-            data-lastviewpage="1" data-chart="bar" data-mode="default" data-uniqid="118396908561b3056f5a23d">
-            <div class="topbox">
-              <div class="topbar"></div>
-              <div class="title"></div>
-              <p class="question">SUDDEN QUESTION! ANSWER NOW!!</p>
+      <div id="sudden-poll" style="max-width: 420px; margin: 50px auto 0 auto;">
+        <p class="poll-title">SUDDEN QUESTION! ANSWER NOW!!</p>
+
+        <div class="poll-buttons">
+          <button class="poll-btn poll-btn-yes" onclick="castVote('yes')">Yes</button>
+          <button class="poll-btn poll-btn-no" onclick="castVote('no')">No</button>
+          <button class="poll-btn poll-btn-ahh" onclick="castVote('ahh')">AHH!!!!</button>
+        </div>
+
+        <div id="poll-results" style="margin-top: 20px;">
+          <div class="poll-bar-row">
+            <span class="poll-label">Yes</span>
+            <div class="poll-bar-track">
+              <div class="poll-bar poll-bar-yes" id="bar-yes" style="width: 0%"></div>
             </div>
-            <div class="pagebox">
-              <div style="position: relative; width: 100%" data-p="1">
-                <div class="answer" style="margin-bottom: 10px;" data-a="1">
-                  <div class="answerbox">
-                    <div class="text">
-                      <input class="radiobutton" type="radio" name="jvsradios2" id="jvsradio1" data-a="1" /><label
-                        for="jvsradio1" class="answertext">Yes</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="answer" style="margin-bottom: 10px;" data-a="2">
-                  <div class="answerbox">
-                    <div class="text">
-                      <input class="radiobutton" type="radio" name="jvsradios2" id="jvsradio2" data-a="2" /><label
-                        for="jvsradio2" class="answertext">No</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="answer" style="margin-bottom: 10px;" data-a="3">
-                  <div class="answerbox">
-                    <div class="text">
-                      <input class="radiobutton" type="radio" name="jvsradios2" id="jvsradio3" data-a="3" /><label
-                        for="jvsradio3" class="answertext">AHH!!!!</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <span class="poll-count" id="count-yes">0</span>
+            <span class="poll-pct" id="pct-yes">(0%)</span>
+          </div>
+          <div class="poll-bar-row">
+            <span class="poll-label">No</span>
+            <div class="poll-bar-track">
+              <div class="poll-bar poll-bar-no" id="bar-no" style="width: 0%"></div>
             </div>
+            <span class="poll-count" id="count-no">0</span>
+            <span class="poll-pct" id="pct-no">(0%)</span>
+          </div>
+          <div class="poll-bar-row">
+            <span class="poll-label">AHH!!!!</span>
+            <div class="poll-bar-track">
+              <div class="poll-bar poll-bar-ahh" id="bar-ahh" style="width: 0%"></div>
+            </div>
+            <span class="poll-count" id="count-ahh">0</span>
+            <span class="poll-pct" id="pct-ahh">(0%)</span>
           </div>
         </div>
+
+        <div id="poll-commentary" class="poll-commentary">Loading the will of the people...</div>
+        <div id="poll-total" style="font-size: 11px; color: #999; margin-top: 8px;">
+          total votes: <span id="total-count">0</span> &mdash; every click = a git commit. forever.
+        </div>
       </div>
+
+      <script>
+        (function () {
+          var pollData = { yes: 0, no: 0, ahh: 0 };
+
+          function fmt(n) {
+            return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          }
+
+          function renderPoll(data) {
+            pollData = data;
+            var total = data.yes + data.no + data.ahh;
+            var pYes = total ? ((data.yes / total) * 100) : 0;
+            var pNo = total ? ((data.no / total) * 100) : 0;
+            var pAhh = total ? ((data.ahh / total) * 100) : 0;
+
+            document.getElementById('count-yes').textContent = fmt(data.yes);
+            document.getElementById('count-no').textContent = fmt(data.no);
+            document.getElementById('count-ahh').textContent = fmt(data.ahh);
+            document.getElementById('pct-yes').textContent = '(' + pYes.toFixed(1) + '%)';
+            document.getElementById('pct-no').textContent = '(' + pNo.toFixed(1) + '%)';
+            document.getElementById('pct-ahh').textContent = '(' + pAhh.toFixed(1) + '%)';
+            document.getElementById('bar-yes').style.width = pYes + '%';
+            document.getElementById('bar-no').style.width = pNo + '%';
+            document.getElementById('bar-ahh').style.width = pAhh + '%';
+            document.getElementById('total-count').textContent = fmt(total);
+
+            // THE COMMENTARY
+            var commentary = document.getElementById('poll-commentary');
+            if (total === 0) {
+              commentary.textContent = 'No votes yet. Democracy sleeps.';
+              return;
+            }
+
+            var scores = [
+              { name: 'YES', pct: pYes },
+              { name: 'NO', pct: pNo },
+              { name: 'AHH!!!!', pct: pAhh }
+            ];
+            scores.sort(function (a, b) { return b.pct - a.pct; });
+            var leader = scores[0];
+            var spread = leader.pct - scores[1].pct;
+
+            // AHH leads specifically
+            if (leader.name === 'AHH!!!!') {
+              if (spread < 2) {
+                commentary.innerHTML = 'THE SCREAMING FACTION LEADS BY A HAIR. <br>TOO CLOSE TO CALL. RECOUNT DEMANDED.';
+              } else if (spread < 10) {
+                commentary.innerHTML = 'THE PEOPLE HAVE SPOKEN AND THEY ARE SCREAMING';
+              } else if (spread < 25) {
+                commentary.innerHTML = 'A DECISIVE MANDATE FOR INCOHERENT PANIC.<br>EXPERTS BAFFLED. CHARTS ON FIRE.';
+              } else {
+                commentary.innerHTML = 'AHH!!!! ACHIEVES TOTAL CONSCIOUSNESS.<br>CROWD GOES MILD. THE EARTH TREMBLES POLITELY.';
+              }
+            } else if (spread < 2) {
+              commentary.innerHTML = 'TOO CLOSE TO CALL. RECOUNT DEMANDED.<br>PUNDITS SWEATING. NATION HOLDS BREATH.';
+            } else if (spread < 10) {
+              commentary.innerHTML = 'EXPERTS AGREE: <b>' + leader.name + '</b> SURGES AHEAD<br>IN SHOCKING UPSET. GASPS HEARD FROM SPACE.';
+            } else if (spread < 25) {
+              commentary.innerHTML = 'DEVASTATING MANDATE FOR <b>' + leader.name + '</b>.<br>OPPOSITION IN SHAMBLES. PIES THROWN.';
+            } else {
+              commentary.innerHTML = '<b>' + leader.name + '</b> ACHIEVES TOTAL CONSCIOUSNESS.<br>CROWD GOES MILD. A NEW ERA DAWNS, PROBABLY.';
+            }
+          }
+
+          // Fetch current state on load
+          fetch('/api/poll')
+            .then(function (r) {
+              if (!r.ok) throw new Error('not ok');
+              return r.json();
+            })
+            .then(renderPoll)
+            .catch(function () {
+              // Show demo data when API unavailable (local dev)
+              renderPoll({ yes: 42, no: 17, ahh: 31 });
+            });
+
+          // Cast a vote
+          window.castVote = function (choice) {
+            // Optimistic update
+            pollData[choice]++;
+            renderPoll(Object.assign({}, pollData));
+
+            // Animate the button
+            var btnClass = '.poll-btn-' + choice;
+            var btn = document.querySelector(btnClass);
+            btn.classList.add('poll-btn-voted');
+            setTimeout(function () { btn.classList.remove('poll-btn-voted'); }, 300);
+
+            fetch('/api/poll', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ vote: choice })
+            })
+              .then(function (r) { return r.json(); })
+              .then(function (data) {
+                if (data.error) {
+                  // Revert optimistic update
+                  pollData[choice]--;
+                  renderPoll(Object.assign({}, pollData));
+                } else {
+                  renderPoll(data);
+                }
+              })
+              .catch(function () {
+                // Revert on network error
+                pollData[choice]--;
+                renderPoll(Object.assign({}, pollData));
+              });
+          };
+        })();
+      </script>
       <br /><br /><br />
 
       <img src="img/chocco.jpg"
