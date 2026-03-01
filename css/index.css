@@ -30,92 +30,55 @@
 .poll-title {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
-.poll-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 6px;
+.poll-table {
+  margin: 0 auto;
+  border-collapse: collapse;
 }
 
-.poll-btn {
-  font-family: Comic Sans MS, sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 8px 24px;
-  background: #eee;
-  border: 2px solid #999;
-  border-radius: 4px;
+.poll-row {
   cursor: pointer;
-  transition: background 0.15s;
-  user-select: none;
 }
 
-.poll-btn:hover {
-  background: #ddd;
+.poll-row:hover .poll-opt {
+  text-decoration: underline;
 }
 
-.poll-btn:active {
-  background: #ccc;
-}
-
-/* Results bars */
-.poll-bar-row {
-  display: flex;
-  align-items: center;
-  margin: 6px 0;
-  gap: 8px;
-}
-
-.poll-label {
+.poll-opt {
   font-size: 13px;
-  font-weight: bold;
-  min-width: 58px;
+  padding: 4px 10px 4px 0;
   text-align: right;
+  white-space: nowrap;
 }
 
-.poll-bar-track {
-  flex: 1;
-  height: 18px;
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  overflow: hidden;
+.poll-bar-cell {
+  width: 140px;
+  padding: 4px 6px;
+  vertical-align: middle;
+  background: #eee;
 }
 
 .poll-bar {
-  height: 100%;
-  transition: width 0.5s ease;
-  min-width: 0;
+  display: block;
+  height: 10px;
+  background: #999;
+  width: 0%;
+  min-height: 10px;
 }
 
-.poll-bar-yes { background: #808080; }
-.poll-bar-no { background: #808080; }
-.poll-bar-ahh { background: #808080; }
-
 .poll-count {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
-  min-width: 44px;
+  padding: 4px 6px;
   text-align: right;
+  white-space: nowrap;
 }
 
 .poll-pct {
-  font-size: 12px;
-  color: #777;
-  min-width: 48px;
-}
-
-/* Commentary */
-.poll-commentary {
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-top: 14px;
-  padding: 10px;
-  line-height: 1.5;
-  min-height: 40px;
+  font-size: 11px;
+  color: #888;
+  padding: 4px 0 4px 4px;
+  white-space: nowrap;
 }

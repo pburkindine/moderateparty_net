@@ -1,6 +1,7 @@
 <!doctype html>
 
 <head>
+  <meta charset="utf-8">
   <!-- Show loading overlay immediately to prevent page jumping -->
   <script>
     document.write('<div id="header-loading-overlay"><div class="spinner"></div></div>');
@@ -395,46 +396,28 @@
     </center>
 
     <center>
-      <div id="sudden-poll" style="max-width: 420px; margin: 50px auto 0 auto;">
+      <div id="sudden-poll" style="margin-top: 50px;">
         <p class="poll-title">SUDDEN QUESTION! ANSWER NOW!!</p>
-
-        <div class="poll-buttons">
-          <button class="poll-btn poll-btn-yes" onclick="castVote('yes')">Yes</button>
-          <button class="poll-btn poll-btn-no" onclick="castVote('no')">No</button>
-          <button class="poll-btn poll-btn-ahh" onclick="castVote('ahh')">AHH!!!!</button>
-        </div>
-
-        <div id="poll-results" style="margin-top: 20px;">
-          <div class="poll-bar-row">
-            <span class="poll-label">Yes</span>
-            <div class="poll-bar-track">
-              <div class="poll-bar poll-bar-yes" id="bar-yes" style="width: 0%"></div>
-            </div>
-            <span class="poll-count" id="count-yes">0</span>
-            <span class="poll-pct" id="pct-yes">(0%)</span>
-          </div>
-          <div class="poll-bar-row">
-            <span class="poll-label">No</span>
-            <div class="poll-bar-track">
-              <div class="poll-bar poll-bar-no" id="bar-no" style="width: 0%"></div>
-            </div>
-            <span class="poll-count" id="count-no">0</span>
-            <span class="poll-pct" id="pct-no">(0%)</span>
-          </div>
-          <div class="poll-bar-row">
-            <span class="poll-label">AHH!!!!</span>
-            <div class="poll-bar-track">
-              <div class="poll-bar poll-bar-ahh" id="bar-ahh" style="width: 0%"></div>
-            </div>
-            <span class="poll-count" id="count-ahh">0</span>
-            <span class="poll-pct" id="pct-ahh">(0%)</span>
-          </div>
-        </div>
-
-        <div id="poll-commentary" class="poll-commentary">Loading the will of the people...</div>
-        <div id="poll-total" style="font-size: 11px; color: #999; margin-top: 8px;">
-          total votes: <span id="total-count">0</span> &mdash; every click = a git commit. forever.
-        </div>
+        <table cellspacing="0" cellpadding="0" style="margin: 0 auto; border-collapse: collapse;">
+          <tr id="row-yes" style="cursor:pointer" onclick="castVote('yes')">
+            <td style="font-size:13px; padding:4px 10px 4px 0; text-align:right"><input type="radio" name="poll" id="radio-yes" style="cursor:pointer"> Yes</td>
+            <td style="width:140px; padding:4px 6px; background:#eee"><div id="bar-yes" style="height:10px; background:#999; width:0%">&nbsp;</div></td>
+            <td style="font-size:12px; font-weight:bold; padding:4px 6px; text-align:right" id="count-yes">0</td>
+            <td style="font-size:11px; color:#888; padding:4px 0 4px 4px" id="pct-yes">0%</td>
+          </tr>
+          <tr id="row-no" style="cursor:pointer" onclick="castVote('no')">
+            <td style="font-size:13px; padding:4px 10px 4px 0; text-align:right"><input type="radio" name="poll" id="radio-no" style="cursor:pointer"> No</td>
+            <td style="width:140px; padding:4px 6px; background:#eee"><div id="bar-no" style="height:10px; background:#999; width:0%">&nbsp;</div></td>
+            <td style="font-size:12px; font-weight:bold; padding:4px 6px; text-align:right" id="count-no">0</td>
+            <td style="font-size:11px; color:#888; padding:4px 0 4px 4px" id="pct-no">0%</td>
+          </tr>
+          <tr id="row-ahh" style="cursor:pointer" onclick="castVote('ahh')">
+            <td style="font-size:13px; padding:4px 10px 4px 0; text-align:right"><input type="radio" name="poll" id="radio-ahh" style="cursor:pointer"> AHH!!!!</td>
+            <td style="width:140px; padding:4px 6px; background:#eee"><div id="bar-ahh" style="height:10px; background:#999; width:0%">&nbsp;</div></td>
+            <td style="font-size:12px; font-weight:bold; padding:4px 6px; text-align:right" id="count-ahh">0</td>
+            <td style="font-size:11px; color:#888; padding:4px 0 4px 4px" id="pct-ahh">0%</td>
+          </tr>
+        </table>
       </div>
 
       <script>
@@ -455,53 +438,14 @@
             document.getElementById('count-yes').textContent = fmt(data.yes);
             document.getElementById('count-no').textContent = fmt(data.no);
             document.getElementById('count-ahh').textContent = fmt(data.ahh);
-            document.getElementById('pct-yes').textContent = '(' + pYes.toFixed(1) + '%)';
-            document.getElementById('pct-no').textContent = '(' + pNo.toFixed(1) + '%)';
-            document.getElementById('pct-ahh').textContent = '(' + pAhh.toFixed(1) + '%)';
+            document.getElementById('pct-yes').textContent = pYes.toFixed(1) + '%';
+            document.getElementById('pct-no').textContent = pNo.toFixed(1) + '%';
+            document.getElementById('pct-ahh').textContent = pAhh.toFixed(1) + '%';
             document.getElementById('bar-yes').style.width = pYes + '%';
             document.getElementById('bar-no').style.width = pNo + '%';
             document.getElementById('bar-ahh').style.width = pAhh + '%';
-            document.getElementById('total-count').textContent = fmt(total);
-
-            // THE COMMENTARY
-            var commentary = document.getElementById('poll-commentary');
-            if (total === 0) {
-              commentary.textContent = 'No votes yet. Democracy sleeps.';
-              return;
-            }
-
-            var scores = [
-              { name: 'YES', pct: pYes },
-              { name: 'NO', pct: pNo },
-              { name: 'AHH!!!!', pct: pAhh }
-            ];
-            scores.sort(function (a, b) { return b.pct - a.pct; });
-            var leader = scores[0];
-            var spread = leader.pct - scores[1].pct;
-
-            // AHH leads specifically
-            if (leader.name === 'AHH!!!!') {
-              if (spread < 2) {
-                commentary.innerHTML = 'THE SCREAMING FACTION LEADS BY A HAIR. <br>TOO CLOSE TO CALL. RECOUNT DEMANDED.';
-              } else if (spread < 10) {
-                commentary.innerHTML = 'THE PEOPLE HAVE SPOKEN AND THEY ARE SCREAMING';
-              } else if (spread < 25) {
-                commentary.innerHTML = 'A DECISIVE MANDATE FOR INCOHERENT PANIC.<br>EXPERTS BAFFLED. CHARTS ON FIRE.';
-              } else {
-                commentary.innerHTML = 'AHH!!!! ACHIEVES TOTAL CONSCIOUSNESS.<br>CROWD GOES MILD. THE EARTH TREMBLES POLITELY.';
-              }
-            } else if (spread < 2) {
-              commentary.innerHTML = 'TOO CLOSE TO CALL. RECOUNT DEMANDED.<br>PUNDITS SWEATING. NATION HOLDS BREATH.';
-            } else if (spread < 10) {
-              commentary.innerHTML = 'EXPERTS AGREE: <b>' + leader.name + '</b> SURGES AHEAD<br>IN SHOCKING UPSET. GASPS HEARD FROM SPACE.';
-            } else if (spread < 25) {
-              commentary.innerHTML = 'DEVASTATING MANDATE FOR <b>' + leader.name + '</b>.<br>OPPOSITION IN SHAMBLES. PIES THROWN.';
-            } else {
-              commentary.innerHTML = '<b>' + leader.name + '</b> ACHIEVES TOTAL CONSCIOUSNESS.<br>CROWD GOES MILD. A NEW ERA DAWNS, PROBABLY.';
-            }
           }
 
-          // Fetch current state on load
           fetch('/api/poll')
             .then(function (r) {
               if (!r.ok) throw new Error('not ok');
@@ -509,21 +453,20 @@
             })
             .then(renderPoll)
             .catch(function () {
-              // Show demo data when API unavailable (local dev)
               renderPoll({ yes: 42, no: 17, ahh: 31 });
             });
 
-          // Cast a vote
           window.castVote = function (choice) {
-            // Optimistic update
+            // Check the radio
+            document.getElementById('radio-' + choice).checked = true;
+
+            // Flash the row
+            var row = document.getElementById('row-' + choice);
+            row.style.background = '#ddd';
+            setTimeout(function () { row.style.background = ''; }, 200);
+
             pollData[choice]++;
             renderPoll(Object.assign({}, pollData));
-
-            // Animate the button
-            var btnClass = '.poll-btn-' + choice;
-            var btn = document.querySelector(btnClass);
-            btn.classList.add('poll-btn-voted');
-            setTimeout(function () { btn.classList.remove('poll-btn-voted'); }, 300);
 
             fetch('/api/poll', {
               method: 'POST',
@@ -532,16 +475,10 @@
             })
               .then(function (r) { return r.json(); })
               .then(function (data) {
-                if (data.error) {
-                  // Revert optimistic update
-                  pollData[choice]--;
-                  renderPoll(Object.assign({}, pollData));
-                } else {
-                  renderPoll(data);
-                }
+                if (!data.error) renderPoll(data);
+                else { pollData[choice]--; renderPoll(Object.assign({}, pollData)); }
               })
               .catch(function () {
-                // Revert on network error
                 pollData[choice]--;
                 renderPoll(Object.assign({}, pollData));
               });
