@@ -22,7 +22,7 @@ Added **verbatim quotes** from various-issues.html for EVERY plank:
 - Pro-Pot / Marijuana
 - 2nd Amendment / Guns
 - Immigration
-- Tariffs
+- Insourcing
 - **⚠️ ABORTION** - with explicit instruction to stay to text only
 - **⚠️ FAITH AND FAMILY / CHRISTIANITY** - with explicit instruction to stay to text only
 - Israel and Palestine
