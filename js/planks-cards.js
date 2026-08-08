@@ -60,6 +60,23 @@
     });
   }
 
+  function mediaHTML(p) {
+    if (!p.media || !p.media.length) return '';
+    return '<div class="media-strip">' + p.media.map(function (m) {
+      if (m.v) {
+        return '<div class="media-item">' +
+          '<video controls preload="none"><source src="' + m.v + '" type="video/mp4"></video>' +
+          (m.cap ? '<div class="media-cap">' + m.cap + '</div>' : '') +
+          '</div>';
+      }
+      var img = '<img loading="lazy" src="' + m.img + '" alt="' + (m.alt || '') + '"/>';
+      return '<div class="media-item">' +
+        (m.href ? '<a href="' + m.href + '" target="_blank">' + img + '</a>' : img) +
+        (m.cap ? '<div class="media-cap">' + m.cap + '</div>' : '') +
+        '</div>';
+    }).join('') + '</div>';
+  }
+
   function cardHTML(p) {
     var color = SECTIONS[p.section].color;
     return (
@@ -70,7 +87,7 @@
           '<div class="emoji">' + p.emoji + '</div>' +
           '<h2>' + p.title + '</h2>' +
           '<div class="tag">' + p.tag + '</div>' +
-          '<div class="hint-flip">tap to flip</div>' +
+          '<div class="hint-flip"><img src="img/click_64.png" alt="Click/Tap!"/> <span>Click/Tap!</span></div>' +
         '</div>' +
         '<div class="face back">' +
           '<div class="back-head">' +
@@ -78,7 +95,7 @@
             '<h3>' + p.emoji + ' ' + p.title + '</h3>' +
             '<button class="iconbtn btn-zoom" title="Zoom" aria-label="Zoom">⤢</button>' +
           '</div>' +
-          '<div class="back-body">' + p.body + '</div>' +
+          '<div class="back-body">' + p.body + mediaHTML(p) + '</div>' +
         '</div>' +
       '</div>'
     );

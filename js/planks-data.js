@@ -10,6 +10,10 @@ window.PLANKS = [
     emoji: '👋',
     title: 'Start Here',
     tag: 'Whatsa whatsa moderate party....',
+    media: [
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/patrick-and-euege-dont-stop.mp4', cap: 'Patrick & Eugene, "(Whatever You Do) Don\'t Stop"' },
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/makem-clancy-all-gods-critters.mp4', cap: "Makem and Clancy, All God's Critters Got a Place in the Choir" }
+    ],
     body: `
       <p><u>Q: What are your qualifications?</u>: Nothin' :D<br/>
       <u>Q: What do you know about global economics?</u>: Nothin' :D</p>
@@ -29,11 +33,16 @@ window.PLANKS = [
     emoji: '📣',
     title: 'The Slogans Part',
     tag: '"We should thank our lucky stars we have people of all stripes."',
+    media: [
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/ghostbusters-keep-kickin-libby.mp4', cap: "Keep kickin', Libby! - Ghostbusters 2" },
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/flight-of-the-conchords-sexy-lady.mp4', cap: '"Both in love with a sexy lady", Flight of the Conchordes' }
+    ],
     body: `
       <ul>
         <li>"We should thank our lucky stars we have people of all stripes."</li>
         <li>Or, "We're a genius"</li>
-        <li>Or like, "It's all just cooked right in to that big pasketti-casserole-dish in the sky."</li>
+        <li>Or like, "It's all just cooked right in to that big pasketti-casserole-dish in the sky."
+          <img src="img/lasagna.webp" alt="Lasagna" style="height:30px; display:inline-block; margin:0 0 0 10px; vertical-align:middle;"/></li>
         <li>Or um, "Society is the Product"</li>
         <li>Or, <span class="smallcaps">"Think Inter-Planetary"</span></li>
         <li>Or uh, "Like a car rally, not a car race"?</li>
@@ -47,6 +56,9 @@ window.PLANKS = [
     emoji: '🌀',
     title: 'Windmilling & "Gravity is Up"',
     tag: 'Every issue really has two sides with merit.',
+    media: [
+      { img: 'img/Lucy-van-pelt.jpg', alt: 'Lucy offers psychiatric help - 5¢' }
+    ],
     body: `
       <p><u>Windmilling</u></p>
       <p>Sometimes the other fellow will freak out and windmill at you. People hate arguing.</p>
@@ -63,6 +75,11 @@ window.PLANKS = [
     emoji: '🍪',
     title: "Arguin' Like a Jerk",
     tag: '(or, Learn to Teach instead) — "You gotta bring cookies."',
+    media: [
+      { img: 'img/superman_800.png', alt: 'Supes!', href: 'steel-man.html' },
+      { img: 'img/steelman3.jpg', alt: 'Steel Man', href: 'steel-man.html' },
+      { img: 'img/fakefight.jpg', alt: '' }
+    ],
     body: `
       <p>(Freaking out about how nobody is even listening to you, for seriously)</p>
       <p>Does anyone else find it hard to get other people to listen unless you get all
@@ -82,6 +99,9 @@ window.PLANKS = [
     emoji: '🎻',
     title: 'Politics in General',
     tag: 'Society is maybe a canvas, not a battlefield.',
+    media: [
+      { img: 'img/black_bart.jpg', alt: 'Black Bart, the Bad Guy', href: 'black-bart.html', cap: 'Black Bart, the Bad Guy' }
+    ],
     body: `
       <p>We're all such <i>good</i> people at heart, in my experience. Most folks are just
       plain nice, they just workin' for a livin'.</p>
@@ -102,6 +122,11 @@ window.PLANKS = [
     emoji: '🏪',
     title: 'Moderate Capitalism',
     tag: "Capitalism is what works, but it only works when it's in check.",
+    media: [
+      { img: 'img/brain_slug.png', alt: 'Brain slug' },
+      { img: 'img/sim-city-2000-hospital.gif', alt: 'SimCity 2000 Hospital' },
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/parappa-flea-market.mp4', cap: "I'm workin' in the flea market so early" }
+    ],
     body: `
       <p>Capitalism is what works, but it only works when it's in check. Like, some people
       are jerks. Dump sewage in the water and so on.</p>
@@ -121,6 +146,9 @@ window.PLANKS = [
     emoji: '🎢',
     title: 'Taxes — "The Admission Fee"',
     tag: 'The admission fee to an amusement park.',
+    media: [
+      { img: 'img/slinky-dog.webp', alt: 'Slinky Dog' }
+    ],
     body: `
       <p>I think of taxes as the admission fee to an amusement park. If you don't like the
       prices, or the way they're being spent, hey, say something. Vote! But there's going
@@ -133,6 +161,9 @@ window.PLANKS = [
     emoji: '📏',
     title: 'The Size of the Government',
     tag: 'Somewhere in between. Whatever works. Real life.',
+    media: [
+      { img: 'img/1984.jpg', alt: '1984', href: 'https://en.wikipedia.org/wiki/Nineteen_Eighty-Four' }
+    ],
     body: `
       <p>Gigantic. Just gigantic, way huge. A personal assistant/super-cop for every man,
       woman and child. Just one guy, namely you, has to work 20 hours a day while everyone
@@ -152,6 +183,9 @@ window.PLANKS = [
     emoji: '🗳️',
     title: 'Ranked Choice Voting',
     tag: "Your vote always goes to someone you picked.",
+    media: [
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/ranked-choice-voting.mp4', cap: 'Ranked Choice Voting, explained' }
+    ],
     body: `
       <p>Ranked Choice (Instant Run-off) Voting is a voting system where you rank the
       candidates, and if your first choice loses, your vote goes to your second and third
@@ -173,6 +207,10 @@ window.PLANKS = [
     emoji: '🌿',
     title: 'Pro-Pot',
     tag: "'Bout as strong as a beer? A lot of people in jail for chillaxin'.",
+    media: [
+      { v: 'video/bubbles.mp4', cap: 'bubbles' },
+      { img: 'img/hemptycoon.jpg', alt: 'Hempy!', href: 'http://www.mandatorymarijuana.com/' }
+    ],
     body: `
       <p>Weed's great. Ain't it? It is. No, we checked. It's fine ;D</p>
       <p>We have a right to throw awesome music parties; it's in the Constitution to enjoy
@@ -191,6 +229,9 @@ window.PLANKS = [
     emoji: '🎓',
     title: 'K-Jobs Education',
     tag: 'Educate the kids into work!',
+    media: [
+      { img: 'img/last-5-minutes.jpeg', alt: 'Last 5 Minutes of the Exam' }
+    ],
     body: `
       <p>Yeah — 100%! K-Jobs! Educate the kids into work! Don't just teach them to read and
       write and send 'em off, then complain about welfare. Train a welder or a teacher or a
@@ -239,6 +280,10 @@ window.PLANKS = [
     emoji: '⚡',
     title: 'Sustainability — Systems That Last',
     tag: 'A machine we could sell to aliens.',
+    media: [
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/fusion.mp4', cap: 'Fusion is the future!' },
+      { img: 'img/around-the-world.jpg', alt: 'Give Peace a Chance' }
+    ],
     body: `
       <p>We're all about systems that are set up to last. Well-engineered, sustainable,
       adult square-cornered plans. We need an environment that works, ya'll know it's true.
@@ -260,6 +305,9 @@ window.PLANKS = [
     emoji: '🐄',
     title: 'Farm Animals',
     tag: `"SKRAWK! It's a living!", as the bird said.`,
+    media: [
+      { img: 'img/a_living_flinstones.jpg', alt: "Skrawk! It's a living!", href: 'https://www.classyfarming.com' }
+    ],
     body: `
       <p>Farm animals' rights belong in the picture of a better society. We believe in
       stewardship and "<a href="https://www.classyfarming.com" target="_blank">classy
@@ -299,6 +347,9 @@ window.PLANKS = [
     emoji: '🚧',
     title: 'Immigration',
     tag: 'Strict borders, human rights at the center.',
+    media: [
+      { img: 'img/fence.png', alt: 'Friendly Fence' }
+    ],
     body: `
       <p>This country was built by immigrants, and we
       <a href="#diversity" class="jump">love and value diversity</a>. "We should thank our
@@ -353,13 +404,15 @@ window.PLANKS = [
     emoji: '🪙',
     title: 'The Gold Standard',
     tag: 'Fiat currency and bottomless inflation go hand in hand.',
+    media: [
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/ron-paul-gold-standard.mp4', cap: 'Ron Paul on the Gold Standard' }
+    ],
     body: `
       <p>U.S. currency today is "fiat," it has no collateral. Fiat currency and a central
       bank and bottomless inflation go hand in hand, even to the fall of a nation over its
       worthless dollar. So, people into economics will insist that the gold standard (tying
       the value of the dollar to the price of gold) is important.</p>
-      <p><a href="https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/ron-paul-gold-standard.mp4"
-      target="_blank">▶ Former congressman Ron Paul on the Gold Standard</a></p>`
+      <p>Here's former congressman Ron Paul: ⤵</p>`
   },
 
   // ——— The World Peace Today Section ———
@@ -370,6 +423,9 @@ window.PLANKS = [
     emoji: '🕊️',
     title: 'Faith and Family',
     tag: "Faith'll change your life. But WHOA — not by LAW!",
+    media: [
+      { img: 'img/peace_cross.jpg', alt: 'Peace Cross', href: 'http://www.surfchristian.net' }
+    ],
     body: `
       <p>There's this simple, gentle heartbeat about faith and family in every culture on
       every continent. And it's a wonderful thing! Faith'll change your life. 🙂</p>
@@ -405,6 +461,10 @@ window.PLANKS = [
     emoji: '🌎',
     title: 'Diversity',
     tag: '"We should thank our lucky stars we have people of all stripes."',
+    media: [
+      { img: 'img/around-the-world.jpg', alt: 'Give Peace a Chance' },
+      { v: 'https://pub-c91f85c61c284c85878c5ed593bb74f2.r2.dev/cool_beans.mp4', cap: 'cool beans' }
+    ],
     body: `
       <p>Look... Why do you want to have everyone in the world look and act just like you?
       Doesn't that sound, I don't know, boring?</p>
