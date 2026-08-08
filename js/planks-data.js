@@ -439,8 +439,7 @@ window.PLANKS = [
       <p>But also, WHOA WHOA WHOA! — Not by LAW! Religion by LAW?!?!?!?! Yeesh! 😐
       Mr. Yelling! 😐</p>
       <p>I think we're a <a href="complementary.html" target="_blank">"matched set"</a>,
-      us folks. God's children. ✝️❤️🕊️</p>
-      <p class="egg"><a href="https://www.surfchristian.net/poems.html" target="_blank">a poem I wroted…</a></p>`
+      us folks. God's children. ✝️❤️🕊️</p>`
   },
   {
     id: 'israel',
