@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>the planks — card deck | moderate Party .net</title>
+  <meta name="description"
+    content="The moderate Party planks as a flippable card deck. Swipe, flip, learn. It's not centrism; we take sides — we just think about it for a minute first." />
+
+  <meta property="og:title" content="the planks — card deck | moderate Party .net" />
+  <meta property="og:description"
+    content="Swipe the planks. Tap to flip. With the powers of the Left and Right combined!" />
+  <meta property="og:image" content="https://www.moderateparty.net/img/supergrams_licensed.png" />
+  <meta property="og:url" content="https://www.moderateparty.net/planks-cards.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="stylesheet" href="css/planks-cards.css" />
+</head>
+
+<body>
+  <div class="app">
+    <div class="topbar">
+      <h1><a href="index.html">moderate Party .net</a> · the planks</h1>
+      <div class="progress" id="progress">0/0</div>
+    </div>
+
+    <div class="chips" id="chips"></div>
+
+    <div class="deck" id="deck"></div>
+
+    <div class="controls">
+      <button class="ctl" id="btn-prev" aria-label="Previous card">←</button>
+      <button class="ctl primary" id="btn-shuffle" aria-label="Shuffle deck">shuffle 🔀</button>
+      <button class="ctl" id="btn-next" aria-label="Next card">→</button>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+
+    <div class="deck-foot">
+      swipe · tap to flip · ⤢ to zoom &nbsp;|&nbsp;
+      <a href="various-issues.html">classic long-scroll version</a>
+    </div>
+  </div>
+
+  <script src="js/planks-data.js"></script>
+  <script src="js/planks-cards.js"></script>
+</body>
+
+</html>

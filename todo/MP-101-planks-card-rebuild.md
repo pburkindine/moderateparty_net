@@ -2,7 +2,10 @@
 
 - **ID**: MP-101
 - **Track**: 1 — The Artifact
-- **Status**: todo
+- **Status**: in-progress — first artifact live on the long-running `hatchery` branch
+  (`planks-cards.html` + `css/planks-cards.css` + `js/planks-data.js` + `js/planks-cards.js`);
+  evolving there before any local merge. Mobile-first deck: swipe, tap-to-flip, ⤢ zoom,
+  microlearning progress in localStorage, section filters, all legacy anchors mapped.
 - **Priority**: P0 — first mover; everything downstream lands on this
 - **Depends-on**: nothing
 
