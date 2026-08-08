@@ -335,6 +335,10 @@ body.zoomed { overflow: hidden; }
   padding: 6px 0 10px;
 }
 .deck-foot a { color: var(--faint); }
+.deck-foot .kbd-hint { display: none; }
+@media (min-width: 700px) {
+  .deck-foot .kbd-hint { display: inline; }
+}
 
 @media (min-width: 700px) {
   .app { max-width: 620px; }
