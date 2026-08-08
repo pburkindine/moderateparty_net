@@ -128,15 +128,19 @@
     }
   }
 
-  // keep `current` in sync with finger swipes
+  // keep `current` in sync with finger swipes — nearest slot by real offsets,
+  // so CSS gap/padding changes can't desync the counter
   var scrollTimer = null;
   deckEl.addEventListener('scroll', function () {
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function () {
-      var w = deckEl.clientWidth;
-      var i = Math.round(deckEl.scrollLeft / (w + 14));
-      if (i !== current && visible[i]) {
-        current = i;
+      var best = 0, bestDist = Infinity;
+      for (var i = 0; i < deckEl.children.length; i++) {
+        var d = Math.abs(deckEl.children[i].offsetLeft - deckEl.scrollLeft);
+        if (d < bestDist) { bestDist = d; best = i; }
+      }
+      if (best !== current && visible[best]) {
+        current = best;
         updateProgress();
         history.replaceState(null, '', '#' + visible[current].id);
       }
