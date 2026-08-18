@@ -430,7 +430,7 @@ window.PLANKS = [
       <p>There's this simple, gentle heartbeat about faith and family in every culture on
       every continent. And it's a wonderful thing! Faith'll change your life. 🙂</p>
       <p>(Myself, I'm a <a href="http://www.surfchristian.net" target="_blank">hippy
-      Christian</a> 🙂 ✝️❤️🕊️ And yoga and meditation keep me young! 🙂)</p>
+      Christian</a> and a Catholic 🙂 ✝️❤️🕊️ And yoga and meditation keep me young! 🙂)</p>
       <p>What's all this fighting been about, which children God loves? Well, are you a
       parent? Why God loves the little children, of course. :D</p>
       <p>All this old stuff of God's can just fit together, all our great cultures and all
