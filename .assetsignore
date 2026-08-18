@@ -1,0 +1,13 @@
+# Files that must never be uploaded as public static assets
+.git
+.gitignore
+.dev.vars
+.wrangler
+wrangler.toml
+worker.js
+functions
+node_modules
+package.json
+package-lock.json
+.DS_Store
+.assetsignore
