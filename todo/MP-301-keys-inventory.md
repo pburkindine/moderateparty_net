@@ -29,6 +29,23 @@ was never in the repo; this story proves it and locks it.
 4. **Succession note**: a sealed where-everything-is document so the 1000-year
    website can outlive any single laptop.
 
+## Live findings from the Aug 2026 deploy outage (do these first)
+
+- [ ] **Mint a new GitHub fine-grained PAT** for the poll (expired ~spring 2026;
+      poll writes are down). Scope: repo `moderateparty_net` only, permission:
+      Contents read/write. github.com → Settings → Developer settings →
+      Fine-grained tokens.
+- [ ] **Store it as an encrypted secret, not plaintext**: the old PAT sat as a
+      plain env var readable via API. Set the new one with
+      `npx wrangler pages secret put GITHUB_TOKEN --project-name=moderateparty-net`
+      then delete the plaintext env var. Rotate/revoke the old PAT on GitHub.
+- [ ] **Recover the Cloudflare dashboard login** — "email not found" on the
+      address tried. Clues: whichever inbox received Pages build-failure emails
+      Aug 7-18; or the forgot-email flow with domain moderateparty.net.
+- [ ] The Terraform API token (infra repo tfvars) lacks Workers permissions —
+      fine for now (Pages healed), but add Workers Scripts:Edit when minting
+      its successor if the worker.js escape pod ever needs launching.
+
 ## Acceptance
 
 - [ ] Off-repo inventory exists and Pete knows where it is
