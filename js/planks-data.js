@@ -313,7 +313,7 @@ window.PLANKS = [
       stewardship and "<a href="https://www.classyfarming.com" target="_blank">classy
       farming</a>."</p>
       <p>One idea we had was "feedlot radio," play them some nice music that they like.
-      <a href="outlink_arch/index.html" target="_blank">The research shows</a> it's good for
+      <a href="https://www.livescience.com/33780-animal-music-pets.html" target="_blank">The research shows</a> it's good for
       them and they like it. Healthier for everyone, right?</p>
       <p>"SKRAWK! It's a living!", as the bird said. :D</p>`
   },
