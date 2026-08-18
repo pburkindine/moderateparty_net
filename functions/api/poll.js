@@ -10,18 +10,25 @@ const corsHeaders = {
 async function fetchPollFile(env) {
   const repo = env.GITHUB_REPO;
   const branch = env.GITHUB_BRANCH || 'main';
-  const path = env.POLL_FILE_PATH || 'moderateparty_net/poll-votes.json';
+  const path = env.POLL_FILE_PATH || 'poll-votes.json';
+  const url = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
+  const baseHeaders = {
+    Accept: 'application/vnd.github.v3+json',
+    'User-Agent': 'moderateparty-poll',
+  };
 
-  const res = await fetch(
-    `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`,
-    {
-      headers: {
-        Authorization: `token ${env.GITHUB_TOKEN}`,
-        Accept: 'application/vnd.github.v3+json',
-        'User-Agent': 'moderateparty-poll',
-      },
-    }
-  );
+  let res = env.GITHUB_TOKEN
+    ? await fetch(url, {
+        headers: { ...baseHeaders, Authorization: `token ${env.GITHUB_TOKEN}` },
+      })
+    : null;
+
+  // The repo is public, so reads work anonymously. If the token is missing,
+  // expired, or GitHub balks at it, fall back — the tallies stay visible and
+  // only committing new votes actually requires auth.
+  if (!res || !res.ok) {
+    res = await fetch(url, { headers: baseHeaders });
+  }
 
   if (!res.ok) {
     throw new Error(`GitHub fetch failed: ${res.status} ${await res.text()}`);
